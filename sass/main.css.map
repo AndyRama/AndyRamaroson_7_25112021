@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,IAAI,CAAC;EACH,UAAU,EAAE,UAAU;CACvB",
+    "mappings": "ACAA,AAAA,OAAO,CAAC;EACN,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,WAAW,EAAE,MAAM;CASpB;;AAPE,AAAD,aAAO,CAAC;EACN,QAAQ,EAAE,KAAK;EACf,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,IAAI;EACZ,IAAI,EAAE,GAAG;EACT,GAAG,EAAE,IAAI;CACV",
     "sources": [
-        "main.scss"
+        "main.scss",
+        "Layouts/_header.scss"
     ],
     "names": [],
     "file": "main.css"

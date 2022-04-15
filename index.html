@@ -4,11 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="assets/logo.png">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="public/assets/favicon.png">
+    <link rel="stylesheet" href="public/css/style.css">
     <title>Les Petits Plats</title>    
   </head>
   <body>
+    <header>
+      <img src="public/assets/logo.png" alt="logo" class="header__logo">
+    </header>
+    <main class="main__wrapper">
+      <section>
+        <form action="" method="get" class="searchBar" id="searchBar">
+          <input type="search" name="search" id="search" class="searchBar__input"
+            placeholder="Rechercher un ingrédient, appareil, ustensile ou une recette">
+            <i class="fa fas-search" aria-hidden="true"></i>
+        </form>
+        <div class="filters__tags">
+          <ul id="tags" class="filters__tagList">
+            <!-- update with jS -->
+          </ul>
+        </div>
+      </section>
+    </main>
     
   </body>
 </html>

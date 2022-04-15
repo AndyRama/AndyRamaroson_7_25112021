@@ -1,0 +1,17 @@
+.searchBar {
+  background-color: grey;
+  height: 70px;
+  margin: 2rem 0 0;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  &__input{
+    background-color: gray;
+    border: 0;
+    border-radius: 5px;
+
+    &::placeholder {
+      padding-left: 2rem;
+    }
+  }
+}

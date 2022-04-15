@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  &__logo {
+    position: fixed;
+    width: 268px;
+    height: 93px;
+    left: 40%;
+    top: 42px;
+  }
+}
