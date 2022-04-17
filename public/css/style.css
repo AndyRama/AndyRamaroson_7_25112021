@@ -70,6 +70,12 @@ body {
 .searchBar__input::placeholder {
   font-size: 16px;
 }
+.searchBar__icon {
+  height: 30px;
+  width: 30px;
+  position: static;
+  padding-right: 20PX;
+}
 
 #search {
   width: 100%;

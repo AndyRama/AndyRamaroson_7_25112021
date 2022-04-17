@@ -15,6 +15,12 @@
       font-size: 16px;
     }
   }
+  &__icon {
+    height: 30px;
+    width: 30px;
+    position: static;
+    padding-right: 20PX;
+  }
 }
 
 #search {
@@ -23,3 +29,4 @@
   display: flex;
   font-size: 1.5rem;
 }
+
