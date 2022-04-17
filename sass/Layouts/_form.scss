@@ -1,17 +1,24 @@
 .searchBar {
-  background-color: grey;
-  height: 70px;
-  margin: 2rem 0 0;
+  background-color: #E7E7E7;
+  height: 60px;
+  margin: 10rem 5rem 0;
   border-radius: 5px;
   display: flex;
   align-items: center;
+  width: 95%;
   &__input{
-    background-color: gray;
+    background-color: #E7E7E7;
     border: 0;
     border-radius: 5px;
-
+    height: 60px;
     &::placeholder {
-      padding-left: 2rem;
+      font-size: 16px;
     }
   }
+}
+
+#search {
+  width: 100%;
+  padding-left: 2rem;
+  display: flex;
 }
