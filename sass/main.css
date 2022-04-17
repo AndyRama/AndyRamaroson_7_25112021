@@ -1,3 +1,61 @@
+@font-face {
+  font-family: 'Lato';
+  src: url("../../public/assets/fonts/Lato-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url("../../public/assets/fonts/Lato-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'DMsans';
+  src: url("../../public/assets/fonts/DMSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url("../../public/assets/fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+html {
+  font-family: 'Lato', sans-serif;
+}
+
+.Search__input {
+  font-family: 'Lato', sans-serif;
+}
+
+.Search__input::-webkit-input-placeholder {
+  font-family: 'Lato', sans-serif;
+}
+
+.Search__input:-ms-input-placeholder {
+  font-family: 'Lato', sans-serif;
+}
+
+.Search__input::-ms-input-placeholder {
+  font-family: 'Lato', sans-serif;
+}
+
+.Search__input::placeholder {
+  font-family: 'Lato', sans-serif;
+}
+
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.main {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -17,5 +75,51 @@
   height: 93px;
   left: 40%;
   top: 42px;
+}
+
+.searchBar {
+  background-color: #E7E7E7;
+  height: 60px;
+  margin: 10rem 5rem 0;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 95%;
+}
+
+.searchBar__input {
+  background-color: #E7E7E7;
+  border: 0;
+  border-radius: 5px;
+  height: 60px;
+}
+
+.searchBar__input::-webkit-input-placeholder {
+  font-size: 16px;
+}
+
+.searchBar__input:-ms-input-placeholder {
+  font-size: 16px;
+}
+
+.searchBar__input::-ms-input-placeholder {
+  font-size: 16px;
+}
+
+.searchBar__input::placeholder {
+  font-size: 16px;
+}
+
+#search {
+  width: 100%;
+  padding-left: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.5rem;
 }
 /*# sourceMappingURL=main.css.map */

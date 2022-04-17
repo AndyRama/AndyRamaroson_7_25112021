@@ -21,3 +21,15 @@
   src: url('../../public/assets/fonts/Roboto-Regular.ttf') format('truetype');
   font-weight: 400;
 }
+
+html {
+  font-family: 'Lato', sans-serif;
+}
+
+.Search__input {
+  font-family: 'Lato', sans-serif;
+  &::placeholder {
+    font-family: 'Lato', sans-serif;
+  }
+}
+

@@ -1,3 +1,44 @@
+@font-face {
+  font-family: "Lato";
+  src: url("../../public/assets/fonts/Lato-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Lato";
+  src: url("../../public/assets/fonts/Lato-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "DMsans";
+  src: url("../../public/assets/fonts/DMSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../../public/assets/fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+html {
+  font-family: "Lato", sans-serif;
+}
+
+.Search__input {
+  font-family: "Lato", sans-serif;
+}
+.Search__input::placeholder {
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.main {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
 .header {
   display: flex;
   flex-direction: column;
@@ -34,16 +75,7 @@
   width: 100%;
   padding-left: 2rem;
   display: flex;
-}
-
-body {
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
-.main {
-  max-width: 1240px;
-  margin: 0 auto;
+  font-size: 1.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */
