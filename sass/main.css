@@ -88,7 +88,6 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 95%;
 }
 
 .searchBar__input {
@@ -114,6 +113,13 @@ body {
   font-size: 16px;
 }
 
+.searchBar__icon {
+  height: 30px;
+  width: 30px;
+  position: static;
+  padding-right: 20PX;
+}
+
 #search {
   width: 100%;
   padding-left: 2rem;
@@ -121,5 +127,107 @@ body {
   display: -ms-flexbox;
   display: flex;
   font-size: 1.5rem;
+}
+
+.filters__mainContainer {
+  margin: 0 1rem;
+  width: auto;
+}
+
+.filters__taglist {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.filters__Section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 2rem 0;
+}
+
+.filters__Container {
+  margin: 0 1rem 1rem 0;
+  max-width: 670px;
+}
+
+.filters__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  width: 100%;
+}
+
+.filters__input {
+  height: 100%;
+  border-radius: 5px;
+  height: 50px;
+  width: 200px;
+}
+
+.filters__listContainer {
+  width: 100%;
+  padding: 10px;
+  background: none;
+  cursor: pointer;
+  border: 0;
+}
+
+.filters__listContainer:focus-visible {
+  outline: 0;
+}
+
+.filters__listContainer--ingredients {
+  background-color: #3282F7;
+}
+
+.filters__listContainer--device {
+  background-color: #68D9A4;
+}
+
+.filters__listContainer--ustensils {
+  background-color: #ED6454;
+}
+
+.filters__dropDownIcon {
+  width: 40px;
+  height: 70px;
+  background: none;
+  cursor: pointer;
+  border: 0;
+  border-radius: 0 5px 5px 0;
+  position: static;
+}
+
+.filters__Btn {
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #C7BEBE;
+  position: relative;
+}
+
+.filters__Btn--ingredients {
+  background-color: #3282F7;
+}
+
+.filters__Btn--device {
+  background-color: #68D9A4;
+}
+
+.filters__Btn--ustensils {
+  background-color: #ED6454;
 }
 /*# sourceMappingURL=main.css.map */

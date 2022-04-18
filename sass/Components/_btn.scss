@@ -1,0 +1,32 @@
+.filters {
+  &__dropDownIcon {
+    width: 40px;
+    height: 70px;
+    background: none;
+    cursor: pointer;
+    border: 0;
+    border-radius: 0 5px 5px 0;
+    position: static;
+  }
+
+  &__Btn {
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $secondary-color;
+    position: relative;
+
+    &--ingredients {
+      background-color: $color-1;
+    }
+
+    &--device {
+      background-color: $color-2;
+    }
+
+    &--ustensils {
+      background-color: $color-3;
+    }
+  }
+}

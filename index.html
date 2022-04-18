@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="public/assets/favicon.png">
-    <script src="https://kit.fontawesome.com/7d17636476.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/7d17636476.js" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="public/css/style.css">
     <title>Les Petits Plats</title>    
   </head>
@@ -14,82 +14,80 @@
       <img src="public/assets/logo.png" alt="logo" class="header__logo">
     </header>
     <main class="main">
-      <section>
+      <section class="filters__mainContainer">
         <form action="" method="get" class="searchBar" id="searchBar">
           <input type="search" name="search" id="search" class="searchBar__input"
             placeholder="Rechercher un ingrédient, appareil, ustensile ou une recette">
-            <img src="./public/assets/search.svg" alt="search" class="searchBar__icon">
-          </form>
+          <img src="./public/assets/search.svg" alt="search" class="searchBar__icon">
+        </form>
         <div class="filters__tags">
           <ul id="tags" class="filters__tagList">
             <!-- update with jS -->
           </ul>
         </div>
-        <!-- Container principal for filters -->
-        <div class="filter__Section">
+        <!-- main Container for filters -->
+        <div class="filters__Section">
           <div class="filters__Container">
-            <form class="filters__form filters">
+            <form class="filters__form--filters">
               <input class="filters__listContainer--ingredients filters__input"
                 placeholder="Ingrédients" type="search" data-search="ingredients"
                 data-placeholder="Recherchez un ingrédient...">
-              <button id="Btn" class=" filters__dropDown "
-                aria-controls="ingredientsContainer">
+              <button id="Btn" class=" filters__dropDown " aria-controls="ingredientsContainer">
                 <img src="./public/assets/dropdown-icon-down.png" alt="dropdown" class="filters__dropdownIcon">
               </button>
             </form>
             <div id="ingredientsContainer" class="filters__inputContainer">
-              <!-- chargé dynamiquement -->
+              <!-- dynamic chargement -->
               <div id="ingredientsTagsContainer" class="tags__container">
                 <ul id="ingredientsTaglist" class="tags__taglist">
-                  <!-- chargé dynamiquement -->
+                  <!--  dynamic chargement  -->
                 </ul>
-              </div>
-            </div>            
-          </div>
-          <div class="filter__Section">
-            <div class="filters__Container">
-              <form class="filters__form filters">
-                <input class="filters__listContainer--ingredients filters__input"
-                  placeholder="Ingrédients" type="search" data-search="ingredients"
-                  data-placeholder="Recherchez un ingrédient...">
-                <button id="Btn" class=" filters__dropDown "
-                  aria-controls="ingredientsContainer">
-                  <img src="./public/assets/dropdown-icon-down.png" alt="dropdown" class="filters__dropdownIcon">
-                </button>
-              </form>
-              <div id="ingredientsContainer" class="filters__inputContainer">
-                <!-- chargé dynamiquement -->
-                <div id="ingredientsTagsContainer" class="tags__container">
-                  <ul id="ingredientsTaglist" class="tags__taglist">
-                    <!-- chargé dynamiquement -->
-                  </ul>
-                </div>
-              </div>            
-            </div>
-            <div class="filter__Section">
-              <div class="filters__Container">
-                <form class="filters__form filters">
-                  <input class="filters__listContainer--ingredients filters__input"
-                    placeholder="Ingrédients" type="search" data-search="ingredients"
-                    data-placeholder="Recherchez un ingrédient...">
-                  <button id="Btn" class=" filters__dropDown "
-                    aria-controls="ingredientsContainer">
-                    <img src="./public/assets/dropdown-icon-down.png" alt="dropdown" class="filters__dropdownIcon">
-                  </button>
-                </form>
-                <div id="ingredientsContainer" class="filters__inputContainer">
-                  <!-- chargé dynamiquement -->
-                  <div id="ingredientsTagsContainer" class="tags__container">
-                    <ul id="ingredientsTaglist" class="tags__taglist">
-                      <!-- chargé dynamiquement -->
-                    </ul>
-                  </div>
-                </div>            
-              </div>        
+              </div>     
+             </div>
+           </div>
+          <div class="filters__Container">
+            <form class="filters__form--filters">
+              <input class="filters__listContainer--device filters__input"
+                placeholder="Appareils" type="search" data-search="ingredients"
+                data-placeholder="Recherchez un ingrédient...">
+              <button id="Btn" class=" filters__dropDown " aria-controls="ingredientsContainer">
+                <img src="./public/assets/dropdown-icon-down.png" alt="dropdown" class="filters__dropdownIcon">
+              </button>
+            </form>
+            <div id="ingredientsContainer" class="filters__inputContainer">
+              <!--  dynamic chargement   -->
+              <div id="ingredientsTagsContainer" class="tags__container">
+                <ul id="ingredientsTaglist" class="tags__taglist">
+                  <!--  dynamic chargement  -->
+                </ul>
+              </div>     
             </div>
           </div>
+          <div class="filters__Container">
+            <form class="filters__form--filters">
+              <input class="filters__listContainer--ustensils filters__input"
+                placeholder="Ustensiles" type="search" data-search="ingredients"
+                data-placeholder="Recherchez un ingrédient...">
+              <button id="Btn" class=" filters__dropDown " aria-controls="ingredientsContainer">
+                <img src="./public/assets/dropdown-icon-down.png" alt="dropdown" class="filters__dropdownIcon">
+              </button>
+            </form>
+            <div id="ingredientsContainer" class="filters__inputContainer">
+              <!--  dynamic chargement  -->
+              <div id="ingredientsTagsContainer" class="tags__container">
+                <ul id="ingredientsTaglist" class="tags__taglist">
+                  <!--  dynamic chargement  -->
+                </ul>
+              </div>     
+             </div>
+          </div>
+        </div>
       </section>
-    </main>
-    
+
+      <!-- cards recipe -->
+      <section id="recipeContainer" class="recipe__mainContainer">
+        <!--  dynamic chargement  -->  
+      </section>
+    </main>    
   </body>
 </html>
