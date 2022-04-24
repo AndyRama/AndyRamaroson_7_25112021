@@ -10,21 +10,19 @@
 
   &__dropDown {
     width: 40px;
-    height: 50px;
+    height: 53px;
     background: none;
     cursor: pointer;
     border: 0;
     border-radius: 0 5px 5px 0;
-    position: static;
   }
 
-  &__Btn {
+  &__btn {
     border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: $secondary-color;
-    position: relative;
 
     &--ingredients {
       background-color: $color-1;
@@ -37,5 +35,24 @@
     &--ustensils {
       background-color: $color-3;
     }
+  }
+}
+
+.ico {
+  cursor: pointer;
+  &__search {
+    width: 33px;
+    height: 33px;
+    margin-right: 2rem;
+  }
+
+  &__close {
+    width: 24px;
+    height: 24px;
+    margin-left: 1rem;
+  }
+
+  &__dropUp {
+    transform: rotate(180deg);
   }
 }

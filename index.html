@@ -20,20 +20,25 @@
             placeholder="Rechercher un ingrédients">
           <img src="./public/assets/search.svg" alt="search" class="searchBar__icon">
         </form>
+        <!-- Tags filters -->
         <div class="filters__tags">
-          <ul id="tags" class="filters__tagList">
+          <ul class="filters__taglist">
             <!-- example of tags elements after update  this content with jS -->
-            <button class="filters__tag filters__btn filters__Btn--ingredients">
-              ingredients
-              <img src="./public/assets/close-icon.png" alt="close filter" class="ico ico__close">
+            <button data-controls="test1" class="filters__tag filters__Btn filters__btn--ingredients">
+              ingredients 1
+              <img src="./public/assets/close-icon.png" alt="close selected filter" class="ico ico__close">
             </button>
-            <button  class="filters__tag filters__btn filters__Btn--device">
-              appareils
-              <img src="./public/assets/close-icon.png" alt="close filter" class="ico ico__close">
+            <button data-controls="test1" class="filters__tag filters__Btn filters__btn--ingredients">
+              ingredients 2
+              <img src="./public/assets/close-icon.png" alt="close selected filter" class="ico ico__close">
             </button>
-            <button  class="filters__tag filters__btn filters__Btn--ustensils">
-              utensils
-              <img src="./public/assets/close-icon.png" alt="close filter" class="ico ico__close">
+            <button data-controls="test2" class="filters__tag filters__Btn filters__btn--device">
+              device
+              <img src="./public/assets/close-icon.png" alt="close selected filter" class="ico ico__close">
+            </button>
+            <button data-controls="test3" class="filters__tag filters__Btn filters__btn--ustensils">
+              ustensile
+              <img src="./public/assets/close-icon.png" alt="close selected filter" class="ico ico__close">
             </button>
           </ul>
         </div>
@@ -42,58 +47,66 @@
         <div class="filters__Section">
           <div class="filters__container">
             <form class="filters__form filters__form--ing">
-              <input class="filters__listContainer filters__listContainer--ingredients filters__input" placeholder="Ingrédients" type="search" data-search="ingredients" data-placeholder="Recherchez un ingrédient...">
-              <button class=" filters__dropDown filters__Btn--ingredients " aria-controls="ingredientsContainer">
+              <input class="filters__listContainer filters__listContainer--ingredients filters__input"
+                placeholder="Ingrédients" type="search" data-search="ingredients"
+                data-placeholder="Recherchez un ingrédient...">
+              <button id="ingBtn" class=" filters__dropDown filters__btn--ingredients"
+                aria-controls="ingredientsContainer">
                 <img src="./public/assets/dropdown-icon-down.png" alt="dropdown" class="ico ico__dropDown">
               </button>
             </form>
-            <div id="ingredientsContainer" class="filters__inputContainer">
+            <div id="ingredientsContainer" class="filters__inputContainer filters__inputContainer--ingredients">
               <!-- dynamic chargement -->
               <div id="ingredientsTagsContainer" class="tags__container tags__container--ingredients">
-                <ul id="ingredientsTaglist" class="tags__taglist tags__taglist--ingredients">
-                  <!--  dynamic chargement  -->
+                <ul id="ingredientsTaglist" class="tags__taglist tags__taglist--ingredients ">
+                  <!-- dynamic chargement -->
                   <li class="tag__style" class="tag--ingredients tag">Ail</li>
                   <li class="tag__style" class="tag--ingredients tag">Tomate</li>
                   <li class="tag__style" class="tag--ingredients tag">Fraise</li>
                   <li class="tag__style" class="tag--ingredients tag">Ail</li>
                   <li class="tag__style" class="tag--ingredients tag">Tomate</li>
                   <li class="tag__style" class="tag--ingredients tag">Fraise</li>
+                  <li class="tag__style" class="tag--ingredients tag">Pomme de terre</li>
+                  <li class="tag__style" class="tag--ingredients tag">Poivron</li>
+                  <li class="tag__style" class="tag--ingredients tag">Persils</li>
                 </ul>
-              </div>     
+              </div>
             </div>
           </div>
           <div class="filters__container">
             <form class="filters__form filters__form--dev">
               <input class="filters__listContainer filters__listContainer--device filters__input" placeholder="Appareils"
                 type="search" data-search="devices" data-placeholder="Recherchez un appareil...">
-              <button class="filters__dropDown filters__Btn--device" aria-controls="deviceContainer">
+              <button id="devBtn" class="filters__dropDown filters__btn--device" aria-controls="deviceContainer">
                 <img src="./public/assets/dropdown-icon-down.png" alt="dropdown" class="ico ico__dropDown">
               </button>
             </form>
             <div id="deviceContainer" class="filters__inputContainer filters__inputContainer--device">
               <div id="devicesTagsContainer" class="tags__container tags__container--device">
                 <ul id="devicesTaglist" class="tags__taglist tags__taglist--device">
+                  <!-- dynamic chargement -->
                 </ul>
               </div>
             </div>
-          </div>
+          </div>  
           <div class="filters__container">
             <form class="filters__form filters__form--ust">
               <input class="filters__listContainer filters__listContainer--ustensils filters__input"
                 placeholder="Ustensiles" type="search" data-search="ustensils"
                 data-placeholder="Recherchez un ustensile...">
-              <button class=" filters__dropDown filters__Btn--ustensils" aria-controls="ustensilsContainer">
+              <button id="ustBtn" class=" filters__dropDown filters__btn--ustensils" aria-controls="ustensilsContainer">
                 <img src="./public/assets/dropdown-icon-down.png" alt="dropdown" class="ico ico__dropDown">
               </button>
             </form>
             <div id="ustensilsContainer" class="filters__inputContainer filters__inputContainer--ustensils">
               <div id="ustensilsTagsContainer" class="tags__container tags__container--ustensils">
                 <ul id="ustensilsTaglist" class="tags__taglist tags__taglist--ustensils">
+                  <!-- dynamic chargement -->
                 </ul>
               </div>
             </div>
           </div>
-        </div>
+        </div>        
       </section>
 
       <!-- cards recipe -->
