@@ -1,3 +1,10 @@
+#search {
+  width: 100%;
+  padding-left: 2rem;
+  display: flex;
+  font-size: 1.5rem;
+}
+
 .searchBar {
   background-color: #E7E7E7;
   height: 60px;
@@ -5,16 +12,18 @@
   border-radius: 5px;
   display: flex;
   align-items: center;
+
   &__input{
     background-color: #E7E7E7;
     border: 0;
     border-radius: 5px;
     height: 60px;
+
     &::placeholder {
       font-size: 16px;
     }
   }
-  
+
   &__icon {
     height: 30px;
     width: 30px;
@@ -23,10 +32,4 @@
   }
 }
 
-#search {
-  width: 100%;
-  padding-left: 2rem;
-  display: flex;
-  font-size: 1.5rem;
-}
 

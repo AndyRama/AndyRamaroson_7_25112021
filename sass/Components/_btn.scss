@@ -1,7 +1,16 @@
 .filters {
-  &__dropDownIcon {
+  &__tags {
+    width: fit-content;
+    padding: 0.5rem 2rem;
+    margin: 2rem 1rem 0 0;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__dropDown {
     width: 40px;
-    height: 70px;
+    height: 50px;
     background: none;
     cursor: pointer;
     border: 0;

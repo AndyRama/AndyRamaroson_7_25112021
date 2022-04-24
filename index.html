@@ -37,24 +37,60 @@
             </button>
           </ul>
         </div>
+
         <!-- main Container for filters -->
         <div class="filters__Section">
-          <div class="filters__Container">
-            <form class="filters__form--filters">
-              <input class="filters__listContainer--ingredients filters__input"
-                placeholder="Ingrédients" type="search" data-search="ingredients"
-                data-placeholder="Recherchez un ingrédient...">
-              <button id="Btn" class=" filters__dropDown " aria-controls="ingredientsContainer">
-                <img src="./public/assets/dropdown-icon-down.png" alt="dropdown" class="filters__dropdownIcon">
+          <div class="filters__container">
+            <form class="filters__form filters__form--ing">
+              <input class="filters__listContainer filters__listContainer--ingredients filters__input" placeholder="Ingrédients" type="search" data-search="ingredients" data-placeholder="Recherchez un ingrédient...">
+              <button class=" filters__dropDown filters__Btn--ingredients " aria-controls="ingredientsContainer">
+                <img src="./public/assets/dropdown-icon-down.png" alt="dropdown" class="ico ico__dropDown">
               </button>
             </form>
             <div id="ingredientsContainer" class="filters__inputContainer">
               <!-- dynamic chargement -->
-              <div id="ingredientsTagsContainer" class="tags__container">
-                <ul id="ingredientsTaglist" class="tags__taglist">
+              <div id="ingredientsTagsContainer" class="tags__container tags__container--ingredients">
+                <ul id="ingredientsTaglist" class="tags__taglist tags__taglist--ingredients">
                   <!--  dynamic chargement  -->
+                  <li class="tag__style" class="tag--ingredients tag">Ail</li>
+                  <li class="tag__style" class="tag--ingredients tag">Tomate</li>
+                  <li class="tag__style" class="tag--ingredients tag">Fraise</li>
+                  <li class="tag__style" class="tag--ingredients tag">Ail</li>
+                  <li class="tag__style" class="tag--ingredients tag">Tomate</li>
+                  <li class="tag__style" class="tag--ingredients tag">Fraise</li>
                 </ul>
               </div>     
+            </div>
+          </div>
+          <div class="filters__container">
+            <form class="filters__form filters__form--dev">
+              <input class="filters__listContainer filters__listContainer--device filters__input" placeholder="Appareils"
+                type="search" data-search="devices" data-placeholder="Recherchez un appareil...">
+              <button class="filters__dropDown filters__Btn--device" aria-controls="deviceContainer">
+                <img src="./public/assets/dropdown-icon-down.png" alt="dropdown" class="ico ico__dropDown">
+              </button>
+            </form>
+            <div id="deviceContainer" class="filters__inputContainer filters__inputContainer--device">
+              <div id="devicesTagsContainer" class="tags__container tags__container--device">
+                <ul id="devicesTaglist" class="tags__taglist tags__taglist--device">
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="filters__container">
+            <form class="filters__form filters__form--ust">
+              <input class="filters__listContainer filters__listContainer--ustensils filters__input"
+                placeholder="Ustensiles" type="search" data-search="ustensils"
+                data-placeholder="Recherchez un ustensile...">
+              <button class=" filters__dropDown filters__Btn--ustensils" aria-controls="ustensilsContainer">
+                <img src="./public/assets/dropdown-icon-down.png" alt="dropdown" class="ico ico__dropDown">
+              </button>
+            </form>
+            <div id="ustensilsContainer" class="filters__inputContainer filters__inputContainer--ustensils">
+              <div id="ustensilsTagsContainer" class="tags__container tags__container--ustensils">
+                <ul id="ustensilsTaglist" class="tags__taglist tags__taglist--ustensils">
+                </ul>
+              </div>
             </div>
           </div>
         </div>
