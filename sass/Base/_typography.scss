@@ -33,3 +33,50 @@ html {
   }
 }
 
+.filters {
+  &__listContainer {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.8rem;
+    color: white;
+
+    &::placeholder {
+      font-family: 'Lato Bold', sans-serif;
+      font-size: 1.5rem;
+      color: white;
+    }                
+  }
+
+  &__btn, &__tag{
+    font-family: 'Lato Bold', sans-serif;
+    color: white;
+  }
+
+  &__btn {
+    font-size: 1.5rem;
+  }
+
+  &__tag {
+    font-size: 1.4rem;    
+  }
+}
+
+.tag {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  color: white;
+  font-weight: bold;
+  
+  &--ingredients:hover, 
+  &--ingredients.is-selected {
+    color: $color-1;
+    
+  }
+  &--device:hover,
+  &--device.is-selected {
+    color: $color-2;
+  }
+  &--ustensils:hover,
+  &--ustensils.is-selected {
+    color: $color-3;
+  }
+}

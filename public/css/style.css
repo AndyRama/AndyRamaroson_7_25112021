@@ -29,6 +29,43 @@ html {
   font-family: "Lato", sans-serif;
 }
 
+.filters__listContainer {
+  font-family: "Lato", sans-serif;
+  font-size: 1.8rem;
+  color: white;
+}
+.filters__listContainer::placeholder {
+  font-family: "Lato Bold", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}
+.filters__btn, .filters__tag {
+  font-family: "Lato Bold", sans-serif;
+  color: white;
+}
+.filters__btn {
+  font-size: 1.5rem;
+}
+.filters__tag {
+  font-size: 1.4rem;
+}
+
+.tag {
+  font-family: "Lato", sans-serif;
+  font-size: 1.2rem;
+  color: white;
+  font-weight: bold;
+}
+.tag--ingredients:hover, .tag--ingredients.is-selected {
+  color: #3282F7;
+}
+.tag--device:hover, .tag--device.is-selected {
+  color: #68D9A4;
+}
+.tag--ustensils:hover, .tag--ustensils.is-selected {
+  color: #ED6454;
+}
+
 body {
   max-width: 1440px;
   margin: 0 auto;
@@ -89,6 +126,9 @@ body {
 }
 .filters__taglist {
   display: flex;
+}
+.filters__tag {
+  border-radius: 5px;
 }
 .filters__Section {
   display: flex;

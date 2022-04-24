@@ -7,6 +7,10 @@
   &__taglist {
     display: flex;
   }
+  
+  &__tag {
+    border-radius: 5px;
+  }
 
   &__Section {
     display: flex;
