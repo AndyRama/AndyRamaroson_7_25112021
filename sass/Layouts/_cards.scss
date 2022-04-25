@@ -1,0 +1,28 @@
+.recipe {
+  &__mainContainer {
+    width: 1240px;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    justify-items: center;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__picture {
+    border-radius: 5px;
+    max-width: 380px;
+    height: 180px;
+    background-color: $secondary-color;
+  }
+
+  &__infoContent {
+    background-color: lighten($color-dark, 90%);
+    border-radius: 5px;
+    flex-grow: 1;
+  }
+}
