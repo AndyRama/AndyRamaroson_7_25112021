@@ -9,10 +9,23 @@
     margin: 2rem 0;
   }
 
+  &__taglist {
+    width: 100%;
+    
+  }
+
   &__container {
     margin: 0 1rem 1rem 0;
     max-width: 670px;
     flex: 0 1 170px;
+  }
+
+  &__Btn {
+    border-radius: 5px;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem    ;
   }
 
   &__form {
@@ -24,15 +37,11 @@
 
   &__input {
     border-radius: 5px 0 0 5px;
-
-    &--isExpanded::placeholder {
-      opacity: 0.5;
-    }
   }
 
   &__inputContainer {
     padding: 2rem 2rem 1rem 1rem;
-    border-radius: 0px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
     max-height: 400px;
 
     &--ingredients {
@@ -47,7 +56,7 @@
 
     &--ustensils {
       background-color: $color-3;
-      margin-top: -62px;
+      // margin-top: -62px;
     }
   }
 
@@ -63,6 +72,7 @@
     background: none;
     cursor: pointer;
     border: 0;
+    height: 54px;
   
     &:focus-visible {
       outline: 0;
@@ -79,36 +89,5 @@
     &--ustensils {
       background-color: $color-3;
     }
-  }
-}
-
-.tags {
-  &__taglist {
-    position: absolute;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(150px, 1fr));
-    padding: 1rem;
-    padding-left: 2rem;
-    gap: 1rem;
-  }
-}
-
-.tag {
-  max-width: 100%;
-  padding: 1rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  &:hover {
-    background-color: lighten($color-dark, 100%);
-    border-radius: 5px;
-    transform: scale(1.1);
-  }
-  
-  &__style {
-    list-style: none;
-    color: white;
-    font-weight: bold;
   }
 }

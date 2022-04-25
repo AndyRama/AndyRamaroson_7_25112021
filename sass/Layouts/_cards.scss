@@ -6,6 +6,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
     justify-items: center;
+    margin-top: -4rem;  
   }
 
   &__container {
@@ -24,10 +25,6 @@
     background-color: lighten($color-dark, 90%);
     border-radius: 0 0 5px 5px;
     flex-grow: 1;
-  }
-
-  &__ingredientList {
-    margin-top: -0.6rem;
   }
 
   &__legend {

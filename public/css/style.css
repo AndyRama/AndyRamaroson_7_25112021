@@ -79,14 +79,14 @@ body {
 .filters__tags {
   width: fit-content;
   padding: 0.5rem 2rem;
-  margin: 2rem 1rem 0 0;
+  margin: 1rem 1rem -2rem 0;
   border-radius: 5px;
   display: flex;
   align-items: center;
 }
 .filters__dropDown {
   width: 40px;
-  height: 53px;
+  height: 54px;
   background: none;
   cursor: pointer;
   border: 0;
@@ -109,9 +109,6 @@ body {
   background-color: #ED6454;
 }
 
-.ico {
-  cursor: pointer;
-}
 .ico__search {
   width: 33px;
   height: 33px;
@@ -121,6 +118,7 @@ body {
   width: 24px;
   height: 24px;
   margin-left: 0.5rem;
+  margin-top: 1rem;
 }
 .ico__dropUp {
   transform: rotate(180deg);
@@ -133,6 +131,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 50px;
   justify-items: center;
+  margin-top: -4rem;
 }
 .recipe__container {
   display: flex;
@@ -148,9 +147,6 @@ body {
   background-color: #e6e6e6;
   border-radius: 0 0 5px 5px;
   flex-grow: 1;
-}
-.recipe__ingredientList {
-  margin-top: -0.6rem;
 }
 .recipe__legend {
   display: flex;
@@ -189,18 +185,78 @@ body {
   padding-right: 1rem;
 }
 
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: right;
-  justify-content: center;
+.filters__mainContainer {
+  margin: 0 1rem;
+  width: auto;
 }
-.header__logo {
-  position: absolute;
-  width: 268px;
-  height: 93px;
-  left: 43%;
-  top: 42px;
+.filters__Section {
+  display: flex;
+  margin: 2rem 0;
+}
+.filters__taglist {
+  width: 100%;
+}
+.filters__container {
+  margin: 0 1rem 1rem 0;
+  max-width: 670px;
+  flex: 0 1 170px;
+}
+.filters__Btn {
+  border-radius: 5px;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+}
+.filters__form {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+}
+.filters__input {
+  border-radius: 5px 0 0 5px;
+}
+.filters__inputContainer {
+  padding: 2rem 2rem 1rem 1rem;
+  border-radius: 5px 5px 5px 5px;
+  max-height: 400px;
+}
+.filters__inputContainer--ingredients {
+  background-color: #3282F7;
+  margin-top: -62px;
+}
+.filters__inputContainer--device {
+  background-color: #68D9A4;
+  margin-top: -62px;
+}
+.filters__inputContainer--ustensils {
+  background-color: #ED6454;
+}
+.filters__inputField {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.filters__listContainer {
+  width: 200px;
+  padding: 10px;
+  background: none;
+  cursor: pointer;
+  border: 0;
+  height: 54px;
+}
+.filters__listContainer:focus-visible {
+  outline: 0;
+}
+.filters__listContainer--ingredients {
+  background-color: #3282F7;
+}
+.filters__listContainer--device {
+  background-color: #68D9A4;
+}
+.filters__listContainer--ustensils {
+  background-color: #ED6454;
 }
 
 #search {
@@ -234,80 +290,25 @@ body {
   padding-right: 20PX;
 }
 
-.filters__mainContainer {
-  margin: 0 1rem;
-  width: auto;
-}
-.filters__Section {
+.header {
   display: flex;
-  margin: 2rem 0;
+  flex-direction: column;
+  align-items: right;
+  justify-content: center;
 }
-.filters__container {
-  margin: 0 1rem 1rem 0;
-  max-width: 670px;
-  flex: 0 1 170px;
-}
-.filters__form {
-  display: flex;
-  align-items: center;
-  height: 70px;
-  width: 100%;
-}
-.filters__input {
-  border-radius: 5px 0 0 5px;
-}
-.filters__input--isExpanded::placeholder {
-  opacity: 0.5;
-}
-.filters__inputContainer {
-  padding: 2rem 2rem 1rem 1rem;
-  border-radius: 0px 5px 5px 5px;
-  max-height: 400px;
-}
-.filters__inputContainer--ingredients {
-  background-color: #3282F7;
-  margin-top: -62px;
-}
-.filters__inputContainer--device {
-  background-color: #68D9A4;
-  margin-top: -62px;
-}
-.filters__inputContainer--ustensils {
-  background-color: #ED6454;
-  margin-top: -62px;
-}
-.filters__inputField {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.filters__listContainer {
-  width: 200px;
-  padding: 10px;
-  background: none;
-  cursor: pointer;
-  border: 0;
-}
-.filters__listContainer:focus-visible {
-  outline: 0;
-}
-.filters__listContainer--ingredients {
-  background-color: #3282F7;
-}
-.filters__listContainer--device {
-  background-color: #68D9A4;
-}
-.filters__listContainer--ustensils {
-  background-color: #ED6454;
+.header__logo {
+  position: absolute;
+  width: 268px;
+  height: 93px;
+  left: 43%;
+  top: 42px;
 }
 
 .tags__taglist {
-  position: absolute;
   display: grid;
   grid-template-columns: repeat(3, minmax(150px, 1fr));
-  padding: 1rem;
-  padding-left: 2rem;
   gap: 1rem;
+  padding: 1rem;
 }
 
 .tag {
@@ -316,11 +317,6 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-.tag:hover {
-  background-color: white;
-  border-radius: 5px;
-  transform: scale(1.1);
 }
 .tag__style {
   list-style: none;

@@ -1,0 +1,23 @@
+.tags {
+  &__taglist {
+    // position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+}
+
+.tag {
+  max-width: 100%;
+  padding: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ 
+  &__style {
+    list-style: none;
+    color: white;
+    font-weight: bold;
+  }
+}

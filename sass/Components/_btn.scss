@@ -2,7 +2,7 @@
   &__tags {
     width: fit-content;
     padding: 0.5rem 2rem;
-    margin: 2rem 1rem 0 0;
+    margin: 1rem 1rem -2rem 0;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -10,7 +10,7 @@
 
   &__dropDown {
     width: 40px;
-    height: 53px;
+    height: 54px;
     background: none;
     cursor: pointer;
     border: 0;
@@ -39,7 +39,7 @@
 }
 
 .ico {
-  cursor: pointer;
+
   &__search {
     width: 33px;
     height: 33px;
@@ -50,8 +50,9 @@
     width: 24px;
     height: 24px;
     margin-left: 0.5rem;
+    margin-top: 1rem;
   }
-
+  
   &__dropUp {
     transform: rotate(180deg);
   }

@@ -16,26 +16,43 @@
       <section class="filters__mainContainer">
         <form action="" method="get" class="searchBar" id="searchBar">
           <input type="search" name="search" id="search" class="searchBar__input"
-            placeholder="Rechercher un ingrédients">
+            placeholder="Rechercher un ingrédients ...">
           <img src="./public/assets/search.svg" alt="search" class="searchBar__icon">
         </form>
+
         <!-- Tags filters -->
         <div class="filters__tags">
           <ul class="filters__taglist">
             <!-- example of tags elements after update  this content with jS -->
-            <button class="filters__tag filters__btn--ingredients">
+            <button class="filters__tag filters__Btn filters__btn--ingredients">
               ingredients 1
-              <span><img src="./public/assets/close-icon.png" alt="close selected filter" class="ico__close"></span>
+              <img src="./public/assets/close-icon.png" alt="close selected filter" class="ico__close">
             </button>
-            <button class="filters__tag  filters__btn--ingredients">
+            <button class="filters__tag filters__Btn filters__btn--ingredients">
               ingredients 2
               <img src="./public/assets/close-icon.png" alt="close selected filter" class="ico__close">
             </button>
-            <button class="filters__tag filters__btn--device">
+            <button class="filters__tag filters__Btn filters__btn--device">
               device
               <img src="./public/assets/close-icon.png" alt="close selected filter" class="ico__close">
             </button>
-            <button class="filters__tag filters__btn--ustensils">
+            <button class="filters__tag filters__Btn filters__btn--ustensils">
+              ustensile
+              <img src="./public/assets/close-icon.png" alt="close selected filter" class="ico__close">
+            </button>
+            <button class="filters__tag filters__Btn filters__btn--ingredients">
+              ingredients 1
+              <img src="./public/assets/close-icon.png" alt="close selected filter" class="ico__close">
+            </button>
+            <button class="filters__tag filters__Btn filters__btn--ingredients">
+              ingredients 2
+              <img src="./public/assets/close-icon.png" alt="close selected filter" class="ico__close">
+            </button>
+            <button class="filters__tag filters__Btn filters__btn--device">
+              device
+              <img src="./public/assets/close-icon.png" alt="close selected filter" class="ico__close">
+            </button>
+            <button class="filters__tag filters__Btn filters__btn--ustensils">
               ustensile
               <img src="./public/assets/close-icon.png" alt="close selected filter" class="ico__close">
             </button>
@@ -58,11 +75,12 @@
               <!-- dynamic chargement -->
               <div id="ingredientsTagsContainer" class="tags__container tags__container--ingredients">
                 <ul id="ingredientsTaglist" class="tags__taglist tags__taglist--ingredients ">
-                  <!-- example of tags elements after update  this content with jS -->
+                  <!-- dynamic chargement -->
                  </ul>
               </div>
             </div>
           </div>
+
           <div class="filters__container">
             <form class="filters__form filters__form--dev">
               <input class="filters__listContainer filters__listContainer--device filters__input" placeholder="Appareils"
@@ -80,6 +98,7 @@
               </div>
             </div>
           </div>  
+
           <div class="filters__container">
             <form class="filters__form filters__form--ust">
               <input class="filters__listContainer filters__listContainer--ustensils filters__input"
@@ -110,7 +129,7 @@
           <div class="recipe__infoContent">
             <div class="recipe__legend">
               <h2 class="recipe__name">Limonade de coco</h2>
-              <span class ="recipe__time"><img src="./public/assets/clock-icon.png" alt="icon horloge"> 80 min</span>
+              <span class ="recipe__time"><img src="./public/assets/clock-icon.png" alt="icon horloge"> 80min</span>
             </div>
             <div class="recipe__info">
               <div class="recipe__ingredients">
@@ -123,8 +142,8 @@
                     <span class="recipe__quantity">2</span>
                   </li>
 
-                  <li class="recipe__ingredient"> Creme de marron:
-                    <span class="recipe__quantity">2 C à s</span>
+                  <li class="recipe__ingredient"> Creme de coco:
+                    <span class="recipe__quantity">2 c</span>
                   </li>
 
                   <li class="recipe__ingredient">Sucre:
@@ -142,7 +161,7 @@
             </div>
           </div>
         </article>
-        
+
         <article class="recipe__container">
           <div class="recipe__picture">
             <img class="recipe__img" src="./public/assets/imagePlat.jpg" alt="image d'un plat">
