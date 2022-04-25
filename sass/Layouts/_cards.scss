@@ -14,7 +14,7 @@
   }
 
   &__picture {
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
     max-width: 380px;
     height: 180px;
     background-color: $secondary-color;
@@ -22,7 +22,54 @@
 
   &__infoContent {
     background-color: lighten($color-dark, 90%);
-    border-radius: 5px;
+    border-radius: 0 0 5px 5px;
     flex-grow: 1;
+  }
+
+  &__ingredientList {
+    margin-top: -0.6rem;
+  }
+
+  &__legend {
+    display: flex;
+    padding: 1rem 2rem 0 0;
+    font-weight: bold;
+  }
+
+  &__time {
+    margin-left: auto;
+    flex: 0 0 auto;
+    margin-top: -0.4rem;
+    font-weight: bold;
+  }
+
+  &__img {
+    margin-right: 20px;
+    border-radius: 5px;
+    height: 180px;
+    width: 378px;
+  }
+
+  &__name {
+    padding-left: 2rem;
+    margin-top: -0.6rem;
+    font-weight: bold;
+  }
+
+  &__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 2rem;
+    gap: 1rem;
+  }
+
+  &__instruContent {
+    height: 110px;
+    overflow: auto;
+    text-overflow: ellipsis;
+  }
+
+  &__instructions {
+    padding-right: 1rem;
   }
 }
