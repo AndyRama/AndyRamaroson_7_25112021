@@ -3,11 +3,7 @@
     margin: 0 1rem;
     width: auto;
   }
-
-  &__taglist {
-    display: flex;
-  }
-
+ 
   &__Section {
     display: flex;
     margin: 2rem 0;
@@ -88,18 +84,6 @@
       background-color: $color-3;
     }
   }
-}
-
-.is-expanded {
-  display: flex;
-}
-
-.is-selected {
-  border-radius: 5px;
-}
-
-.formExpanded {
-  width: 97%;
 }
 
 .tags {

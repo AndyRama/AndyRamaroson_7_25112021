@@ -125,9 +125,6 @@ body {
   margin: 0 1rem;
   width: auto;
 }
-.filters__taglist {
-  display: flex;
-}
 .filters__Section {
   display: flex;
   margin: 2rem 0;
@@ -195,18 +192,6 @@ body {
   background-color: #ED6454;
 }
 
-.is-expanded {
-  display: flex;
-}
-
-.is-selected {
-  border-radius: 5px;
-}
-
-.formExpanded {
-  width: 97%;
-}
-
 .tags__taglist {
   position: absolute;
   display: grid;
@@ -234,7 +219,7 @@ body {
   font-weight: bold;
 }
 
-.filters__tag {
+.filters__tags {
   width: fit-content;
   padding: 0.5rem 2rem;
   margin: 2rem 1rem 0 0;
