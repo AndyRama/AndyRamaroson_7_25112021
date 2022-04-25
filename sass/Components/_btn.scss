@@ -1,11 +1,6 @@
 .filters {
   &__tags {
-    width: fit-content;
-    padding: 0.5rem 2rem;
-    margin: 1rem 1rem -2rem 0;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
+    margin-top: 25px;
   }
 
   &__dropDown {
@@ -45,14 +40,7 @@
     height: 33px;
     margin-right: 2rem;
   }
-
-  &__close {
-    width: 24px;
-    height: 24px;
-    margin-left: 0.5rem;
-    margin-top: 1rem;
-  }
-  
+ 
   &__dropUp {
     transform: rotate(180deg);
   }

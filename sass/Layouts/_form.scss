@@ -6,29 +6,28 @@
 }
 
 .searchBar {
-  background-color: #E7E7E7;
-  height: 60px;
-  margin: 10rem 5rem 0;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
+  position: relative;
 
   &__input{
     background-color: #E7E7E7;
     border: 0;
     border-radius: 5px;
-    height: 60px;
+    height: 69px;
+    padding-right: 40px;
 
     &::placeholder {
-      font-size: 16px;
+      font-size: 18px;
+      color: rgba($color: #000000, $alpha: 0.25);
+      font-weight: 400;
     }
   }
 
   &__icon {
-    height: 30px;
-    width: 30px;
-    position: static;
-    padding-right: 20PX;
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    right: 16px;
+    top: 17.5px
   }
 }
 
