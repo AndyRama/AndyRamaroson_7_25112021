@@ -34,10 +34,6 @@
     padding: 2rem 2rem 1rem 1rem;
     border-radius: 0px 5px 5px 5px;
     max-height: 400px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-color: lighten($color-dark, 40%) $secondary-color;
-    scrollbar-width: thin;
 
     &--ingredients {
       background-color: $color-1;
