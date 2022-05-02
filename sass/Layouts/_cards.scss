@@ -29,14 +29,14 @@
 
   &__legend {
     display: flex;
-    padding: 1rem 2rem 0 0;
     font-weight: bold;
   }
 
   &__time {
     margin-left: auto;
     flex: 0 0 auto;
-    margin-top: -0.4rem;
+    margin-top: 22px;
+    margin-right: 20px;
     font-weight: bold;
   }
 
@@ -48,15 +48,13 @@
   }
 
   &__name {
-    padding-left: 2rem;
-    margin-top: -0.6rem;
+    padding-left: 20px;
     font-weight: bold;
   }
 
   &__info {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding-bottom: 2rem;
     gap: 1rem;
   }
 
@@ -68,5 +66,10 @@
 
   &__instructions {
     padding-right: 1rem;
+  }
+
+  &__ingredientList {
+    list-style: none;
+    margin-left: -20px;
   }
 }
