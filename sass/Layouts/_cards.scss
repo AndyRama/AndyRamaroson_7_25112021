@@ -55,21 +55,21 @@
   &__info {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: 45px;
   }
 
   &__instruContent {
-    height: 110px;
     overflow: auto;
-    text-overflow: ellipsis;
-  }
-
-  &__instructions {
-    padding-right: 1rem;
   }
 
   &__ingredientList {
     list-style: none;
     margin-left: -20px;
+    margin-bottom: 59px;
+  }
+
+  &__icon {
+    position: relative;
+    top: 4px;
   }
 }

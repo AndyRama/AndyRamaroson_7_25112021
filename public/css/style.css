@@ -164,24 +164,25 @@ body {
 .recipe__info {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: 45px;
 }
 .recipe__instruContent {
-  height: 110px;
   overflow: auto;
-  text-overflow: ellipsis;
-}
-.recipe__instructions {
-  padding-right: 1rem;
 }
 .recipe__ingredientList {
   list-style: none;
   margin-left: -20px;
+  margin-bottom: 59px;
+}
+.recipe__icon {
+  position: relative;
+  top: 4px;
 }
 
 .filters__Section {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 .filters__taglist {
   width: 100%;

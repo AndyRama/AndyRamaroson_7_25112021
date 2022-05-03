@@ -2,6 +2,7 @@
   &__Section {
     display: flex;
     align-items: flex-start;
+    flex-wrap: wrap;
   }
 
   &__taglist {
