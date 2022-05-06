@@ -233,11 +233,9 @@ body {
 }
 .filters__inputContainer--device {
   background-color: #68D9A4;
-  margin-top: -62px;
 }
 .filters__inputContainer--ustensils {
   background-color: #ED6454;
-  margin-top: -62px;
 }
 .filters__inputField {
   display: flex;
@@ -263,6 +261,19 @@ body {
 }
 .filters__listContainer--ustensils {
   background-color: #ED6454;
+}
+
+.is-expanded {
+  display: flex;
+}
+
+.is-selected {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.formExpanded {
+  width: 97%;
 }
 
 #search {

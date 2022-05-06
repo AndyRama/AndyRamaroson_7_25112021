@@ -61,12 +61,10 @@
 
     &--device {
       background-color: $color-2;
-      margin-top: -62px;
     }
 
     &--ustensils {
       background-color: $color-3;
-      margin-top: -62px;
     }
   }
 
@@ -100,4 +98,17 @@
       background-color: $color-3;
     }
   }
+}
+
+.is-expanded {
+  display: flex;
+}
+
+.is-selected {
+  background-color: lighten($color-dark, 100%);
+  border-radius: 5px;
+}
+
+.formExpanded {
+  width: 97%;
 }

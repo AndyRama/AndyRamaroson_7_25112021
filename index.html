@@ -74,10 +74,8 @@
           <div class="filters__container">
             <form class="filters__form filters__form--ing">
               <input class="filters__listContainer filters__listContainer--ingredients filters__input"
-                placeholder="Ingrédients" type="search" data-search="ingredients"
-                data-placeholder="Recherchez un ingrédient...">
-              <button id="ingBtn" class=" filters__dropDown filters__btn--ingredients"
-                aria-controls="ingredientsContainer">
+                placeholder="Ingrédients" type="search" data-search="ingredients">
+              <button id="ingBtn" class=" filters__dropDown filters__btn--ingredients" aria-controls="ingredientsContainer">
                 <img src="./public/assets/dropdown-icon-down.png" alt="dropdown" class="ico ico__dropDown">
               </button>
             </form>
@@ -94,12 +92,12 @@
           <div class="filters__container">
             <form class="filters__form filters__form--dev">
               <input class="filters__listContainer filters__listContainer--device filters__input" placeholder="Appareils"
-                type="search" data-search="devices" data-placeholder="Recherchez un appareil...">
+                type="search" data-search="devices">
               <button id="devBtn" class="filters__dropDown filters__btn--device" aria-controls="deviceContainer">
                 <img src="./public/assets/dropdown-icon-down.png" alt="dropdown" class="ico ico__dropDown">
               </button>
             </form>
-            <div id="deviceContainer" class="filters__inputContainer filters__inputContainer--device" style= "display:none">
+            <div id="deviceContainer" class="filters__inputContainer filters__inputContainer--device">
               <div id="devicesTagsContainer" class="tags__container tags__container--device">
                 <!-- dynamic chargement -->
                 <ul id="devicesTaglist" class="tags__taglist tags__taglist--device">
@@ -112,13 +110,12 @@
           <div class="filters__container">
             <form class="filters__form filters__form--ust">
               <input class="filters__listContainer filters__listContainer--ustensils filters__input"
-                placeholder="Ustensiles" type="search" data-search="ustensils"
-                data-placeholder="Recherchez un ustensile...">
+                placeholder="Ustensiles" type="search" data-search="ustensils">
               <button id="ustBtn" class=" filters__dropDown filters__btn--ustensils" aria-controls="ustensilsContainer">
                 <img src="./public/assets/dropdown-icon-down.png" alt="dropdown" class="ico ico__dropDown">
               </button>
             </form>
-            <div id="ustensilsContainer" class="filters__inputContainer filters__inputContainer--ustensils"   style= "display:none">
+            <div id="ustensilsContainer" class="filters__inputContainer filters__inputContainer--ustensils">
               <div id="ustensilsTagsContainer" class="tags__container tags__container--ustensils">
                 <!-- dynamic chargement -->
                 <ul id="ustensilsTaglist" class="tags__taglist tags__taglist--ustensils">
@@ -535,6 +532,6 @@
       </section>
     </main>  
     <script src="script/index.js"></script>  
-    <script src="script/RecipeFactory.js"></script> 
+    <script src="script/dropdown.js"></script> 
   </body>
 </html>
