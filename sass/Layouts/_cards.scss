@@ -25,6 +25,8 @@
     background-color: lighten($color-dark, 90%);
     border-radius: 0 0 5px 5px;
     flex-grow: 1;
+    height: 250px;
+    overflow: hidden;
   }
 
   &__legend {
@@ -55,7 +57,7 @@
   &__info {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 45px;
+    // gap: 45px;
   }
 
   &__instruContent {
@@ -63,13 +65,19 @@
   }
 
   &__ingredientList {
-    list-style: none;
     margin-left: -20px;
     margin-bottom: 59px;
+    font-size: 12px;
   }
 
   &__icon {
     position: relative;
     top: 4px;
+  }
+
+  &__instructions {
+    font-size: 12px;
+    text-align: start;
+    margin-right: 10px;
   }
 }

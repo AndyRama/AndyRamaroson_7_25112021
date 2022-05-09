@@ -139,6 +139,8 @@ body {
   background-color: #e6e6e6;
   border-radius: 0 0 5px 5px;
   flex-grow: 1;
+  height: 250px;
+  overflow: hidden;
 }
 .recipe__legend {
   display: flex;
@@ -164,19 +166,23 @@ body {
 .recipe__info {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 45px;
 }
 .recipe__instruContent {
   overflow: auto;
 }
 .recipe__ingredientList {
-  list-style: none;
   margin-left: -20px;
   margin-bottom: 59px;
+  font-size: 12px;
 }
 .recipe__icon {
   position: relative;
   top: 4px;
+}
+.recipe__instructions {
+  font-size: 12px;
+  text-align: start;
+  margin-right: 10px;
 }
 
 .filters__Section {
