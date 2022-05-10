@@ -6,13 +6,13 @@ let allUstensils = [];
 // Fetch api Json
 fetch("./script/api/recipes.json")
   .then(reponse => {
-    if(reponse.ok) return reponse.json();
+    if(reponse) return reponse.json();
   })
   .then((value) => {
     //display all recipes
     recipeCardDom(value.recipes);
     recipesArray = value.recipes;
-})
+  })
 
 function recipeCardDom(recipes) {
   console.log("recipeCardDom", recipes);//OK
@@ -59,4 +59,28 @@ function recipeCardDom(recipes) {
       `;    
     })
   });
+
+  //récupération des tableaux contenant:
+  allUstensils = [];
+  allDevices = [];
+  allIngredients = [];
+
+  recipes.forEach((element) => {
+    //ingrédients
+    element.ingredients.forEach((e) => {
+      if (allIngredients.indexOf(e.ingredient) == -1) allIngredients.push(e.ingredient);
+    });
+    //appareils
+    if (allDevices.indexOf(element.appliance) == -1) allDevices.push(element.appliance);
+
+    //ustensiles
+    element.ustensils.forEach((e) => {
+      if (allUstensils.indexOf(e) == -1) allUstensils.push(e);
+    });
+  });
+  //affiche les tags des champs ingredients, appareils et ustensils
+  showTags(allIngredients, "ingredientsTaglist", "ingredients");
+  showTags(allDevices, "devicesTaglist", "device");
+  showTags(allUstensils, "ustensilsTaglist", "ustensils");
 }
+
