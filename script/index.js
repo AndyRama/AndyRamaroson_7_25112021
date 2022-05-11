@@ -3,6 +3,10 @@ let allIngredients = [];
 let allDevices = [];
 let allUstensils = [];
 
+let filteredIngredients =[];
+let filteredDevices = [];
+let filteredUstensils = [];
+
 // Fetch api Json
 fetch("./script/api/recipes.json")
   .then(reponse => {
@@ -69,18 +73,40 @@ function recipeCardDom(recipes) {
     //ingrédients
     element.ingredients.forEach((e) => {
       if (allIngredients.indexOf(e.ingredient) == -1) allIngredients.push(e.ingredient);
+      // console.log(allIngredients);
     });
     //appareils
     if (allDevices.indexOf(element.appliance) == -1) allDevices.push(element.appliance);
+      // console.log(allDevices);
 
     //ustensiles
     element.ustensils.forEach((e) => {
       if (allUstensils.indexOf(e) == -1) allUstensils.push(e);
+      console.log(allUstensils);
     });
   });
+
   //affiche les tags des champs ingredients, appareils et ustensils
   showTags(allIngredients, "ingredientsTaglist", "ingredients");
   showTags(allDevices, "devicesTaglist", "device");
   showTags(allUstensils, "ustensilsTaglist", "ustensils");
 }
 
+function showTags(items, tagId, type) {
+  const tag = document.getElementById(tagId);
+  let templateTaglist = ``;
+  items.sort();
+  items.forEach(item => {
+    let contentItem = item[0].toUpperCase() + item.toLowerCase().slice(1);
+    if ( filteredIngredients.indexOf(item) != -1 || filteredDevices.indexOf(item) != -1 || filteredUstensils.indexOf(item) != -1) {
+      templateTaglist += `
+        <li><button aria-label="${contentItem}" title="${contentItem}" class="tag--${type} tag is-selected" data-type="${type}" data-item="${item}">${contentItem}</button></li>
+      `;
+    } else {
+      templateTaglist += `
+        <li><button aria-label="${contentItem}" title="${contentItem}" class="tag--${type} tag" data-type="${type}" data-item="${item}">${contentItem}</button></li>
+      `;
+    }
+  })
+  tag.innerHTML = templateTaglist;
+}

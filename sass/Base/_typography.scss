@@ -68,17 +68,17 @@ html {
   color: white;
   font-weight: bold;
   
-  &--ingredients:hover, 
-  &--ingredients.is-selected {
-    color: $color-1;
+  // &--ingredients:hover, 
+  // &--ingredients.is-selected {
+  //   color: $color-1;
     
-  }
-  &--device:hover,
-  &--device.is-selected {
-    color: $color-2;
-  }
-  &--ustensils:hover,
-  &--ustensils.is-selected {
-    color: $color-3;
-  }
+  // }
+  // &--device:hover,
+  // &--device.is-selected {
+  //   color: $color-2;
+  // }
+  // &--ustensils:hover,
+  // &--ustensils.is-selected {
+  //   color: $color-3;
+  // }
 }

@@ -58,15 +58,6 @@ html {
   color: white;
   font-weight: bold;
 }
-.tag--ingredients:hover, .tag--ingredients.is-selected {
-  color: #3282F7;
-}
-.tag--device:hover, .tag--device.is-selected {
-  color: #68D9A4;
-}
-.tag--ustensils:hover, .tag--ustensils.is-selected {
-  color: #ED6454;
-}
 
 body {
   max-width: 1440px;
@@ -178,6 +169,7 @@ body {
 .recipe__icon {
   position: relative;
   top: 4px;
+  z-index: 2;
 }
 .recipe__instructions {
   font-size: 12px;
@@ -323,8 +315,8 @@ body {
 .tags__taglist {
   display: grid;
   grid-template-columns: repeat(3, minmax(150px, 1fr));
-  gap: 1rem;
   padding: 1rem;
+  list-style-type: none;
 }
 
 .tag {
@@ -334,10 +326,20 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.tag__style {
-  list-style: none;
+.tag--ingredients {
   color: white;
-  font-weight: bold;
+  background-color: #3282F7;
+  border: none;
+}
+.tag--device {
+  color: white;
+  background-color: #68D9A4;
+  border: none;
+}
+.tag--ustensils {
+  color: white;
+  background-color: #ED6454;
+  border: none;
 }
 
 /*# sourceMappingURL=style.css.map */

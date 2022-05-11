@@ -1,10 +1,9 @@
 .tags {
   &__taglist {
-    // position: absolute;
     display: grid;
     grid-template-columns: repeat(3, minmax(150px, 1fr));
-    gap: 1rem;
     padding: 1rem;
+    list-style-type: none;
   }
 }
 
@@ -14,10 +13,20 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
- 
-  &__style {
-    list-style: none;
+
+  &--ingredients {
     color: white;
-    font-weight: bold;
+    background-color: $color-1;
+    border: none;    
+  }
+  &--device {
+    color: white;
+    background-color: $color-2;
+    border: none;  
+  }
+  &--ustensils {
+    color: white;
+    background-color: $color-3;
+    border: none;
   }
 }
