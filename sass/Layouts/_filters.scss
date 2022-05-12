@@ -88,20 +88,31 @@
 
     &--ingredients {
       background-color: $color-1;
+
     }
 
     &--device {
       background-color: $color-2;
+
     }
 
     &--ustensils {
       background-color: $color-3;
+
     }
   }
 }
 
 .is-expanded {
   display: flex;
+}
+
+.open {
+  width: 400px;
+}
+
+.close {
+  width:200px;
 }
 
 .is-selected {

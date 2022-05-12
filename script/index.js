@@ -1,3 +1,4 @@
+//DOM elements 
 let recipesArray = [];
 let allIngredients = [];
 let allDevices = [];
@@ -18,13 +19,14 @@ fetch("./script/api/recipes.json")
     recipesArray = value.recipes;
   })
 
+//show cards
 function recipeCardDom(recipes) {
-  console.log("recipeCardDom", recipes);//OK
+  // console.log("recipeCardDom", recipes);
 
   //get container recipes
   const recipeCard = document.getElementById("recipeContainer");
   recipeCard.innerHTML = "";
-  recipes.forEach(recipe => {    
+  recipes.map(recipe => {    
     recipeCard.innerHTML += `
     <article class="recipe__container">
       <div class="recipe__picture">
@@ -54,7 +56,7 @@ function recipeCardDom(recipes) {
     //get ingredients of recipe
     const ingredientList = document.getElementById(`recipe-${recipe.id}`);
     const ingredients = recipe.ingredients
-    ingredients.forEach(ingredient => {
+    ingredients.map(ingredient => {
       ingredientList.innerHTML += `
         <li class="recipe__ingredient">${ingredient.ingredient}:
           <span class="recipe__quantity">${ingredient.quantity === undefined ? "" : ingredient.quantity}
@@ -82,7 +84,7 @@ function recipeCardDom(recipes) {
     //ustensiles
     element.ustensils.forEach((e) => {
       if (allUstensils.indexOf(e) == -1) allUstensils.push(e);
-      console.log(allUstensils);
+      // console.log(allUstensils);
     });
   });
 
@@ -92,13 +94,14 @@ function recipeCardDom(recipes) {
   showTags(allUstensils, "ustensilsTaglist", "ustensils");
 }
 
+// show alltag element in dropdown
 function showTags(items, tagId, type) {
   const tag = document.getElementById(tagId);
   let templateTaglist = ``;
   items.sort();
   items.forEach(item => {
     let contentItem = item[0].toUpperCase() + item.toLowerCase().slice(1);
-    if ( filteredIngredients.indexOf(item) != -1 || filteredDevices.indexOf(item) != -1 || filteredUstensils.indexOf(item) != -1) {
+    if( filteredIngredients.indexOf(item) != -1 || filteredDevices.indexOf(item) != -1 || filteredUstensils.indexOf(item) != -1) {
       templateTaglist += `
         <li><button aria-label="${contentItem}" title="${contentItem}" class="tag--${type} tag is-selected" data-type="${type}" data-item="${item}">${contentItem}</button></li>
       `;
@@ -110,3 +113,10 @@ function showTags(items, tagId, type) {
   })
   tag.innerHTML = templateTaglist;
 }
+
+
+// Add tags
+// Filters tags
+// Autocomplete
+// Algo 1
+// Algo 2

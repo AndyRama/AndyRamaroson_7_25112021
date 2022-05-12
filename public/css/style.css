@@ -169,7 +169,6 @@ body {
 .recipe__icon {
   position: relative;
   top: 4px;
-  z-index: 2;
 }
 .recipe__instructions {
   font-size: 12px;
@@ -263,6 +262,14 @@ body {
 
 .is-expanded {
   display: flex;
+}
+
+.open {
+  width: 400px;
+}
+
+.close {
+  width: 200px;
 }
 
 .is-selected {
