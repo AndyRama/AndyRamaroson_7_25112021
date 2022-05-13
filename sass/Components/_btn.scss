@@ -18,10 +18,10 @@
     align-items: center;
     justify-content: space-between;
     background-color: $secondary-color;
+    list-style: none;
 
     &--ingredients {
       background-color: $color-1;
-      
     }
 
     &--device {
@@ -35,11 +35,10 @@
 }
 
 .ico {
-
   &__search {
     width: 33px;
     height: 33px;
-    margin-right: 2rem;
+    margin-right: 24px;
   }
  
   &__dropUp {

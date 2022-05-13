@@ -87,6 +87,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background-color: #C7BEBE;
+  list-style: none;
 }
 .filters__btn--ingredients {
   background-color: #3282F7;
@@ -101,7 +102,7 @@ body {
 .ico__search {
   width: 33px;
   height: 33px;
-  margin-right: 2rem;
+  margin-right: 24px;
 }
 .ico__dropUp {
   transform: rotate(180deg);
