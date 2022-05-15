@@ -65,7 +65,23 @@ html {
 .tag {
   font-family: 'Lato', sans-serif;
   font-size: 1.2rem;
-  color: white;
+  color: $color-1;
   font-weight: bold;
-  
+  color: $color-1;
+      
+  &--ingredients:hover, 
+  &--ingredients.is-selected {
+    color: black;
+    transform: scale(1.2);
+  }
+  &--device:hover,
+  &--device.is-selected {
+    color: black;
+    transform: scale(1.2);
+  }
+  &--ustensils:hover,
+  &--ustensils.is-selected {
+    color: black;
+    transform: scale(1.2);
+  }  
 }

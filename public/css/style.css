@@ -55,8 +55,21 @@ html {
 .tag {
   font-family: "Lato", sans-serif;
   font-size: 1.2rem;
-  color: white;
+  color: #3282F7;
   font-weight: bold;
+  color: #3282F7;
+}
+.tag--ingredients:hover, .tag--ingredients.is-selected {
+  color: black;
+  transform: scale(1.2);
+}
+.tag--device:hover, .tag--device.is-selected {
+  color: black;
+  transform: scale(1.2);
+}
+.tag--ustensils:hover, .tag--ustensils.is-selected {
+  color: black;
+  transform: scale(1.2);
 }
 
 body {
@@ -265,14 +278,6 @@ body {
   display: flex;
 }
 
-.open {
-  width: 400px;
-}
-
-.close {
-  width: 200px;
-}
-
 .is-selected {
   background-color: white;
   border-radius: 5px;
@@ -323,31 +328,20 @@ body {
 .tags__taglist {
   display: grid;
   grid-template-columns: repeat(3, minmax(150px, 1fr));
-  padding: 1rem;
   list-style-type: none;
+  gap: 20px;
 }
 
 .tag {
   max-width: 100%;
   padding: 1rem;
+  padding-left: 1rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-.tag--ingredients {
-  color: white;
-  background-color: #3282F7;
   border: none;
-}
-.tag--device {
+  background: none;
   color: white;
-  background-color: #68D9A4;
-  border: none;
-}
-.tag--ustensils {
-  color: white;
-  background-color: #ED6454;
-  border: none;
 }
 
 /*# sourceMappingURL=style.css.map */

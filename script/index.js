@@ -23,7 +23,7 @@ fetch("./script/api/recipes.json")
 function recipeCardDom(recipes) {
   // console.log("recipeCardDom", recipes);
 
-  //get container recipes
+  //get container recipes create a new card for recipe
   const recipeCard = document.getElementById("recipeContainer");
   recipeCard.innerHTML = "";
   recipes.map(recipe => {    
@@ -53,7 +53,7 @@ function recipeCardDom(recipes) {
       </div>
     </article>      
     `;
-    //get ingredients of recipe
+    //get ingredients of recipe and dipslay
     const ingredientList = document.getElementById(`recipe-${recipe.id}`);
     const ingredients = recipe.ingredients
     ingredients.map(ingredient => {
@@ -66,11 +66,12 @@ function recipeCardDom(recipes) {
     })
   });
 
-  //récupération des tableaux contenant:
+  //get all array
   allUstensils = [];
   allDevices = [];
   allIngredients = [];
 
+  // Add tags
   recipes.forEach((element) => {
     //ingrédients
     element.ingredients.forEach((e) => {
@@ -87,19 +88,19 @@ function recipeCardDom(recipes) {
       // console.log(allUstensils);
     });
   });
-
-  //affiche les tags des champs ingredients, appareils et ustensils
+  
+  //display all tags in taglist container
   showTags(allIngredients, "ingredientsTaglist", "ingredients");
   showTags(allDevices, "devicesTaglist", "device");
   showTags(allUstensils, "ustensilsTaglist", "ustensils");
 }
 
-// show alltag element in dropdown
+// create a new tag, order by  and display tag with template function
 function showTags(items, tagId, type) {
   const tag = document.getElementById(tagId);
   let templateTaglist = ``;
   items.sort();
-  items.forEach(item => {
+  items.map(item => {
     let contentItem = item[0].toUpperCase() + item.toLowerCase().slice(1);
     if( filteredIngredients.indexOf(item) != -1 || filteredDevices.indexOf(item) != -1 || filteredUstensils.indexOf(item) != -1) {
       templateTaglist += `
@@ -114,9 +115,6 @@ function showTags(items, tagId, type) {
   tag.innerHTML = templateTaglist;
 }
 
-
-// Add tags
-// Filters tags
 // Autocomplete
-// Algo 1
+// Algo 1 => recipeFilter()
 // Algo 2

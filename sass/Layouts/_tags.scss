@@ -2,31 +2,21 @@
   &__taglist {
     display: grid;
     grid-template-columns: repeat(3, minmax(150px, 1fr));
-    padding: 1rem;
+    // padding: 1rem;
+    // padding-left: 2rem;
     list-style-type: none;
+    gap: 20px;
   }
 }
 
 .tag {
   max-width: 100%;
   padding: 1rem;
+  padding-left: 1rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-
-  &--ingredients {
-    color: white;
-    background-color: $color-1;
-    border: none;    
-  }
-  &--device {
-    color: white;
-    background-color: $color-2;
-    border: none;  
-  }
-  &--ustensils {
-    color: white;
-    background-color: $color-3;
-    border: none;
-  }
+  border: none;
+  background: none;
+  color:white;
 }
