@@ -59,17 +59,26 @@ html {
   font-weight: bold;
   color: #3282F7;
 }
-.tag--ingredients:hover, .tag--ingredients.is-selected {
+.tag--ingredients:hover {
   color: black;
-  transform: scale(1.2);
 }
-.tag--device:hover, .tag--device.is-selected {
-  color: black;
-  transform: scale(1.2);
+.tag--ingredients.is-selected {
+  text-decoration: line-through;
+  transform: scale(1.1);
 }
-.tag--ustensils:hover, .tag--ustensils.is-selected {
+.tag--device:hover {
   color: black;
-  transform: scale(1.2);
+}
+.tag--device.is-selected {
+  text-decoration: line-through;
+  transform: scale(1.1);
+}
+.tag--ustensils:hover {
+  color: black;
+}
+.tag--ustensils.is-selected {
+  text-decoration: line-through;
+  transform: scale(1.1);
 }
 
 body {
@@ -171,12 +180,12 @@ body {
 .recipe__info {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 45px;
 }
 .recipe__instruContent {
   overflow: auto;
 }
 .recipe__ingredientList {
-  margin-left: -20px;
   margin-bottom: 59px;
   font-size: 12px;
 }

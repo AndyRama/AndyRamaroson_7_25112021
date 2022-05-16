@@ -76,7 +76,7 @@ function recipeCardDom(recipes) {
     //ingrédients
     element.ingredients.forEach((e) => {
       if (allIngredients.indexOf(e.ingredient) == -1) allIngredients.push(e.ingredient);
-      // console.log(allIngredients);
+      console.log(allIngredients);
     });
     //appareils
     if (allDevices.indexOf(element.appliance) == -1) allDevices.push(element.appliance);
@@ -115,6 +115,24 @@ function showTags(items, tagId, type) {
   tag.innerHTML = templateTaglist;
 }
 
+// Affiche les tags selectionnés lors du clic et ajoute la classe is-selected dessus
+// Comportement dropdown extensions
+
 // Autocomplete
-// Algo 1 => recipeFilter()
-// Algo 2
+// Recuperer le champ de recherche dans la barre principale
+// Bloquer l'évèvement "ENTER" pour submit sur la barre de recherche lorsque le champ a été saisi par l'utilsateur
+// saisie d'une valeur dans la recherche principale et affichage du message si absence de recette
+
+// Algo 1 => recipeMap()  
+// Permettre de filtrer les recettes lorsqu'on selectionne un tag
+// filtrer les elements dans les listes en fonction des valeurs saisies dans les inputs
+// enleve le tag ajouté suite à la selection dans la liste et enleve la classe is-selected quand on le ferme.
+
+// Algo 2 => recipeFilter() 
+// Permettre de filtrer les recettes lorsqu'on selectionne un tag
+// filtrer les elements dans les listes en fonction des valeurs saisies dans les inputs
+// enleve le tag ajouté suite à la selection dans la liste et enleve la classe is-selected quand on le ferme.
+
+// MESSAGE
+// Afficher un bandeau informatif en cas d'absence de recette lors de la recette
+// Fonctions de suppression du message d'absence de recettes

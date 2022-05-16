@@ -69,19 +69,30 @@ html {
   font-weight: bold;
   color: $color-1;
       
-  &--ingredients:hover, 
+  &--ingredients:hover {
+    color: black;
+  } 
+
   &--ingredients.is-selected {
-    color: black;
-    transform: scale(1.2);
+    text-decoration: line-through;
+    transform: scale(1.1);
   }
-  &--device:hover,
+
+  &--device:hover {
+    color: black;
+  }
+
   &--device.is-selected {
-    color: black;
-    transform: scale(1.2);
+    text-decoration: line-through;
+    transform: scale(1.1);
   }
-  &--ustensils:hover,
-  &--ustensils.is-selected {
+
+  &--ustensils:hover {
     color: black;
-    transform: scale(1.2);
+  }
+
+  &--ustensils.is-selected {
+    text-decoration: line-through;
+    transform: scale(1.1);
   }  
 }

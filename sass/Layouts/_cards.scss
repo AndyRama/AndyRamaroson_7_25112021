@@ -57,7 +57,7 @@
   &__info {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    // gap: 45px;
+    gap: 45px;
   }
 
   &__instruContent {
@@ -65,7 +65,6 @@
   }
 
   &__ingredientList {
-    margin-left: -20px;
     margin-bottom: 59px;
     font-size: 12px;
   }
