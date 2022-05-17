@@ -11,7 +11,7 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 0;
-    margin: 0;    
+    margin: 0; 
   }
 
   &__container {
@@ -54,6 +54,7 @@
     display: none;
     position: absolute;
     width: 667px;
+    z-index: 4;
     
     &--ingredients {
       background-color: $color-1;
@@ -80,7 +81,6 @@
     background: none;
     cursor: pointer;
     border: 0;
-    height: 54px;
   
     &:focus-visible {
       outline: 0;
@@ -88,16 +88,23 @@
 
     &--ingredients {
       background-color: $color-1;
+      width: 675px;
     }
 
     &--device {
       background-color: $color-2;
+      width: 675px;
     }
 
     &--ustensils {
       background-color: $color-3;
+    
+    }
+    .btn-expansed {
+      width: 675px;
     }
   }
+
 }
 
 .is-expanded {
@@ -112,4 +119,6 @@
 .formExpanded {
   width: 97%;
 }
+
+
 

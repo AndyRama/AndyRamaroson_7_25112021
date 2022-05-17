@@ -1,7 +1,7 @@
 .tags {
   &__taglist {
     display: grid;
-    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
     // padding: 1rem;
     // padding-left: 2rem;
     list-style-type: none;
@@ -11,13 +11,12 @@
 
 .tag {
   max-width: 100%;
-  padding: 1rem;
-  padding-left: 1rem;
+  // padding: 1rem;
+  // padding-left: 0rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   border: none;
   background: none;
   color:white;
-
 }
