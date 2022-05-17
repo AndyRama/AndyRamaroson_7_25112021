@@ -20,10 +20,14 @@ function openTaglist(idContainer) {
     tagContainer.classList.remove("is-expanded");
     icoDropDown.classList.replace("ico__dropUp", "ico__dropDown");
     inputIng.classList.remove("btn-Expansed")
+    inputDev.classList.remove("btn-Expansed")
+    inputUst.classList.remove("btn-Expansed")
   } else {
     if (document.querySelector(".filters__inputContainer.is-expanded") != null) {
        document.querySelector(".filters__inputContainer.is-expanded").classList.remove("is-expanded");
        inputIng.classList.remove("btn-Expansed")
+       inputDev.classList.remove("btn-Expansed")
+       inputUst.classList.remove("btn-Expansed")
     }
     tagContainer.classList.add("is-expanded");
     icoDropDown.classList.replace("ico__dropDown", "ico__dropUp");

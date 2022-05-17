@@ -192,7 +192,6 @@ body {
 .recipe__icon {
   position: relative;
   top: 4px;
-  z-index: 3;
 }
 .recipe__instructions {
   font-size: 12px;
@@ -248,7 +247,7 @@ body {
   display: none;
   position: absolute;
   width: 667px;
-  z-index: 4;
+  z-index: 2;
 }
 .filters__inputContainer--ingredients {
   background-color: #3282F7;
@@ -276,17 +275,12 @@ body {
 }
 .filters__listContainer--ingredients {
   background-color: #3282F7;
-  width: 675px;
 }
 .filters__listContainer--device {
   background-color: #68D9A4;
-  width: 675px;
 }
 .filters__listContainer--ustensils {
   background-color: #ED6454;
-}
-.filters__listContainer .btn-expansed {
-  width: 675px;
 }
 
 .is-expanded {
@@ -300,6 +294,10 @@ body {
 
 .formExpanded {
   width: 97%;
+}
+
+.btn-Expansed {
+  width: 675px !important;
 }
 
 #search {

@@ -54,7 +54,7 @@
     display: none;
     position: absolute;
     width: 667px;
-    z-index: 4;
+    z-index: 2;
     
     &--ingredients {
       background-color: $color-1;
@@ -88,20 +88,14 @@
 
     &--ingredients {
       background-color: $color-1;
-      width: 675px;
     }
 
     &--device {
       background-color: $color-2;
-      width: 675px;
     }
 
     &--ustensils {
-      background-color: $color-3;
-    
-    }
-    .btn-expansed {
-      width: 675px;
+      background-color: $color-3;    
     }
   }
 
@@ -120,5 +114,8 @@
   width: 97%;
 }
 
+.btn-Expansed {
+  width: 675px!important;
+}
 
 
