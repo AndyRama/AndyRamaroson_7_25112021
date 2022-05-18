@@ -15,6 +15,8 @@ fetch("./script/api/recipes.json")
     recipesArray = value.recipes;
   })
 
+  .catch((error) => console.error(error));
+
 //show cards
 function recipeCardDom(recipes) {
   // console.log("recipeCardDom", recipes);

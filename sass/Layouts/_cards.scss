@@ -26,7 +26,7 @@
     border-radius: 0 0 5px 5px;
     flex-grow: 1;
     height: 250px;
-    overflow: hidden;
+    // overflow: hidden;
   }
 
   &__legend {
@@ -57,27 +57,45 @@
   &__info {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 45px;
+    margin-left: -6px;
+    gap: 5px
   }
 
   &__instruContent {
     overflow: auto;
+    text-overflow: ellipsis;
+    height: 120px;
+    scrollbar-color: lighten($color-3, 20%) $secondary-color;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+      background-color: lighten($color-1, 20%);
+    }
   }
 
   &__ingredientList {
-    margin-bottom: 59px;
     font-size: 12px;
   }
 
   &__icon {
     position: relative;
     top: 4px;
-    // z-index: 3;
   }
 
   &__instructions {
     font-size: 12px;
-    text-align: start;
-    margin-right: 10px;
   }
 }
