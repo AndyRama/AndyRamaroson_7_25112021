@@ -15,8 +15,6 @@ fetch("./script/api/recipes.json")
     recipesArray = value.recipes;
   })
 
-  .catch((error) => console.error(error));
-
 //show cards
 function recipeCardDom(recipes) {
   // console.log("recipeCardDom", recipes);
@@ -28,7 +26,7 @@ function recipeCardDom(recipes) {
     recipeCard.innerHTML += `
     <article class="recipe__container">
       <div class="recipe__picture">
-        <img class="recipe__img" src="./public/assets/imagePlat.jpg" alt="image d'un plat">
+        <img class="recipe__img" src="./public/assets/bg-recipe.png" alt="image d'un plat">
       </div>
       <div class="recipe__infoContent">
         <div class="recipe__legend">
@@ -147,7 +145,6 @@ function addTagFilter(e) {
 
 function removeFilter(e) {
   e.remove();
-
 }
 
 // Affiche les tags selectionnés lors du clic et ajoute la classe is-selected dessus

@@ -17,7 +17,7 @@
 				{
 					"ingredient": "Crème de coco",
 					"quantity": 2,
-					"unit": "cuillères à S"
+					"unit": "cuillères à Soupe"
 				},
 				{
 					"ingredient": "Sucre",
@@ -45,7 +45,7 @@
 				{
 					"ingredient": "Thon Rouge (ou blanc)",
 					"quantity": 200,
-					"unit": "g"
+					"unit": "grammes"
 				},
 				{
 					"ingredient": "Concombre",
@@ -124,7 +124,7 @@
 				{
 					"ingredient": "Riz blanc",
 					"quantity": 500,
-					"unit": "g"
+					"unit": "grammes"
 				},
 				{
 					"ingredient": "Thon en miettes",
