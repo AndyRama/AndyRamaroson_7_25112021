@@ -2,8 +2,8 @@
   &__taglist {
     display: grid;
     grid-template-columns: repeat(3, minmax(200px, 1fr));
-    // padding: 1rem;
-    // padding-left: 2rem;
+    padding: 1rem;
+    padding-left: 2rem;
     list-style-type: none;
     gap: 20px;
   }
@@ -11,8 +11,7 @@
 
 .tag {
   max-width: 100%;
-  // padding: 1rem;
-  // padding-left: 0rem;
+  padding: 1rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
