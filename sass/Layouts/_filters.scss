@@ -40,7 +40,6 @@
     display: flex;
     align-items: center;
     width: 100%;
-
   }
 
   &__input {
@@ -53,8 +52,30 @@
     margin-top: -4px;
     display: none;
     position: absolute;
-    width: 667px;
     z-index: 2;
+    width: 667px;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-color: lighten($color-dark, 40%) $secondary-color;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 0 0 10px 0;
+      background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 0 0 10px 0;
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+      background-color: lighten($color-dark, 50%);
+    }
     
     &--ingredients {
       background-color: $color-1;
