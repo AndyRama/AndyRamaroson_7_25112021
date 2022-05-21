@@ -1,8 +1,9 @@
+const btnOrder = Array.from(document.querySelectorAll(".filters__dropDown"));
+
 const inputIng = document.getElementById("inputIng");
 const inputDev = document.getElementById("inputDev");
 const inputUst = document.getElementById("inputUst");
-
-const btnOrder = Array.from(document.querySelectorAll(".filters__dropDown"));
+ 
 
 // get all btn dropdown  
 btnOrder.forEach((btn,index) =>
@@ -24,6 +25,19 @@ btnOrder.forEach((btn,index) =>
   })
 );
 
+function closeInput() {
+  document.querySelectorAll(".filters__dropDown");
+  if(id="ingBtn") {
+    inputIng.classList.replace("btn-Expansed", "btn-not-Expansed");
+  }
+  if(id="devBtn") {
+    inputDev.classList.replace("btn-Expansed", "btn-not-Expansed");
+  }
+  if(id="UstBtn") {
+    inputUst.classList.replace("btn-Expansed", "btn-not-Expansed");
+  }
+}
+
 // function Open dropdownBtn on clic
 function openTaglist(idContainer) {
   let tagContainer = document.getElementById(idContainer);
@@ -34,16 +48,15 @@ function openTaglist(idContainer) {
   if (tagContainer.classList.contains("is-expanded")) {
     tagContainer.classList.remove("is-expanded");
     icoDropDown.classList.replace("ico__dropUp", "ico__dropDown");
-    // inputIng.classList.remove("btn-Expansed");
-    // inputDev.classList.remove("btn-Expansed");
-    // inputUst.classList.remove("btn-Expansed");
-
+    closeInput();
+    
   } else {
     if (document.querySelector(".filters__inputContainer.is-expanded") != null) {
       document.querySelector(".filters__inputContainer.is-expanded").classList.remove("is-expanded");
-
+      closeInput();
     }
     tagContainer.classList.add("is-expanded");
     icoDropDown.classList.replace("ico__dropDown", "ico__dropUp");   
+    closeInput();
   }
 }

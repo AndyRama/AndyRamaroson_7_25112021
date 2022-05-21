@@ -256,7 +256,7 @@ body {
   border-radius: 5px 0 0 5px;
 }
 .filters__inputContainer {
-  padding: 0 2rem 0 1rem;
+  padding: 0 27px 0 16px;
   border-radius: 0px 5px;
   margin-top: -4px;
   display: none;
@@ -331,7 +331,11 @@ body {
 }
 
 .btn-Expansed {
-  width: 675px !important;
+  width: 670px !important;
+}
+
+.btn-not-Expansed {
+  width: 200px !important;
 }
 
 #search {
