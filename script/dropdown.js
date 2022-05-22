@@ -2,15 +2,15 @@ const btnOrder = Array.from(document.querySelectorAll(".filters__dropDown"));
 
 const inputIng = document.getElementById("inputIng");
 const inputDev = document.getElementById("inputDev");
-const inputUst = document.getElementById("inputUst");
- 
+const inputUst = document.getElementById("inputUst"); 
 
 // get all btn dropdown  
 btnOrder.forEach((btn,index) =>
   btn.addEventListener("click",(e) => {
     e.preventDefault();
     openTaglist(btn.getAttribute("aria-controls"));
-
+    
+    //Get what btn ?
     if(index == 0) {
       inputIng.classList.add("btn-Expansed");
     }
@@ -25,25 +25,11 @@ btnOrder.forEach((btn,index) =>
   })
 );
 
-function closeInput() {
-  document.querySelectorAll(".filters__dropDown");
-  if(id="ingBtn") {
-    inputIng.classList.replace("btn-Expansed", "btn-not-Expansed");
-  }
-  if(id="devBtn") {
-    inputDev.classList.replace("btn-Expansed", "btn-not-Expansed");
-  }
-  if(id="UstBtn") {
-    inputUst.classList.replace("btn-Expansed", "btn-not-Expansed");
-  }
-}
-
 // function Open dropdownBtn on clic
 function openTaglist(idContainer) {
   let tagContainer = document.getElementById(idContainer);
   const filtersForm = tagContainer.previousElementSibling;
   const icoDropDown = filtersForm.querySelector(".ico");
-
 
   if (tagContainer.classList.contains("is-expanded")) {
     tagContainer.classList.remove("is-expanded");
@@ -57,6 +43,21 @@ function openTaglist(idContainer) {
     }
     tagContainer.classList.add("is-expanded");
     icoDropDown.classList.replace("ico__dropDown", "ico__dropUp");   
-    closeInput();
   }
 }
+
+function closeInput() {
+  btnClose = document.querySelectorAll(".filters__dropDown");
+  if(id ="ingBtn") {
+    inputIng.classList.remove("btn-Expansed");
+  }
+
+  if(id="devBtn") {
+    inputDev.classList.remove("btn-Expansed");
+  }
+  
+  if(id="UstBtn") {
+    inputUst.classList.remove("btn-Expansed");
+  }
+}
+
