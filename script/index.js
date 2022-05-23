@@ -101,13 +101,14 @@ function showTags(items, tagId, type) {
   items.sort();
   items.map(item => {
     let contentItem = item[0].toUpperCase() + item.toLowerCase().slice(1);
+    console.log(filteredUstensils.indexOf(item));
     if (filteredIngredients.indexOf(item) != -1 || filteredDevices.indexOf(item) != -1 || filteredUstensils.indexOf(item) != -1) {
       templateTaglist += `
-        <li><button  onclick="addFilter(this)" aria-label="${contentItem}" data-title="${contentItem}" class="tag--${type} tag is-selected" data-type="${type}" data-item="${item}">${contentItem}</button></li>
+        <li><button  onclick="addFilter(this);addCookie(this)" aria-label="${contentItem}" data-title="${contentItem}" class="tag--${type} tag is-selected" data-type="${type}" data-item="${item}">${contentItem}</button></li>
       `;
     } else {
       templateTaglist += `
-        <li ><button  onclick="addFilter(this)" aria-label="${contentItem}" data-title="${contentItem}" class="tag--${type} tag" data-type="${type}" data-item="${item}">${contentItem}</button></li>
+        <li ><button  onclick="addFilter(this);addCookie(this)" aria-label="${contentItem}" data-title="${contentItem}" class="tag--${type} tag" data-type="${type}" data-item="${item}">${contentItem}</button></li>
       `;
     }
   })
@@ -133,7 +134,7 @@ function addFilter(e) {
   }
 
   document.getElementById('tagsBtn').innerHTML = document.getElementById('tagsBtn').innerHTML + `
-  <button onclick="removeFilter(this);addCookie(this)" data-type="${type}" data-controls="${title}" class="filters__tag filters__Btn ${htmlClass}">
+  <button onclick="removeFilter(this)" data-type="${type}" data-controls="${title}" class="filters__tag filters__Btn ${htmlClass}">
     ${title}
     <svg id="close" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M14.59 8L12 10.59L9.41 8L8 9.41L10.59 12L8 14.59L9.41 16L12 13.41L14.59 16L16 14.59L13.41 12L16 9.41L14.59 8ZM12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="white"></path>
@@ -149,14 +150,14 @@ function removeFilter(e) {
   launchSearch();
 }
 
-// function addCookie(e) {
-//   const id = e.dataset.id;
-//   let cookie = localStorage.getItem(id);
-
-//   if(cookie == null) {
-//     localStorage.setItem(id,"click");
-//   }
-// }
+function addCookie(e) {
+  let titleId = e.dataset.title;
+  let cookie = localStorage.getItem(tags);
+    
+  if(cookie == null) {
+    localStorage.setItem(titleId,"click");
+  }
+}
 
 function searchKeyword() {
   launchSearch();
@@ -177,29 +178,30 @@ function launchSearch() {
   const recipesArrayFiltered = [];
 
   recipesArray.map(recipe => {
-    // const ustString = recipe.ustensils.join(", ");  
+    // const ustString = (recipe.ustensils).join(", ");  
     // const ingString = recipe.ingredients
     //   .map((ing) => ing.ingredient)
     //   .join(", ");
-
     let haveTagOk = true;
+
     if (tagsStringList.length > 0) {
       tagsStringList.map(item => {
-        if (item.type == 'ustensils') {  
-      
+        if (item.type == 'ustensils') {    
+
         }
 
         if (item.type == 'ingredients') {
-
         } 
         //OK
         if (item.type == 'device') {
           if (recipe.appliance != item.title) {
             haveTagOk = false;
+            // console.log(recipe.ustensils.join(","))
+            // console.log(recipe.ingredients.ingredient.join(","))
           }
         }
       })
-    }
+    }  
 
     if (haveTagOk) {
       recipesArrayFiltered.push(recipe);
@@ -208,26 +210,3 @@ function launchSearch() {
   recipeCardDom(recipesArrayFiltered);
 
 }
-
-
-// Affiche les tags selectionnés lors du clic et ajoute la classe is-selected dessus
-// Comportement dropdown extensions
-
-// Autocomplete
-// Recuperer le champ de recherche dans la barre principale
-// Bloquer l'évèvement "ENTER" pour submit sur la barre de recherche lorsque le champ a été saisi par l'utilsateur
-// saisie d'une valeur dans la recherche principale et affichage du message si absence de recette
-
-// Algo 1 => recipeMap()  
-// Permettre de filtrer les recettes lorsqu'on selectionne un tag
-// filtrer les elements dans les listes en fonction des valeurs saisies dans les inputs
-// enleve le tag ajouté suite à la selection dans la liste et enleve la classe is-selected quand on le ferme.
-
-// Algo 2 => recipeFilter()
-// Permettre de filtrer les recettes lorsqu'on selectionne un tag
-// filtrer les elements dans les listes en fonction des valeurs saisies dans les inputs
-// enleve le tag ajouté suite à la selection dans la liste et enleve la classe is-selected quand on le ferme.
-
-// MESSAGE
-// Afficher un bandeau informatif en cas d'absence de recette lors de la recette
-// Fonctions de suppression du message d'absence de recettes

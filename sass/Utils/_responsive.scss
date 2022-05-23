@@ -1,15 +1,3 @@
-@media screen and (max-width: 768px) {
-  body {
-    max-width: 100vw;
-  }
-
-  .main {
-    &__wrapper {
-      margin: 0 auto;
-    }
-  }
-}
-
 //Responsive for card recipes
 @media screen and (max-width: 1260px) {
   .recipe {
@@ -63,6 +51,18 @@
 
     &__inputContainer {
       position: initial;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    max-width: 100vw;
+  }
+
+  .main {
+    &__wrapper {
+      margin: 0 auto;
     }
   }
 }
