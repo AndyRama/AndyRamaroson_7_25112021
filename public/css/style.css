@@ -132,6 +132,12 @@ body {
   transform: rotate(180deg);
 }
 
+#closeM {
+  margin-top: 5px;
+  border: none;
+  background-color: #fbf0f0 !important;
+}
+
 .recipe__mainContainer {
   width: 1240px;
   margin: 2rem auto;
@@ -140,6 +146,12 @@ body {
   gap: 50px;
   justify-items: center;
   margin-top: 25px;
+}
+.recipe__quantity {
+  font-weight: normal;
+}
+.recipe__ingredients {
+  font-weight: 700;
 }
 .recipe__container {
   display: flex;
@@ -159,7 +171,6 @@ body {
 }
 .recipe__legend {
   display: flex;
-  font-weight: bold;
 }
 .recipe__time {
   margin-left: auto;
@@ -318,6 +329,19 @@ body {
 }
 .filters__listContainer--ustensils {
   background-color: #ED6454;
+}
+.filters__message {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: #fbf0f0;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.filters__messageContainer {
+  display: flex;
 }
 
 .is-expanded {

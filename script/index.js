@@ -58,7 +58,7 @@ function recipeCardDom(recipes) {
     const ingredients = recipe.ingredients
     ingredients.map(ingredient => {
       ingredientList.innerHTML += `
-        <li class="recipe__ingredient">${ingredient.ingredient}:
+        <li class="recipe__ingredient">${ingredient.ingredient} :
           <span class="recipe__quantity">${ingredient.quantity === undefined ? "" : ingredient.quantity}
           ${ingredient.unit === undefined ? "" : ingredient.unit}</span>
         </li>
@@ -76,6 +76,7 @@ function recipeCardDom(recipes) {
     //ingrédients
     element.ingredients.forEach((e) => {
       if (allIngredients.indexOf(e.ingredient) == -1) allIngredients.push(e.ingredient);
+      // console.log(allIngrédients);
     });
     //appareils
     if (allDevices.indexOf(element.appliance) == -1) allDevices.push(element.appliance);
@@ -101,7 +102,6 @@ function showTags(items, tagId, type) {
   items.sort();
   items.map(item => {
     let contentItem = item[0].toUpperCase() + item.toLowerCase().slice(1);
-    console.log(filteredUstensils.indexOf(item));
     if (filteredIngredients.indexOf(item) != -1 || filteredDevices.indexOf(item) != -1 || filteredUstensils.indexOf(item) != -1) {
       templateTaglist += `
         <li><button  onclick="addFilter(this);addCookie(this)" aria-label="${contentItem}" data-title="${contentItem}" class="tag--${type} tag is-selected" data-type="${type}" data-item="${item}">${contentItem}</button></li>
@@ -119,7 +119,6 @@ function addFilter(e) {
   const type = e.dataset.type;
   const title = e.dataset.title;
   var htmlClass;
-  // const id = e.dataset.id;
   
   if (type == "ingredients") {
     htmlClass = 'filters__btn--ingredients';
@@ -134,12 +133,12 @@ function addFilter(e) {
   }
 
   document.getElementById('tagsBtn').innerHTML = document.getElementById('tagsBtn').innerHTML + `
-  <button onclick="removeFilter(this)" data-type="${type}" data-controls="${title}" class="filters__tag filters__Btn ${htmlClass}">
-    ${title}
-    <svg id="close" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M14.59 8L12 10.59L9.41 8L8 9.41L10.59 12L8 14.59L9.41 16L12 13.41L14.59 16L16 14.59L13.41 12L16 9.41L14.59 8ZM12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="white"></path>
-    </svg>
-  </button>
+    <button onclick="removeFilter(this)" data-type="${type}" data-controls="${title}" class="filters__tag filters__Btn ${htmlClass}">
+      ${title}
+      <svg id="close" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14.59 8L12 10.59L9.41 8L8 9.41L10.59 12L8 14.59L9.41 16L12 13.41L14.59 16L16 14.59L13.41 12L16 9.41L14.59 8ZM12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="white"></path>
+      </svg>
+    </button>
   `;
 
   launchSearch();
@@ -152,11 +151,11 @@ function removeFilter(e) {
 
 function addCookie(e) {
   let titleId = e.dataset.title;
-  let cookie = localStorage.getItem(tags);
+  let cookie = localStorage.getItem(titleId);
     
   if(cookie == null) {
     localStorage.setItem(titleId,"click");
-  }
+  } 
 }
 
 function searchKeyword() {
@@ -178,26 +177,28 @@ function launchSearch() {
   const recipesArrayFiltered = [];
 
   recipesArray.map(recipe => {
+
     // const ustString = (recipe.ustensils).join(", ");  
     // const ingString = recipe.ingredients
     //   .map((ing) => ing.ingredient)
     //   .join(", ");
+
     let haveTagOk = true;
 
     if (tagsStringList.length > 0) {
       tagsStringList.map(item => {
-        if (item.type == 'ustensils') {    
-
+        if (item.type == 'ustensils') {
         }
 
         if (item.type == 'ingredients') {
         } 
+
         //OK
         if (item.type == 'device') {
           if (recipe.appliance != item.title) {
             haveTagOk = false;
-            // console.log(recipe.ustensils.join(","))
-            // console.log(recipe.ingredients.ingredient.join(","))
+            // console.log(ingString);
+            // console.log(ustString);
           }
         }
       })
@@ -208,5 +209,48 @@ function launchSearch() {
     }     
   })
   recipeCardDom(recipesArrayFiltered);
-
 }
+
+// //bandeau informatif en cas d'absence de recette lors de la recette
+// const noRecipesMessage = document.getElementById("filtersMessage");
+// const templateMessage = `
+//   <p class="filters__message">
+//     Aucune recette ne correspond à votre recherche... Vous pouvez chercher "tarte aux pommes", "poisson", etc ...
+//     <button id="closeM" >
+//       <svg class="ico ico__close "width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+//         <path d="M14.59 8L12 10.59L9.41 8L8 9.41L10.59 12L8 14.59L9.41 16L12 13.41L14.59 16L16 14.59L13.41 12L16 9.41L14.59 8ZM12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="black"></path>
+//       </svg>
+//     </button>
+//   </p>        
+// `;
+
+// //champ de recherche dans la barre principale
+// const searchBarInput = document.getElementById("searchBar");
+
+// //sert à bloquer l'évèvement "ENTER" sur la barre de recherche lorsque le champ a été saisi par l'utilsateur
+// document.getElementById("searchBar").addEventListener("submit", (e) => {
+//   e.preventDefault();
+// });
+
+// //fonctions de suppression du message d'absence de recettes
+// function showErrorMessage() {
+//   noRecipesMessage.innerHTML = templateMessage;
+//   document
+//     .getElementById("closeM")
+//     .addEventListener("click", removeErrorMessage);
+// }
+
+// function removeErrorMessage() {
+//   noRecipesMessage.innerHTML = "";
+//   searchBarValue = "";
+//   searchBarInput.value = "";
+// }
+
+// searchBarInput.addEventListener("keyup", (e) => {
+//   if (e.target.value.length >= 3) {
+//     addFilter(e);
+//     searchBarValue = searchBarInput.value.toLowerCase();
+//     noRecipesMessage.innerHTML = "";
+//     if (recipesArrayFiltered.length == 0) showErrorMessage();
+//   } else showErrorMessage();
+// });

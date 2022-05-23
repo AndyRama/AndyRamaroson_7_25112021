@@ -9,6 +9,14 @@
     margin-top: 25px;  
   }
 
+  &__quantity {
+    font-weight: normal;
+  }
+
+  &__ingredients {
+    font-weight: 700;
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
@@ -30,7 +38,6 @@
 
   &__legend {
     display: flex;
-    font-weight: bold;
   }
 
   &__time {

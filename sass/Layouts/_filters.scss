@@ -11,7 +11,7 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 0;
-    margin: 0; 
+    margin: 0;
   }
 
   &__container {
@@ -22,14 +22,16 @@
     border-radius: 5px;
     margin-right: 15px;
     margin-bottom: 15px;
-    padding: 10px 20px ;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     border: none;
     box-shadow: none;
+
     &:first-of-type {
-      margin-left:0;
+      margin-left: 0;
     }
+
     svg {
       cursor: pointer;
       margin-left: 13px;
@@ -47,7 +49,8 @@
   }
 
   &__inputContainer {
-    padding: 0 27px 0 16px;;
+    padding: 0 27px 0 16px;
+    ;
     border-radius: 0px 5px;
     margin-top: -4px;
     display: none;
@@ -76,7 +79,7 @@
       box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
       background-color: lighten($color-dark, 50%);
     }
-    
+
     &--ingredients {
       background-color: $color-1;
     }
@@ -102,7 +105,7 @@
     background: none;
     cursor: pointer;
     border: 0;
-  
+
     &:focus-visible {
       outline: 0;
     }
@@ -116,10 +119,24 @@
     }
 
     &--ustensils {
-      background-color: $color-3;    
+      background-color: $color-3;
     }
   }
 
+  &__message {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: lighten($primary-color, 40%);
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  &__messageContainer {
+    display: flex;
+  }
 }
 
 .is-expanded {
@@ -136,11 +153,9 @@
 }
 
 .btn-Expansed {
-  width: 670px!important;
+  width: 670px !important;
 }
 
 .btn-not-Expansed {
-  width: 200px!important;
+  width: 200px !important;
 }
-
-
