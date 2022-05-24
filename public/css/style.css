@@ -132,7 +132,7 @@ body {
   transform: rotate(180deg);
 }
 
-#closeM {
+#close-message {
   margin-top: 5px;
   border: none;
   background-color: #fbf0f0 !important;
@@ -468,6 +468,23 @@ body {
 
   .main__wrapper {
     margin: 0 auto;
+  }
+}
+@media screen and (max-width: 748px) {
+  .btn-Expansed {
+    width: 404px !important;
+  }
+
+  .btn-not-Expansed {
+    width: 200px !important;
+  }
+
+  .filters__inputContainer {
+    width: 401px !important;
+  }
+
+  .tags__taglist {
+    gap: none;
   }
 }
 

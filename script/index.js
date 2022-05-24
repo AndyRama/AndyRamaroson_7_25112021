@@ -15,17 +15,16 @@ fetch("./script/api/recipes.json")
   })
   .then((value) => {
     //display all recipes
-    recipeCardDom(value.recipes);
-    recipesArray = value.recipes;
+    recipeCardDom(value.recipes);//ELEMENT OF RECIPE FOR CARD
+    recipesArray = value.recipes;//TABLEAU OF ALL RECIPES
   })
 
 //show cards
 function recipeCardDom(recipes) {
-  // console.log("recipeCardDom", recipes);
-
   //get container recipes create a new card for recipe
   const recipeCard = document.getElementById("recipeContainer");
   recipeCard.innerHTML = "";
+  //template cards recipes
   recipes.map(recipe => {
     recipeCard.innerHTML += `
     <article class="recipe__container">
@@ -60,7 +59,7 @@ function recipeCardDom(recipes) {
       ingredientList.innerHTML += `
         <li class="recipe__ingredient">${ingredient.ingredient} :
           <span class="recipe__quantity">${ingredient.quantity === undefined ? "" : ingredient.quantity}
-          ${ingredient.unit === undefined ? "" : ingredient.unit}</span>
+          ${ingredient.unit === undefined ? ":" :ingredient.unit}</span>
         </li>
       `;
     })
@@ -71,21 +70,19 @@ function recipeCardDom(recipes) {
   allDevices = [];
   allIngredients = [];
 
-  // Add tags
+  // Add tags in taglist container respective
   recipes.forEach((element) => {
     //ingrédients
     element.ingredients.forEach((e) => {
       if (allIngredients.indexOf(e.ingredient) == -1) allIngredients.push(e.ingredient);
-      // console.log(allIngrédients);
     });
-    //appareils
+    
+    //devices
     if (allDevices.indexOf(element.appliance) == -1) allDevices.push(element.appliance);
-    // console.log(allDevices);
 
     //ustensiles
     element.ustensils.forEach((e) => {
       if (allUstensils.indexOf(e) == -1) allUstensils.push(e);
-      // console.log(allUstensils);
     });
   });
 
@@ -104,11 +101,11 @@ function showTags(items, tagId, type) {
     let contentItem = item[0].toUpperCase() + item.toLowerCase().slice(1);
     if (filteredIngredients.indexOf(item) != -1 || filteredDevices.indexOf(item) != -1 || filteredUstensils.indexOf(item) != -1) {
       templateTaglist += `
-        <li><button  onclick="addFilter(this);addCookie(this)" aria-label="${contentItem}" data-title="${contentItem}" class="tag--${type} tag is-selected" data-type="${type}" data-item="${item}">${contentItem}</button></li>
+        <li><button  onclick="addFilter(this)" aria-label="${contentItem}" data-title="${contentItem}" class="tag--${type} tag is-selected" data-type="${type}" data-item="${item}">${contentItem}</button></li>
       `;
     } else {
       templateTaglist += `
-        <li ><button  onclick="addFilter(this);addCookie(this)" aria-label="${contentItem}" data-title="${contentItem}" class="tag--${type} tag" data-type="${type}" data-item="${item}">${contentItem}</button></li>
+        <li ><button  onclick="addFilter(this)" aria-label="${contentItem}" data-title="${contentItem}" class="tag--${type} tag" data-type="${type}" data-item="${item}">${contentItem}</button></li>
       `;
     }
   })
@@ -119,54 +116,9 @@ function addFilter(e) {
   const type = e.dataset.type;
   const title = e.dataset.title;
   var htmlClass;
-  
-  if (type == "ingredients") {
-    htmlClass = 'filters__btn--ingredients';
-  }
 
-  if (type == "device") {
-    htmlClass = "filters__btn--device";
-  }
-
-  if (type == "ustensils") {
-    htmlClass = "filters__btn--ustensils";
-  }
-
-  document.getElementById('tagsBtn').innerHTML = document.getElementById('tagsBtn').innerHTML + `
-    <button onclick="removeFilter(this)" data-type="${type}" data-controls="${title}" class="filters__tag filters__Btn ${htmlClass}">
-      ${title}
-      <svg id="close" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M14.59 8L12 10.59L9.41 8L8 9.41L10.59 12L8 14.59L9.41 16L12 13.41L14.59 16L16 14.59L13.41 12L16 9.41L14.59 8ZM12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="white"></path>
-      </svg>
-    </button>
-  `;
-
-  launchSearch();
-}
-
-function removeFilter(e) {
-  e.remove();
-  launchSearch();
-}
-
-function addCookie(e) {
-  let titleId = e.dataset.title;
-  let cookie = localStorage.getItem(titleId);
-    
-  if(cookie == null) {
-    localStorage.setItem(titleId,"click");
-  } 
-}
-
-function searchKeyword() {
-  launchSearch();
-}
-
-function launchSearch() {
-  // Récupérer mes tags
-  // Récupérer mon champ de recherche
-  const searchKeyword = document.getElementById('search').value;
-  const tagList = document.getElementById('tagsBtn');
+  // tags deja selectionner 
+  const tagList = document.getElementById("tagsBtn");
   const allTags = tagList.getElementsByTagName('button');
   const tagsStringList = [];
 
@@ -174,35 +126,83 @@ function launchSearch() {
     tagsStringList.push({ title: allTags[i].dataset.controls, type: allTags[i].dataset.type });
   }
 
+  switch(type) {
+    case 'ingredients':
+      htmlClass = 'filters__btn--ingredients';
+    break;
+
+    case 'device':
+      htmlClass = 'filters__btn--device';
+    break;
+
+    case 'ustensils':
+      htmlClass = 'filters__btn--ustensils';
+    break;
+  
+  }
+  
+  //if tags isn't already present in list => add  new tag element 
+  if (!tagsStringList.some(tag => tag.title.toLowerCase() == title.toLowerCase())) {
+    document.getElementById('tagsBtn').innerHTML = document.getElementById('tagsBtn').innerHTML + `
+      <button onclick="removeFilter(this)" data-type="${type}" data-controls="${title}" class="filters__tag filters__Btn ${htmlClass}">
+        ${title}
+        <svg id="close" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.59 8L12 10.59L9.41 8L8 9.41L10.59 12L8 14.59L9.41 16L12 13.41L14.59 16L16 14.59L13.41 12L16 9.41L14.59 8ZM12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="white"></path>
+        </svg>
+      </button>
+    `;
+    launchSearch();
+  }
+}
+
+// remove tag
+function removeFilter(e) {
+  e.remove();
+  launchSearch();
+}
+
+function searchKeyword() {
+  launchSearch();
+}
+
+function launchSearch() {
+  // Retrieve my tags
+  // Retrieve my search field
+  const searchKeyword = document.getElementById('search').value;
+  const tagList = document.getElementById('tagsBtn');
+  const allTags = tagList.getElementsByTagName('button');
+  const tagsStringList = [];
   const recipesArrayFiltered = [];
+
+  for (i = 0; i < allTags.length; i++) {
+    tagsStringList.push({ title: allTags[i].dataset.controls, type: allTags[i].dataset.type });
+  }  
 
   recipesArray.map(recipe => {
 
-    // const ustString = (recipe.ustensils).join(", ");  
-    // const ingString = recipe.ingredients
-    //   .map((ing) => ing.ingredient)
-    //   .join(", ");
-
     let haveTagOk = true;
 
-    if (tagsStringList.length > 0) {
+   if (tagsStringList.length > 0) {
       tagsStringList.map(item => {
-        if (item.type == 'ustensils') {
-        }
+        
+        if(item.type == "ustensils")
 
-        if (item.type == 'ingredients') {
-        } 
-
-        //OK
-        if (item.type == 'device') {
-          if (recipe.appliance != item.title) {
+          if(!recipe.ustensils.some(ustensil => ustensil.toLowerCase() == item.title.toLowerCase())) {
             haveTagOk = false;
-            // console.log(ingString);
-            // console.log(ustString);
           }
-        }
+
+        if(item.type == "ingredients")
+          if(!recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase() == item.title.toLowerCase())) {
+            haveTagOk=false;
+          }
+
+        if(item.type == "device")
+          if(recipe.appliance != item.title) {
+            haveTagOk = false;
+          }
+  
       })
-    }  
+    }
 
     if (haveTagOk) {
       recipesArrayFiltered.push(recipe);
@@ -211,46 +211,15 @@ function launchSearch() {
   recipeCardDom(recipesArrayFiltered);
 }
 
-// //bandeau informatif en cas d'absence de recette lors de la recette
-// const noRecipesMessage = document.getElementById("filtersMessage");
-// const templateMessage = `
-//   <p class="filters__message">
-//     Aucune recette ne correspond à votre recherche... Vous pouvez chercher "tarte aux pommes", "poisson", etc ...
-//     <button id="closeM" >
-//       <svg class="ico ico__close "width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-//         <path d="M14.59 8L12 10.59L9.41 8L8 9.41L10.59 12L8 14.59L9.41 16L12 13.41L14.59 16L16 14.59L13.41 12L16 9.41L14.59 8ZM12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="black"></path>
-//       </svg>
-//     </button>
-//   </p>        
-// `;
-
-// //champ de recherche dans la barre principale
-// const searchBarInput = document.getElementById("searchBar");
-
-// //sert à bloquer l'évèvement "ENTER" sur la barre de recherche lorsque le champ a été saisi par l'utilsateur
-// document.getElementById("searchBar").addEventListener("submit", (e) => {
-//   e.preventDefault();
-// });
-
-// //fonctions de suppression du message d'absence de recettes
-// function showErrorMessage() {
-//   noRecipesMessage.innerHTML = templateMessage;
-//   document
-//     .getElementById("closeM")
-//     .addEventListener("click", removeErrorMessage);
-// }
-
-// function removeErrorMessage() {
-//   noRecipesMessage.innerHTML = "";
-//   searchBarValue = "";
-//   searchBarInput.value = "";
-// }
-
-// searchBarInput.addEventListener("keyup", (e) => {
-//   if (e.target.value.length >= 3) {
-//     addFilter(e);
-//     searchBarValue = searchBarInput.value.toLowerCase();
-//     noRecipesMessage.innerHTML = "";
-//     if (recipesArrayFiltered.length == 0) showErrorMessage();
-//   } else showErrorMessage();
-// });
+//bandeau informatif en cas d'absence de recette lors de la recette
+const noRecipesMessage = document.getElementById("filtersMessage");
+const templateMessage = `
+  <p class="filters__message">
+    Aucune recette ne correspond à votre recherche... Vous pouvez chercher "tarte aux pommes", "poisson", etc ...
+    <button id="closeM" >
+      <svg class="ico ico__close "width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14.59 8L12 10.59L9.41 8L8 9.41L10.59 12L8 14.59L9.41 16L12 13.41L14.59 16L16 14.59L13.41 12L16 9.41L14.59 8ZM12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="black"></path>
+      </svg>
+    </button>
+  </p>        
+`;
