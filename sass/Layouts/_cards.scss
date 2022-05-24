@@ -20,13 +20,10 @@
   &__container {
     display: flex;
     flex-direction: column;
-  }
-
-  &__picture {
-    border-radius: 5px 5px 0 0;
-    max-width: 380px;
-    height: 180px;
-    background-color: $secondary-color;
+    animation: soft_show_from_down;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    transform: translateY(200px);
   }
 
   &__infoContent {
@@ -49,14 +46,10 @@
   }
 
   &__img {
-    margin-right: 20px;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
     height: 180px;
-    width: 378px;
-    animation: soft_show_from_down;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
-    transform: translateY(200px);
+    width: 380px;
+    object-fit: cover;
   }
 
   &__name {

@@ -29,7 +29,7 @@ function recipeCardDom(recipes) {
   //template cards recipes
   recipes.map(recipe => {
     recipeCard.innerHTML += `
-    <article class="recipe__container" style="animation-delay:${styleDelay}ms >
+    <article class="recipe__container" style="animation-delay:${styleDelay}ms  >
       <div class="recipe__picture" >
         <img class="recipe__img" data-id="${recipe.id}" src="./public/assets/recipes-images/recette_id_${recipe.id}.jpg" alt="${recipe.name}">
       </div>
