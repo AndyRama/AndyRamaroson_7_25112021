@@ -59,7 +59,7 @@ function recipeCardDom(recipes) {
       ingredientList.innerHTML += `
         <li class="recipe__ingredient">${ingredient.ingredient} :
           <span class="recipe__quantity">${ingredient.quantity === undefined ? "" : ingredient.quantity}
-          ${ingredient.unit === undefined ? ":" :ingredient.unit}</span>
+          ${ingredient.unit === undefined ? "" :ingredient.unit}</span>
         </li>
       `;
     })
@@ -138,10 +138,9 @@ function addFilter(e) {
     case 'ustensils':
       htmlClass = 'filters__btn--ustensils';
     break;
-  
   }
   
-  //if tags isn't already present in list => add  new tag element 
+  //if tags isn't already present in this list => add  new tag element 
   if (!tagsStringList.some(tag => tag.title.toLowerCase() == title.toLowerCase())) {
     document.getElementById('tagsBtn').innerHTML = document.getElementById('tagsBtn').innerHTML + `
       <button onclick="removeFilter(this)" data-type="${type}" data-controls="${title}" class="filters__tag filters__Btn ${htmlClass}">
@@ -155,7 +154,7 @@ function addFilter(e) {
   }
 }
 
-// remove tag
+// remove tag with close
 function removeFilter(e) {
   e.remove();
   launchSearch();
