@@ -8,6 +8,8 @@ let filteredIngredients = [];
 let filteredDevices = [];
 let filteredUstensils = [];
 
+let styleDelay = 0;
+
 // Fetch api Json
 fetch("./script/api/recipes.json")
   .then(reponse => {
@@ -27,9 +29,9 @@ function recipeCardDom(recipes) {
   //template cards recipes
   recipes.map(recipe => {
     recipeCard.innerHTML += `
-    <article class="recipe__container">
-      <div class="recipe__picture">
-        <img class="recipe__img" src="./public/assets/imagePlat.jpg" alt="image d'un plat">
+    <article class="recipe__container" style="animation-delay:${styleDelay}ms >
+      <div class="recipe__picture" >
+        <img class="recipe__img" data-id="${recipe.id}" src="./public/assets/recipes-images/recette_id_${recipe.id}.jpg" alt="${recipe.name}">
       </div>
       <div class="recipe__infoContent">
         <div class="recipe__legend">
@@ -62,8 +64,11 @@ function recipeCardDom(recipes) {
           ${ingredient.unit === undefined ? "" :ingredient.unit}</span>
         </li>
       `;
+      styleDelay = styleDelay + 400;
     })
   });
+
+  // Algo n°1
 
   //get all array
   allUstensils = [];
@@ -73,18 +78,50 @@ function recipeCardDom(recipes) {
   // Add tags in taglist container respective
   recipes.forEach((element) => {
     //ingrédients
-    element.ingredients.forEach((e) => {
-      if (allIngredients.indexOf(e.ingredient) == -1) allIngredients.push(e.ingredient);
+    element.ingredients.map((e) => {
+      if (allIngredients.indexOf(e.ingredient) == -1) {
+        allIngredients.push(e.ingredient);
+      }
     });
     
     //devices
-    if (allDevices.indexOf(element.appliance) == -1) allDevices.push(element.appliance);
+    if (allDevices.indexOf(element.appliance) == -1) {
+       allDevices.push(element.appliance);
+    }
 
     //ustensiles
-    element.ustensils.forEach((e) => {
-      if (allUstensils.indexOf(e) == -1) allUstensils.push(e);
+    element.ustensils.map((e) => {
+      if (allUstensils.indexOf(e) == -1) {
+        allUstensils.push(e);
+      } 
     });
   });
+
+    // //get all array
+  // allUstensils = [];
+  // allDevices = [];
+  // allIngredients = [];
+
+  // Add tags in taglist container respective
+  // recipes.forEach((elements) => {
+  //   //ingrédients
+  //   elements.ingredients.reduce((element) => {
+  //     if (allIngredients.indexOf(element.ingredient) == -1) allIngredients.push(element.ingredient);
+      
+  //   });
+    
+  //   //devices
+  //   if (allDevices.indexOf(element.appliance) == -1) {
+  //      allDevices.push(element.appliance);
+  //   }
+
+  //   //ustensiles
+  //   element.ustensils.reduce((el) => {
+  //     if (allUstensils.indexOf(el) == -1) {
+  //       allUstensils.push(el);
+  //     } 
+  //   });
+  // });
 
   //display all tags in taglist container
   showTags(allIngredients, "ingredientsTaglist", "ingredients");
@@ -92,11 +129,13 @@ function recipeCardDom(recipes) {
   showTags(allUstensils, "ustensilsTaglist", "ustensils");
 }
 
-// create a new tag, order by  and display tag with template function
+// create a new tag, order by alpahbetique
 function showTags(items, tagId, type) {
   const tag = document.getElementById(tagId);
   let templateTaglist = ``;
   items.sort();
+
+  // display tag with template function
   items.map(item => {
     let contentItem = item[0].toUpperCase() + item.toLowerCase().slice(1);
     if (filteredIngredients.indexOf(item) != -1 || filteredDevices.indexOf(item) != -1 || filteredUstensils.indexOf(item) != -1) {
@@ -185,7 +224,6 @@ function launchSearch() {
       tagsStringList.map(item => {
         
         if(item.type == "ustensils")
-
           if(!recipe.ustensils.some(ustensil => ustensil.toLowerCase() == item.title.toLowerCase())) {
             haveTagOk = false;
           }
@@ -199,8 +237,13 @@ function launchSearch() {
           if(recipe.appliance != item.title) {
             haveTagOk = false;
           }
-  
       })
+    }
+
+    let wordContainers = true;
+
+    if(searchKeyword.lenght >= 3) {
+      
     }
 
     if (haveTagOk) {

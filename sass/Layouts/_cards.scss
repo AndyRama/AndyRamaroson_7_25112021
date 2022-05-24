@@ -53,6 +53,10 @@
     border-radius: 5px;
     height: 180px;
     width: 378px;
+    animation: soft_show_from_down;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    transform: translateY(200px);
   }
 
   &__name {
@@ -104,5 +108,16 @@
 
   &__instructions {
     font-size: 12px;
+  }
+}
+
+@keyframes soft_show_from_down {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }

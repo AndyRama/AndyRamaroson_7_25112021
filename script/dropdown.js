@@ -60,4 +60,3 @@ function closeInput() {
     inputUst.classList.remove("btn-Expansed");
   }
 }
-
