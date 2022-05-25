@@ -34,12 +34,12 @@ function openTaglist(idContainer) {
   if (tagContainer.classList.contains("is-expanded")) {
     tagContainer.classList.remove("is-expanded");
     icoDropDown.classList.replace("ico__dropUp", "ico__dropDown");
-    closeInput();
+    closeInput()
     
   } else {
     if (document.querySelector(".filters__inputContainer.is-expanded") != null) {
       document.querySelector(".filters__inputContainer.is-expanded").classList.remove("is-expanded");
-      closeInput();
+      closeInput()
     }
     tagContainer.classList.add("is-expanded");
     icoDropDown.classList.replace("ico__dropDown", "ico__dropUp");   
@@ -47,7 +47,7 @@ function openTaglist(idContainer) {
 }
 
 function closeInput() {
-  btnClose = document.querySelectorAll(".filters__dropDown");
+  btnClose = document.querySelectorAll(".filters__inputContainer is-expanded").contains;
   if(id ="ingBtn") {
     inputIng.classList.remove("btn-Expansed");
   }

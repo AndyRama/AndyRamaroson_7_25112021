@@ -20,7 +20,7 @@
   &__container {
     display: flex;
     flex-direction: column;
-    animation: soft_show_from_down;
+    animation: apparition;
     animation-duration: 0.3s;
     animation-fill-mode: forwards;
     transform: translateY(200px);
@@ -104,7 +104,7 @@
   }
 }
 
-@keyframes soft_show_from_down {
+@keyframes apparition {
   0% {
     opacity: 0;
   }

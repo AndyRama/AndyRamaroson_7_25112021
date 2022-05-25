@@ -64,7 +64,7 @@ function recipeCardDom(recipes) {
           ${ingredient.unit === undefined ? "" :ingredient.unit}</span>
         </li>
       `;
-      styleDelay = styleDelay + 400;
+      styleDelay = styleDelay + 200;
     })
   });
 
@@ -97,32 +97,6 @@ function recipeCardDom(recipes) {
     });
   });
 
-    // //get all array
-  // allUstensils = [];
-  // allDevices = [];
-  // allIngredients = [];
-
-  // Add tags in taglist container respective
-  // recipes.forEach((elements) => {
-  //   //ingrédients
-  //   elements.ingredients.reduce((element) => {
-  //     if (allIngredients.indexOf(element.ingredient) == -1) allIngredients.push(element.ingredient);
-      
-  //   });
-    
-  //   //devices
-  //   if (allDevices.indexOf(element.appliance) == -1) {
-  //      allDevices.push(element.appliance);
-  //   }
-
-  //   //ustensiles
-  //   element.ustensils.reduce((el) => {
-  //     if (allUstensils.indexOf(el) == -1) {
-  //       allUstensils.push(el);
-  //     } 
-  //   });
-  // });
-
   //display all tags in taglist container
   showTags(allIngredients, "ingredientsTaglist", "ingredients");
   showTags(allDevices, "devicesTaglist", "device");
@@ -134,7 +108,6 @@ function showTags(items, tagId, type) {
   const tag = document.getElementById(tagId);
   let templateTaglist = ``;
   items.sort();
-
   // display tag with template function
   items.map(item => {
     let contentItem = item[0].toUpperCase() + item.toLowerCase().slice(1);
@@ -240,15 +213,28 @@ function launchSearch() {
       })
     }
 
-    let wordContainers = true;
+    let wordContains = true;
 
-    if(searchKeyword.lenght >= 3) {
-      
+    if (searchKeyword.length >= 3) {
+      const titleLowerCase = recipe.name.toLowerCase();
+      const descriptionLowerCase = recipe.description.toLowerCase();
+      let ingredientsSentence = '';
+      recipe.ingredients.map(ingredient => {
+        ingredientsSentence = ingredientsSentence + ' ' + ingredient.ingredient;
+      })
+
+      const ingredientsLowerCase = ingredientsSentence.toLocaleLowerCase();
+
+      if (!titleLowerCase.includes(searchKeyword.toLowerCase()) &&
+        !descriptionLowerCase.includes(searchKeyword.toLowerCase()) &&
+        !ingredientsLowerCase.includes(searchKeyword.toLowerCase())) {
+        wordContains = false;
+      }
     }
 
-    if (haveTagOk) {
+    if (haveTagOk && wordContains) {
       recipesArrayFiltered.push(recipe);
-    }     
+    }
   })
   recipeCardDom(recipesArrayFiltered);
 }
