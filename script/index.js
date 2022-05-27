@@ -61,7 +61,7 @@ function recipeCardDom(recipes) {
       ingredientList.innerHTML += `
         <li class="recipe__ingredient">${ingredient.ingredient} :
           <span class="recipe__quantity">${ingredient.quantity === undefined ? "" : ingredient.quantity}
-          ${ingredient.unit === undefined ? "" :ingredient.unit}</span>
+          ${ingredient.unit === undefined ? "" : ingredient.unit}</span>
         </li>
       `;
       styleDelay = styleDelay + 200;
@@ -239,7 +239,7 @@ function launchSearch() {
   recipeCardDom(recipesArrayFiltered);
 }
 
-//bandeau informatif en cas d'absence de recette lors de la recette
+// bandeau informatif en cas d'absence de recette lors de la recette
 const noRecipesMessage = document.getElementById("filtersMessage");
 const templateMessage = `
   <p class="filters__message">
@@ -251,3 +251,12 @@ const templateMessage = `
     </button>
   </p>        
 `;
+
+//Alert message for display numbers of recipes found
+// const alert = document.getElementById("filtersMessage");
+// const templateAlertMessage = `
+//   <div id="alertMessage--${type}" class="alertMessage alertMessage--${type}">
+//     <p>${message}</p>
+//     <i class="far fa-times-circle"></i>
+//   </div>
+// `;
