@@ -97,6 +97,21 @@ function recipeCardDom(recipes) {
     });
   });
 
+  // recipes.forEach((element) => {
+  //   //ingrédients
+  //   element.ingredients.map((e) => {
+  //     if (allIngredients.indexOf(e.ingredient) == -1) allIngredients.push(e.ingredient);
+  //   });
+    
+  //   //devices
+  //   if (allDevices.indexOf(element.appliance) == -1) allDevices.push(element.appliance);
+  //   
+  //   //ustensiles
+  //   element.ustensils.map((e) => {
+  //     if (allUstensils.indexOf(e) == -1) allUstensils.push(e);
+  //   });
+  // });
+
   //display all tags in taglist container
   showTags(allIngredients, "ingredientsTaglist", "ingredients");
   showTags(allDevices, "devicesTaglist", "device");

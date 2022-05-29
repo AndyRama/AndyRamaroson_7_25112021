@@ -78,9 +78,37 @@
 
   .filters__inputContainer {
     width: 401px !important;
+    align-content: center !important;
   }
 
   .tags__taglist {
     gap: none;
+  }
+}
+
+@media screen and (max-width: 536PX) {
+  .filters__Section {
+    margin-left: 25%;
+  }
+
+  .btn-Expansed {
+    width: 197px !important;
+  }
+
+  .filters__inputContainer {
+    width: 194px !important;
+  }
+
+  .tags {
+    &__taglist {
+      grid-template-columns: repeat(1, minmax(100px, 1fr));
+    }
+  }
+}
+
+
+@media screen and (max-width: 472px) {
+  .filters__Section {
+    margin-left: 20%;
   }
 }
