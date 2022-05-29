@@ -47,7 +47,7 @@ function openTaglist(idContainer) {
 }
 
 function closeInput() {
-  btnClose = document.querySelectorAll(".filters__inputContainer is-expanded").contains;
+  btnClose = document.querySelectorAll(".filters__inputContainer is-expanded");
   if(id ="ingBtn") {
     inputIng.classList.remove("btn-Expansed");
   }
@@ -59,4 +59,6 @@ function closeInput() {
   if(id="UstBtn") {
     inputUst.classList.remove("btn-Expansed");
   }
+ console.log(btnOrder);
+
 }
