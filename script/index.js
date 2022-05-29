@@ -252,9 +252,11 @@ function launchSearch() {
     }
   })
   recipeCardDom(recipesArrayFiltered);
+  console.log(recipesArrayFiltered)
 }
 
 // bandeau informatif en cas d'absence de recette lors de la recette
+const searchBarInput = document.getElementById("search");
 const noRecipesMessage = document.getElementById("filtersMessage");
 const templateMessage = `
   <p class="filters__message">
@@ -267,11 +269,26 @@ const templateMessage = `
   </p>        
 `;
 
-//Alert message for display numbers of recipes found
-// const alert = document.getElementById("filtersMessage");
-// const templateAlertMessage = `
-//   <div id="alertMessage--${type}" class="alertMessage alertMessage--${type}">
-//     <p>${message}</p>
-//     <i class="far fa-times-circle"></i>
-//   </div>
-// `;
+
+//sert à bloquer l'évèvement "ENTER" sur la barre de recherche lorsque le champ a été saisi par l'utilsateur
+document.querySelector("form.searchBar").addEventListener("submit", (e) => {
+  e.preventDefault();
+});
+
+//fonctions de suppression du message d'absence de recettes
+function showErrorMessage() {
+  noRecipesMessage.innerHTML = templateMessage;
+  document
+    .getElementById("closeMessage")
+    .addEventListener("click", removeErrorMessage);
+}
+function removeErrorMessage() {
+  noRecipesMessage.innerHTML = "";
+  searchBarValue = "";
+  searchBarInput.value = "";
+  if (document.querySelector(".filters__btn--default") !== null)
+    document.querySelector(".filters__btn--default").remove();
+
+  const filtered = recipeFilter();
+  recipeCardBuilder(filtered);
+}

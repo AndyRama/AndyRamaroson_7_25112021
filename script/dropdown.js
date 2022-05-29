@@ -47,20 +47,20 @@ function openTaglist(idContainer) {
 }
 
 function closeInput() {
-  // btnClose = document.querySelectorAll(".filters__inputContainer is-expanded");
-  // if(id ="ingBtn") {
-  //   inputIng.classList.remove("btn-Expansed");
-  // }
+  btnClose = document.querySelectorAll(".filters__inputContainer is-expanded");
+  if(id ="ingBtn") {
+    inputIng.classList.remove("btn-Expansed");
+  }
 
-  // if(id="devBtn") {
-  //   inputDev.classList.remove("btn-Expansed");
-  // }
+  if(id="devBtn") {
+    inputDev.classList.remove("btn-Expansed");
+  }
   
-  // if(id="UstBtn") {
-  //   inputUst.classList.remove("btn-Expansed");
-  // }
- console.log(btnOrder);
-  btnOrder.forEach((btn, index) => {
-    btn.classList.remove("btn-expansed");
-  })
+  if(id="UstBtn") {
+    inputUst.classList.remove("btn-Expansed");
+  }
+
+    if (btnClose.contains("btn-Expansed")) {
+    document.querySelector(".filters__inputContainer.is-expanded btn-Expansed").classList.remove("btn-Expansed");
+  } 
 }
