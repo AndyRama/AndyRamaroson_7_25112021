@@ -91,27 +91,6 @@ body {
   padding: 0 20px;
 }
 
-.alertMessage {
-  position: absolute;
-  top: -100px;
-  border-bottom: 1px solid;
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-  left: 0;
-  right: 0;
-  color: white;
-  animation: slideBottom linear 0.5s forwards, slideTop 0.5s linear 3.5s forwards;
-}
-.alertMessage--error {
-  background-color: #ec6454;
-  border-bottom: 8px solid #fbe1de;
-}
-.alertMessage--info {
-  background-color: #3282f7;
-  border-bottom: 8px solid #c5ddfd;
-}
-
 .filters__tags {
   width: fit-content;
   margin: 2rem 1rem 0 0;
@@ -388,10 +367,6 @@ body {
 
 .btn-Expansed {
   width: 670px !important;
-}
-
-.btn-not-Expansed {
-  width: 200px !important;
 }
 
 #search {

@@ -60,7 +60,8 @@ function closeInput() {
     inputUst.classList.remove("btn-Expansed");
   }
 
-    if (btnClose.contains("btn-Expansed")) {
-    document.querySelector(".filters__inputContainer.is-expanded btn-Expansed").classList.remove("btn-Expansed");
+  //  console.log(btnClose);
+  if (btnClose.contain("btn-Expansed")) {
+    document.querySelector(".filters__inputContainer.is-expanded .btn-Expansed").classList.remove("btn-Expansed");
   } 
 }
