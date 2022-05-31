@@ -8,25 +8,12 @@ const inputUst = document.getElementById("inputUst");
 btnOrder.forEach((btn,index) =>
   btn.addEventListener("click",(e) => {
     e.preventDefault();
-    openTaglist(btn.getAttribute("aria-controls"));
-    
-    //Get what btn ?
-    if(index == 0) {
-      inputIng.classList.add("btn-Expansed");
-    }
-
-    if(index == 1){
-      inputDev.classList.add("btn-Expansed");
-    }
-
-    if(index == 2) {
-      inputUst.classList.add("btn-Expansed");
-    }
+    openTaglist(btn.getAttribute("aria-controls"),index);
   })
 );
 
 // function Open dropdownBtn on clic
-function openTaglist(idContainer) {
+function openTaglist(idContainer, index) {
   let tagContainer = document.getElementById(idContainer);
   const filtersForm = tagContainer.previousElementSibling;
   const icoDropDown = filtersForm.querySelector(".ico");
@@ -43,25 +30,25 @@ function openTaglist(idContainer) {
     }
     tagContainer.classList.add("is-expanded");
     icoDropDown.classList.replace("ico__dropDown", "ico__dropUp");   
+
+    //Get what btn ?
+    if(index == 0) {
+      inputIng.classList.add("btn-Expansed");
+    }
+
+    if(index == 1){
+      inputDev.classList.add("btn-Expansed");
+    }
+
+    if(index == 2) {
+      inputUst.classList.add("btn-Expansed");
+    }
   }
 }
 
 function closeInput() {
-  btnClose = document.querySelectorAll(".filters__inputContainer is-expanded");
-  if(id ="ingBtn") {
-    inputIng.classList.remove("btn-Expansed");
-  }
-
-  if(id="devBtn") {
-    inputDev.classList.remove("btn-Expansed");
-  }
-  
-  if(id="UstBtn") {
-    inputUst.classList.remove("btn-Expansed");
-  }
-
-  //  console.log(btnClose);
-  if (btnClose.contain("btn-Expansed")) {
-    document.querySelector(".filters__inputContainer.is-expanded .btn-Expansed").classList.remove("btn-Expansed");
-  } 
+  const isExpanded = document.querySelectorAll('.btn-Expansed');
+  isExpanded.forEach(btn => {
+    btn.classList.remove('btn-Expansed')
+  });
 }

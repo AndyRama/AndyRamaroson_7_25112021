@@ -59,7 +59,7 @@ function recipeCardDom(recipes) {
     const ingredients = recipe.ingredients
     ingredients.map(ingredient => {
       ingredientList.innerHTML += `
-        <li class="recipe__ingredient">${ingredient.ingredient} :
+        <li class="recipe__ingredient">${ingredient.ingredient} ${ingredient.quantity === undefined ? "" : ":"}
           <span class="recipe__quantity">${ingredient.quantity === undefined ? "" : ingredient.quantity}
           ${ingredient.unit === undefined ? "" : ingredient.unit}</span>
         </li>
@@ -68,34 +68,10 @@ function recipeCardDom(recipes) {
     })
   });
 
-  // Algo n°1
-
   //get all array
   allUstensils = [];
   allDevices = [];
   allIngredients = [];
-
-  // Add tags in taglist container respective
-  // recipes.forEach((element) => {
-  //   //ingrédients
-  //   element.ingredients.map((e) => {
-  //     if (allIngredients.indexOf(e.ingredient) == -1) {
-  //       allIngredients.push(e.ingredient);
-  //     }
-  //   });
-    
-  //   //devices
-  //   if (allDevices.indexOf(element.appliance) == -1) {
-  //      allDevices.push(element.appliance);
-  //   }
-
-  //   //ustensiles
-  //   element.ustensils.map((e) => {
-  //     if (allUstensils.indexOf(e) == -1) {
-  //       allUstensils.push(e);
-  //     } 
-  //   });
-  // });
 
   recipes.forEach((element) => {
     //ingrédients
@@ -200,7 +176,6 @@ function launchSearch() {
   const tagsStringList = [];
   const recipesArrayFiltered = [];
   
-
   for (i = 0; i < allTags.length; i++) {
     tagsStringList.push({ title: allTags[i].dataset.controls, type: allTags[i].dataset.type });
   }  
@@ -271,9 +246,9 @@ const templateMessage = `
 `;
 
 //sert à bloquer l'évèvement "ENTER" sur la barre de recherche lorsque le champ a été saisi par l'utilsateur
-document.getElementById("search").addEventListener("submit", (e) => {
-  e.preventDefault();
-});
+// document.getElementById("search").addEventListener("submit", (e) => {
+//   e.preventDefault();
+// });
 
 //fonctions de suppression du message d'absence de recettes
 function showErrorMessage() {
