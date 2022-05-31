@@ -344,7 +344,17 @@ body {
   width: fit-content;
   justify-content: center;
   border-radius: 5px;
-  background-color: #fbf0f0;
+  background-color: #ED6454;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.filters__message--succes {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  justify-content: center;
+  border-radius: 5px;
+  background-color: #68D9A4;
   margin: 0 auto;
   padding: 1rem;
 }

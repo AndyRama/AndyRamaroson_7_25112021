@@ -31,7 +31,6 @@ function openTaglist(idContainer, index) {
     tagContainer.classList.add("is-expanded");
     icoDropDown.classList.replace("ico__dropDown", "ico__dropUp");   
 
-    //Get what btn ?
     if(index == 0) {
       inputIng.classList.add("btn-Expansed");
     }
