@@ -180,27 +180,27 @@ function launchSearch() {
     tagsStringList.push({ title: allTags[i].dataset.controls, type: allTags[i].dataset.type });
   }  
 
-  recipesArray.map(recipe => {
+  recipesArray.forEach(recipe => {
 
     let haveTagOk = true;
 
    if (tagsStringList.length > 0) {
-      tagsStringList.map(item => {
-        
-        if(item.type == "ustensils")
-          if(!recipe.ustensils.some(ustensil => ustensil.toLowerCase() == item.title.toLowerCase())) {
-            haveTagOk = false;
-          }
+      tagsStringList.forEach(item => {
+      
+      if(item.type == "ustensils")
+        if(!recipe.ustensils.reduce(ustensil => ustensil.toLowerCase() == item.title.toLowerCase())) {
+          haveTagOk = false;
+        }
 
-        if(item.type == "ingredients")
-          if(!recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase() == item.title.toLowerCase())) {
-            haveTagOk=false;
-          }
+      if(item.type == "ingredients")
+        if(!recipe.ingredients.reduce(ingredient => ingredient.ingredient.toLowerCase() == item.title.toLowerCase())) {
+          haveTagOk=false;
+        }
 
-        if(item.type == "device")
-          if(recipe.appliance != item.title) {
-            haveTagOk = false;
-          }
+      if(item.type == "device")
+        if(recipe.appliance != item.title) {
+          haveTagOk = false;
+        }
       })
     }
 
@@ -211,7 +211,7 @@ function launchSearch() {
       const descriptionLowerCase = recipe.description.toLowerCase();
  
       let ingredientsSentence = '';
-      recipe.ingredients.map(ingredient => {
+      recipe.ingredients.reduce(ingredient => {
         ingredientsSentence = ingredientsSentence + ' ' + ingredient.ingredient;
       })
 
