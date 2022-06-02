@@ -68,7 +68,7 @@
     overflow: auto;
     text-overflow: ellipsis;
     height: 120px;
-    scrollbar-color: lighten($color-3, 20%) $secondary-color;
+    scrollbar-color: lighten($color-dark, 40%) $secondary-color;
     scrollbar-width: thin;
 
     &::-webkit-scrollbar-track {
