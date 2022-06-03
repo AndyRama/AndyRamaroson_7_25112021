@@ -213,7 +213,7 @@ body {
 .recipe__instruContent::-webkit-scrollbar-thumb {
   border-radius: 10px;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #94befb;
+  background-color: gray;
 }
 .recipe__ingredientList {
   font-size: 12px;
