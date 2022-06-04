@@ -54,7 +54,7 @@ function recipeCardDom(recipes) {
       </div>
     </article>      
     `;
-    //get ingredients of recipe and dipslay
+    //get ingredients of recipe and dipslay in card
     const ingredientList = document.getElementById(`recipe-${recipe.id}`);
     const ingredients = recipe.ingredients
     ingredients.map(ingredient => {
@@ -68,11 +68,12 @@ function recipeCardDom(recipes) {
     })
   });
 
-  //get all array
+  //get all array of items
   allUstensils = [];
   allDevices = [];
   allIngredients = [];
 
+  //display all tags in taglist container
   recipes.forEach((element) => {
     //ingrédients
     element.ingredients.map((e) => {
@@ -88,7 +89,6 @@ function recipeCardDom(recipes) {
     });
   });
 
-  //display all tags in taglist container
   showTags(allIngredients, "ingredientsTaglist", "ingredients");
   showTags(allDevices, "devicesTaglist", "device");
   showTags(allUstensils, "ustensilsTaglist", "ustensils");
@@ -99,7 +99,7 @@ function showTags(items, tagId, type) {
   const tag = document.getElementById(tagId);
   let templateTaglist = ``;
   items.sort();
-  // display tag with template function
+  // display tag with template 
   items.map(item => {
     let contentItem = item[0].toUpperCase() + item.toLowerCase().slice(1);
     if (filteredIngredients.indexOf(item) != -1 || filteredDevices.indexOf(item) != -1 || filteredUstensils.indexOf(item) != -1) {
@@ -115,12 +115,12 @@ function showTags(items, tagId, type) {
   tag.innerHTML = templateTaglist;
 }
 
+//Create function add tags
 function addFilter(e) {
   const type = e.dataset.type;
   const title = e.dataset.title;
   var htmlClass;
-
-  // tags deja selectionner 
+  
   const tagList = document.getElementById("tagsBtn");
   const allTags = tagList.getElementsByTagName('button');
   const tagsStringList = [];
@@ -141,7 +141,7 @@ function addFilter(e) {
     case 'ustensils':
       htmlClass = 'filters__btn--ustensils';
     break;
-  }
+  } 
   
   //if tags isn't already present in this list => add  new tag element 
   if (!tagsStringList.some(tag => tag.title.toLowerCase() == title.toLowerCase())) {
@@ -157,31 +157,24 @@ function addFilter(e) {
   }
 }
 
-// remove tag with close
-function removeFilter(e) {
-  e.remove();
-  launchSearch();
-}
-
-function searchKeyword() {
-  launchSearch();
-}
+//sert à bloquer l'évèvement "ENTER" sur la barre de recherche lorsque le champ a été saisi par l'utilsateur
+document.querySelector("form.searchBar").addEventListener("submit", (e) => {
+  e.preventDefault();
+});
 
 function launchSearch() {
-  // Retrieve my tags
-  // Retrieve my search field
+  // Retrieve my tags and retrieve my search field 
   const searchKeyword = document.getElementById('search').value;
   const tagList = document.getElementById('tagsBtn');
   const allTags = tagList.getElementsByTagName('button');
   const tagsStringList = [];
   const recipesArrayFiltered = [];
-  
+
   for (i = 0; i < allTags.length; i++) {
     tagsStringList.push({ title: allTags[i].dataset.controls, type: allTags[i].dataset.type });
   }  
 
   recipesArray.forEach(recipe => {
-
     let haveTagOk = true;
 
    if (tagsStringList.length > 0) {
@@ -214,7 +207,7 @@ function launchSearch() {
       recipe.ingredients.map(ingredient => {
         ingredientsSentence = ingredientsSentence + ' ' + ingredient.ingredient;
       })
-
+      // console.log(ingredientsSentence)  
       const ingredientsLowerCase = ingredientsSentence.toLocaleLowerCase();
 
       if (!titleLowerCase.includes(searchKeyword.toLowerCase()) &&
@@ -228,52 +221,42 @@ function launchSearch() {
     }
   })
   recipeCardDom(recipesArrayFiltered);  
-  let count = recipesArrayFiltered.length;
+  const count = recipesArrayFiltered.length;
   showErrorMessage(count);
 }
 
-
-// A REFACTORISER
-// bandeau informatif en cas d'absence de recette lors de la recette
-const searchBarInput = document.getElementById("search");
-const noRecipesMessage = document.getElementById("filtersMessage");
-
-const templateMessage = `
-  <p class="filters__message">
-    "Aucune recette ne correspond à votre recherche... Vous pouvez chercher "tarte aux pommes", "poisson", etc ..." 
-    <svg id="closeM" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M14.59 8L12 10.59L9.41 8L8 9.41L10.59 12L8 14.59L9.41 16L12 13.41L14.59 16L16 14.59L13.41 12L16 9.41L14.59 8ZM12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="white"></path>
-    </svg>
-  </p>        
-`;
-
+// create message error
 function showErrorMessage(count) {
+  
+  const noRecipesMessage = document.getElementById("filtersMessage");
   if(count == 0) {
-    noRecipesMessage.innerHTML = templateMessage;
+    noRecipesMessage.innerHTML = `
+    <p class="filters__message">
+      "Aucune recette ne correspond à votre recherche... Vous pouvez chercher "tarte aux pommes", "poisson", etc ..."
+      <svg id="closeM" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14.59 8L12 10.59L9.41 8L8 9.41L10.59 12L8 14.59L9.41 16L12 13.41L14.59 16L16 14.59L13.41 12L16 9.41L14.59 8ZM12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="white"></path>
+      </svg>
+    </p>        
+  `;
     document.getElementById("closeM").addEventListener("click", removeErrorMessage);
   } else {
-    noRecipesMessage.innerHTML = ""; 
+    noRecipesMessage.innerHTML = "";
   }  
 }
 
+// remove message error
 function removeErrorMessage() {
-  noRecipesMessage.innerHTML = "";
+  const noRecipesMessage = document.getElementById("filtersMessage");
+  const searchBarInput = document.getElementById("search");
+  noRecipesMessage.innerHTML = ";"
   searchBarValue = "";
   searchBarInput.value = "";
 }
 
+//filter tags elements with keyword input
 const filtersInput = document.querySelectorAll(".filters__input");
 filtersInput.forEach((input) => {
   input.addEventListener("keyup", (event) => {
-    if (event.target.value.length > 0) {
-      event.target.parentElement.nextElementSibling.classList.add(
-        "is-expanded"
-      );
-    } else {
-      event.target.parentElement.nextElementSibling.classList.remove(
-        "is-expanded"
-      );
-    }
     switch (event.target.dataset.search) {
       case "ingredients":
         showTags(
@@ -300,3 +283,13 @@ filtersInput.forEach((input) => {
     }
   });
 });
+
+// remove tag with close
+function removeFilter(e) {
+  e.remove();
+  launchSearch();
+}
+
+function searchKeyword() {
+  launchSearch();
+}

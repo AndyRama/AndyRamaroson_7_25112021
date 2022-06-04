@@ -16,7 +16,7 @@
     <main class="main">
       <section class="filters__mainContainer">
         <form method="get" class="searchBar" id="searchBar">
-          <input type="search" name="search" id="search" onkeyup="launchSearch()" class="searchBar__input"
+          <input type="search" name="search" autocomplete="off" id="search" onkeyup="launchSearch()" class="searchBar__input"
             placeholder="Rechercher un ingrédients ...">
           <img src="./public/assets/search.svg" alt="search" class="searchBar__icon">
         </form>
@@ -33,7 +33,7 @@
           <div class="filters__container">
             <form class="filters__form filters__form--ing">
               <input id="inputIng" class="filters__listContainer filters__listContainer--ingredients filters__input"
-                placeholder="Ingrédients" type="search" data-search="ingredients" >
+                placeholder="Ingrédients" type="search" data-search="ingredients" autocomplete="off">
               <button id="ingBtn" class=" filters__dropDown filters__btn--ingredients" aria-controls="ingredientsContainer">
                 <img src="./public/assets/dropdown-icon-down.png" alt="dropdown" class="ico ico__dropDown">
               </button>
@@ -51,7 +51,7 @@
           <div class="filters__container">
             <form class="filters__form filters__form--dev">
               <input id="inputDev" class="filters__listContainer filters__listContainer--device filters__input" placeholder="Appareils"
-                type="search" data-search="devices" >
+                type="search" data-search="devices" autocomplete="off">
               <button id="devBtn" class="filters__dropDown filters__btn--device" aria-controls="deviceContainer">
                 <img src="./public/assets/dropdown-icon-down.png" alt="dropdown" class="ico ico__dropDown">
               </button>
@@ -69,7 +69,7 @@
           <div class="filters__container">
             <form class="filters__form filters__form--ust">
               <input id="inputUst" class="filters__listContainer filters__listContainer--ustensils filters__input"
-                placeholder="Ustensiles" type="search" data-search="ustensils" >
+                placeholder="Ustensiles" type="search" data-search="ustensils" autocomplete="off">
               <button id="ustBtn" class=" filters__dropDown filters__btn--ustensils" aria-controls="ustensilsContainer">
                 <img src="./public/assets/dropdown-icon-down.png" alt="dropdown" class="ico ico__dropDown">
               </button>
