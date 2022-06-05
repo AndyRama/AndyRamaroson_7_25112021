@@ -17,11 +17,11 @@ fetch("./script/api/recipes.json")
   })
   .then((value) => {
     //display all recipes
-    recipeCardDom(value.recipes);//ELEMENT OF RECIPE FOR CARD
-    recipesArray = value.recipes;//array OF ALL RECIPES
+    recipeCardDom(value.recipes);//element of content recipes
+    recipesArray = value.recipes;//array of all recipes
   })
 
-//show cards
+//show cards recipes
 function recipeCardDom(recipes) {
   //get container recipes create a new card for recipe
   const recipeCard = document.getElementById("recipeContainer");
@@ -147,9 +147,8 @@ function launchSearch() {
       recipe.ingredients.map(ingredient => {
         ingredientsSentence = ingredientsSentence + ' ' + ingredient.ingredient;
       })
-
+      // console.log(ingredientsSentence)
       const ingredientsLowerCase = ingredientsSentence.toLocaleLowerCase();
-      //Function check() keywords match with list
       
       if (!titleLowerCase.includes(searchKeyword.toLowerCase()) &&
         !descriptionLowerCase.includes(searchKeyword.toLowerCase()) &&
@@ -177,20 +176,20 @@ filtersInput.forEach((input) => {
           "ingredientsTaglist",
           "ingredients"
         );
-        break;
+      break;
       case "devices":
         showTags(
           allDevices.filter((device) => device.toLowerCase().indexOf(event.target.value.toLowerCase()) != -1),
           "devicesTaglist",
           "device"
         );
-        break;
+      break;
       case "ustensils":
         showTags(allUstensils.filter((ustensil) => ustensil.toLowerCase().indexOf(event.target.value.toLowerCase()) != -1),
           "ustensilsTaglist",
           "ustensils"
         );
-        break;
+      break;
     }
   });
 });

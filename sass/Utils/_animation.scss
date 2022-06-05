@@ -1,0 +1,30 @@
+
+@keyframes slideBottom {
+  from {
+    top: -100px;
+  }
+
+  to {
+    top: 0px;
+  }
+}
+@keyframes slideTop {
+  from {
+    top: 0px;
+  }
+
+  to {
+    top: -100px;
+  }
+}
+
+@keyframes soft_show_from_down {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
