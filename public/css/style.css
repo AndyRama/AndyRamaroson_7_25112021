@@ -351,7 +351,7 @@ body {
   animation: slideBottom linear 0.5s forwards, slideTop 0.5s linear 3.5s forwards;
   background-color: #ec6454;
   border-bottom: 8px solid #fbe1de;
-  margin: 0 -10px 0 0;
+  margin: 0;
 }
 .filters__message--succes {
   position: absolute;
@@ -364,9 +364,9 @@ body {
   right: 0;
   color: white;
   animation: slideBottom linear 0.5s forwards, slideTop 0.5s linear 3.5s forwards;
-  background-color: #3282f7;
-  border-bottom: 8px solid #c5ddfd;
-  margin: 0 -10px 0 0;
+  background-color: #68D9A4;
+  border-bottom: 8px solid #e2f8ee;
+  margin: 0;
 }
 .filters__messageContainer {
   display: flex;
@@ -423,8 +423,8 @@ body {
   display: block;
   margin: auto;
   max-width: 268px;
-  margin-top: 90px;
-  margin-bottom: 17px;
+  margin-top: 80px;
+  margin-bottom: 40px;
 }
 
 .tags__taglist {

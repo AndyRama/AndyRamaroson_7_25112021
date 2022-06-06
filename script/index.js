@@ -56,7 +56,7 @@ function recipeCardDom(recipes) {
     `;
     //get ingredients of recipe and dipslay in card 
     const ingredientList = document.getElementById(`recipe-${recipe.id}`);
-    const ingredients = recipe.ingredients
+    const ingredients = recipe.ingredients;
     ingredients.map(ingredient => {
       ingredientList.innerHTML += `
         <li class="recipe__ingredient">${ingredient.ingredient} ${ingredient.quantity === undefined ? "" : ":"}
@@ -65,7 +65,7 @@ function recipeCardDom(recipes) {
         </li>
       `;
       styleDelay = styleDelay + 200;
-    })
+    });
   });
 
   //get all array of items
@@ -118,7 +118,7 @@ function launchSearch() {
     let haveTagOk = true;
 
    if (tagsStringList.length > 0) {
-      tagsStringList.map(item => {
+      tagsStringList.forEach(item => {
       
       if(item.type == "ustensils")
         if(!recipe.ustensils.some(ustensil => ustensil.toLowerCase() == item.title.toLowerCase())) {
@@ -134,7 +134,7 @@ function launchSearch() {
         if(recipe.appliance != item.title) {
           haveTagOk = false;
         }
-      })
+      });
     }
 
     let wordContains = true;
@@ -146,8 +146,8 @@ function launchSearch() {
       let ingredientsSentence = '';
       recipe.ingredients.map(ingredient => {
         ingredientsSentence = ingredientsSentence + ' ' + ingredient.ingredient;
-      })
-      // console.log(ingredientsSentence)
+      });
+
       const ingredientsLowerCase = ingredientsSentence.toLocaleLowerCase();
       
       if (!titleLowerCase.includes(searchKeyword.toLowerCase()) &&
@@ -159,37 +159,8 @@ function launchSearch() {
     if (haveTagOk && wordContains) {
       recipesArrayFiltered.push(recipe);
     }
-  })
+  });
   recipeCardDom(recipesArrayFiltered);  
   const count = recipesArrayFiltered.length;
   showErrorMessage(count);
 }
-
-//filter tags elements with keyword input
-const filtersInput = document.querySelectorAll(".filters__input");
-filtersInput.forEach((input) => {
-  input.addEventListener("keyup", (event) => {
-    switch (event.target.dataset.search) {
-      case "ingredients":
-        showTags(
-          allIngredients.filter((ing) => ing.toLowerCase().indexOf(event.target.value.toLowerCase()) != -1),
-          "ingredientsTaglist",
-          "ingredients"
-        );
-      break;
-      case "devices":
-        showTags(
-          allDevices.filter((device) => device.toLowerCase().indexOf(event.target.value.toLowerCase()) != -1),
-          "devicesTaglist",
-          "device"
-        );
-      break;
-      case "ustensils":
-        showTags(allUstensils.filter((ustensil) => ustensil.toLowerCase().indexOf(event.target.value.toLowerCase()) != -1),
-          "ustensilsTaglist",
-          "ustensils"
-        );
-      break;
-    }
-  });
-});

@@ -66,3 +66,32 @@ function removeFilter(e) {
   e.remove();
   launchSearch();
 }
+
+//filter tags elements with keyword input
+const filtersInput = document.querySelectorAll(".filters__input");
+filtersInput.forEach((input) => {
+  input.addEventListener("keyup", (event) => {
+    switch (event.target.dataset.search) {
+      case "ingredients":
+        showTags(
+          allIngredients.filter((ing) => ing.toLowerCase().indexOf(event.target.value.toLowerCase()) != -1),
+          "ingredientsTaglist",
+          "ingredients"
+        );
+      break;
+      case "devices":
+        showTags(
+          allDevices.filter((device) => device.toLowerCase().indexOf(event.target.value.toLowerCase()) != -1),
+          "devicesTaglist",
+          "device"
+        );
+      break;
+      case "ustensils":
+        showTags(allUstensils.filter((ustensil) => ustensil.toLowerCase().indexOf(event.target.value.toLowerCase()) != -1),
+          "ustensilsTaglist",
+          "ustensils"
+        );
+      break;
+    }
+  });
+});

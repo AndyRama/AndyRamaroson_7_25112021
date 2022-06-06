@@ -1,5 +1,4 @@
 const btnOrder = Array.from(document.querySelectorAll(".filters__dropDown"));
-
 const inputIng = document.getElementById("inputIng");
 const inputDev = document.getElementById("inputDev");
 const inputUst = document.getElementById("inputUst"); 
@@ -28,6 +27,7 @@ function openTaglist(idContainer, index) {
       document.querySelector(".filters__inputContainer.is-expanded").classList.remove("is-expanded");
       closeInput()
     }
+    
     tagContainer.classList.add("is-expanded");
     icoDropDown.classList.replace("ico__dropDown", "ico__dropUp");   
 
