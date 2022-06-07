@@ -71,6 +71,15 @@ function removeFilter(e) {
 const filtersInput = document.querySelectorAll(".filters__input");
 filtersInput.forEach((input) => {
   input.addEventListener("keyup", (event) => {
+    if (event.target.value.length > 0) {
+      event.target.parentElement.nextElementSibling.classList.add(
+        "is-expanded"
+      );
+    } else {
+      event.target.parentElement.nextElementSibling.classList.remove(
+        "is-expanded"
+      );
+    }
     switch (event.target.dataset.search) {
       case "ingredients":
         showTags(

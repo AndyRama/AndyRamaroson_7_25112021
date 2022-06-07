@@ -2,11 +2,10 @@
 @media screen and (max-width: 1260px) {
   .recipe {
     &__mainContainer {
-      width: 100vw;
+      width: 100%;
       margin: 2rem auto;
       grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
       gap: 25px;
-      margin-left: -20px;
     }
 
     &__container {

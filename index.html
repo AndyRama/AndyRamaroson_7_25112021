@@ -27,7 +27,7 @@
             <!-- tags elements update  this content with jS -->               
           </ul>
         </div>
-
+        
         <!-- main Container for filters -->
         <div class="filters__Section">
 
@@ -35,14 +35,16 @@
           <div class="filters__container">
             <form class="filters__form filters__form--ing">
               <input id="inputIng" class="filters__listContainer filters__listContainer--ingredients filters__input"
-              placeholder="Ingrédients" type="search" data-search="ingredients" autocomplete="off">
+              placeholder="Ingrédients" type="search" data-search="ingredients" autocomplete="off" >
               <button id="ingBtn" class=" filters__dropDown filters__btn--ingredients" aria-controls="ingredientsContainer">
                 <img src="./public/assets/dropdown-icon-down.png" alt="dropdown" class="ico ico__dropDown">
-              </button>
-            </form>
+              </button>  
+            </form>    
+            <!-- <ul id="results"></ul> -->
+
             <div id="ingredientsContainer" class="filters__inputContainer filters__inputContainer--ingredients">
-              <!-- dynamic chargement -->
               <div id="ingredientsTagsContainer" class="tags__container tags__container--ingredients">
+                <ul id="results"></ul>  
                 <ul id="ingredientsTaglist" class="tags__taglist tags__taglist--ingredients ">
                   <!-- dynamic chargement -->
                 </ul>
@@ -93,7 +95,8 @@
       <!-- cards recipe -->
       <section id="recipeContainer" class="recipe__mainContainer">
         <!-- dynamic chargement -->
-      </section>
+      </section>    
+
     </main>  
     <script src="script/index.js"></script>  
     <script src="script/message.js"></script> 

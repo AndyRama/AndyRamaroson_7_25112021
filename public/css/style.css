@@ -100,7 +100,7 @@ body {
 }
 .filters__dropDown {
   width: 40px;
-  height: 55px;
+  height: 54px;
   background: none;
   cursor: pointer;
   border: 0;
@@ -419,6 +419,11 @@ body {
   top: 17.5px;
 }
 
+#results {
+  list-style: none;
+  flex-direction: row;
+}
+
 .header__logo {
   display: block;
   margin: auto;
@@ -445,15 +450,15 @@ body {
   border: none;
   background: none;
   color: white;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1260px) {
   .recipe__mainContainer {
-    width: 100vw;
+    width: 100%;
     margin: 2rem auto;
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     gap: 25px;
-    margin-left: -20px;
   }
   .recipe__container {
     max-width: 380px;
