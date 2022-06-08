@@ -1,4 +1,5 @@
 const btnOrder = Array.from(document.querySelectorAll(".filters__dropDown"));
+
 const inputIng = document.getElementById("inputIng");
 const inputDev = document.getElementById("inputDev");
 const inputUst = document.getElementById("inputUst"); 

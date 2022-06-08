@@ -419,9 +419,19 @@ body {
   top: 17.5px;
 }
 
-#results {
+.inputList {
+  margin-top: -46px;
+  background-color: #3282F7;
   list-style: none;
-  flex-direction: row;
+  height: auto;
+  opacity: 1;
+  border-radius: 0 0 5px 5px;
+  z-index: 1;
+  transform: translateY(34px);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .header__logo {

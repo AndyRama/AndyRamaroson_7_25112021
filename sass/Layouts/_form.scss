@@ -31,15 +31,41 @@
   }
 }
 
-#results {
+// #results {
+//   list-style: none;
+//   // flex-direction: row;
+//   // // align-content: flex-start;
+//   justify-content: left;
+//   // // margin-right: 40px;
+//   // border:1px solid black;
+//   margin-top: -40px;
+//   // background-color: #3282F7;
+//   background-color: RED;
+//   padding: 1rem;
+//   // margin: 1rem;
+//   display: grid;
+//   width: 208px;
+//   height: auto;
+//   opacity: 1;
+//   position: absolute;
+//   transition: width 0.3s, opacity 0s;
+//   z-index: 2;
+//   transform:translateY(40px)
+// }
+
+.inputList {
+  margin-top: -46px;
+  background-color: #3282F7;
   list-style: none;
-  flex-direction: row;
-  // // align-content: flex-start;
-  // // justify-content: left;
-  // // margin-right: 40px;
-  // border:1px solid black;
-  // margin-top: -2px;
-  // background-color: blue;
-  // padding: 1rem;
-  // margin: 1rem;
+  // width: 200px;
+  height: auto;
+  opacity: 1;
+  // position: absolute;
+  border-radius: 0 0 5px 5px;
+  z-index: 1;
+  transform:translateY(34px);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }

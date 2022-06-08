@@ -70,7 +70,7 @@ function removeFilter(e) {
 //filter tags elements with keyword input
 const filtersInput = document.querySelectorAll(".filters__input");
 filtersInput.forEach((input) => {
-  input.addEventListener("keyup", (event) => {
+  input.addEventListener("keyup", (event) => {    
     if (event.target.value.length > 0) {
       event.target.parentElement.nextElementSibling.classList.add(
         "is-expanded"
@@ -104,3 +104,165 @@ filtersInput.forEach((input) => {
     }
   });
 });
+
+const dataIng = [
+  "Ail",
+  "Ananas",
+  "Banane",
+  "Basilic",
+  "Beurre",
+  "Beurre fondu",
+  "Beurre salé",
+  "Bicarbonate",
+  "Blanc de dinde",
+  "Boudoirs",
+  "Carotte",
+  "Champignons de paris",
+  "Chocolat",
+  "Chocolat au lait",
+  "Chocolat noir",
+  "Chocolat noir en pepites",
+  "Citron",
+  "Citron Vert",
+  "Concombre",
+  "Coulis de tomates",
+  "Courgette",
+  "Crème de coco",
+  "Crème faiche",
+  "Crème liquide",
+  "Crême fraîche",
+  "Cumin",
+  "Eau",
+  "Emmental",
+  "Farine",
+  "Farine de blé noir",
+  "Feuilles de laitue",
+  "Fraise",
+  "Fromage blanc",
+  "Fromage de chèvre",
+  "Fromage à raclette",
+  "Glace à la vanille",
+  "Glaçons",
+  "Gruyère",
+  "Haricots verts",
+  "Huile d'olive",
+  "Huile d'olives",
+  "Jambon de parme",
+  "Jambon fumé",
+  "Jus de citron",
+  "Kiwi",
+  "Kiwis",
+  "Lait",
+  "Lardons",
+  "Lasagnes",
+  "Macaronis",
+  "Mangue",
+  "Mascarpone",
+  "Mayonnaise",
+  "Maïs",
+  "Maïzena",
+  "Menthe",
+  "Miel",
+  "Moutarde de Dijon",
+  "Mozzarella",
+  "Mâche",
+  "Noix",
+  "Noix de muscade",
+  "Oeuf",
+  "Oeuf dur",
+  "Oignon",
+  "Olives",
+  "Orange",
+  "Oseille",
+  "Pain",
+  "Pain de mie",
+  "Paprika",
+  "Parmesan",
+  "Pastèque",
+  "Patate douce",
+  "Pennes",
+  "Petits poids",
+  "Poireau",
+  "Poires au jus",
+  "Pois Cassé",
+  "Pois chiches",
+  "Poivron rouge",
+  "Pomme",
+  "Pommes",
+  "Pommes de terre",
+  "Poudre d'amandes",
+  "Poulet",
+  "Pruneaux",
+  "Pâte brisée",
+  "Pâte feuilletée",
+  "Pâte sablée",
+  "Pâte à pizza",
+  "Rhubarbe",
+  "Riz blanc",
+  "Salade Verte",
+  "Saucisse bretonne ou de toulouse",
+  "Saumon Fumé",
+  "Spaghettis",
+  "Sucre",
+  "Sucre en Poudre",
+  "Sucre en poudre",
+  "Sucre glace",
+  "Sucre roux",
+  "Sucre vanillé",
+  "Tagliatelles",
+  "Thon Rouge (ou blanc)",
+  "Thon en miettes",
+  "Tomate",
+  "Tomates cerises",
+  "Tomates pelées",
+  "Vermicelles",
+  "Viande hachée",
+  "Vin blanc sec",
+  "Vin rouge",
+  "Vinaigre Balsamique",
+  "Vinaigre de cidre",
+  "Vinaigrette",
+  "farine",
+  "gruyère râpé",
+  "huile d'olive",
+  "huile d'olives",
+  "lait de coco",
+  "reblochon",
+  "Échalote"
+];
+
+const data = dataIng;
+
+console.log(data);
+const autocomplete = document.getElementById("inputIng") ;
+const resultsHTML = document.getElementById("results");
+
+autocomplete.oninput = function () {
+  let results = [];
+  const userInput = this.value;
+  console.log(userInput);
+  resultsHTML.innerHTML = "";
+  if (userInput.length > 0) {
+    results = getResults(userInput);
+    resultsHTML.style.display = "grid";
+    for (i = 0; i < results.length; i++) {
+      resultsHTML.innerHTML += "<li>" + results[i] + "</li>";
+    }
+  }
+};
+
+function getResults(input) {
+  const results = [];
+  for (i = 0; i < data.length; i++) {
+    if (input === data[i].slice(0, input.length)) {
+      results.push(data[i]);
+    }
+  }
+  return results;
+}
+resultsHTML.onclick = function (event) {
+  const setValue = event.target.innerText;
+  autocomplete.value = setValue;
+  this.innerHTML = "";
+};
+
