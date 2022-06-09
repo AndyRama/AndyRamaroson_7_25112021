@@ -376,6 +376,10 @@ body {
   display: flex;
 }
 
+.is-expanded-small {
+  display: flex;
+}
+
 .is-selected {
   background-color: white;
   border-radius: 5px;

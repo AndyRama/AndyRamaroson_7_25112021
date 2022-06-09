@@ -166,6 +166,11 @@
   display: flex;
 }
 
+.is-expanded-small {
+  display: flex;
+  // width: 200px;
+}
+
 .is-selected {
   background-color: lighten($color-dark, 100%);
   border-radius: 5px;
