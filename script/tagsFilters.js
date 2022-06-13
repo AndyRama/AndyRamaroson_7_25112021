@@ -72,13 +72,13 @@ const filtersInput = document.querySelectorAll(".filters__input");
 filtersInput.forEach((input) => {
   input.addEventListener("keyup", (event) => {    
     if (event.target.value.length > 0) {
-      event.target.parentElement.nextElementSibling.classList.add(
-        "is-expanded"
-      );
-    } else {
-      event.target.parentElement.nextElementSibling.classList.remove(
-        "is-expanded"
-      );
+    //   event.target.parentElement.nextElementSibling.classList.add(
+    //     "is-expanded"
+    //   );
+    // } else {
+    //   event.target.parentElement.nextElementSibling.classList.remove(
+    //     "is-expanded"
+    //   );
     }
     switch (event.target.dataset.search) {
       case "ingredients":
@@ -104,7 +104,6 @@ filtersInput.forEach((input) => {
     }
   });
 });
-
 const dataIng = [
   "Ail",
   "Ananas",
@@ -233,36 +232,67 @@ const dataIng = [
 
 const data = dataIng;
 
-console.log(data);
-const autocomplete = document.getElementById("inputIng") ;
+const autocomplete = document.getElementById("inputIng");
 const resultsHTML = document.getElementById("results");
+const results2 =  document.getElementById("results2");
 
 autocomplete.oninput = function () {
   let results = [];
   const userInput = this.value;
-  console.log(userInput);
   resultsHTML.innerHTML = "";
+
   if (userInput.length > 0) {
     results = getResults(userInput);
     resultsHTML.style.display = "grid";
+    
     for (i = 0; i < results.length; i++) {
       resultsHTML.innerHTML += "<li>" + results[i] + "</li>";
     }
-  }
+  } else { (userInput.length >= 1 )
+    results = getResults(userInput);
+    resultsHTML.style.display = "none"; 
+  } 
 };
 
 function getResults(input) {
   const results = [];
+  const results2 = [];
+
   for (i = 0; i < data.length; i++) {
     if (input === data[i].slice(0, input.length)) {
       results.push(data[i]);
     }
+    console.log(results)
   }
+  
+  results2 = new Array(results)
+  console.log(results2)
+  // if(input.length > 0 ){  
+  //   sugestionContainer.style.display = "flex";
+  //   sugestionContainer.innerHTML = `${results}`
+  // } 
   return results;
-}
-resultsHTML.onclick = function (event) {
-  const setValue = event.target.innerText;
-  autocomplete.value = setValue;
-  this.innerHTML = "";
+  }
+  resultsHTML.onclick = function (event) {
+    const setValue = event.target.innerText;
+    autocomplete.value = setValue;
+    this.innerHTML = "";
 };
+
+// ---------------
+// Deleting items
+// ---------------
+
+// arr = [1, 2, 3, 4];
+// arr.every( (elem, index, arr) => {
+//   arr.pop()
+//   console.log(`[${arr}][${index}] -> ${elem}`)
+//   return elem < 4
+// })
+
+// Loop runs for 2 iterations only, as the remaining
+// items are `pop()`ed off
+//
+// 1st iteration: [1,2,3][0] -> 1
+// 2nd iteration: [1,2][1] -> 2
 
