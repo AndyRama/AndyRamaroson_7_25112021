@@ -111,54 +111,89 @@ function launchSearch() {
 
   for (i = 0; i < allTags.length; i++) {
     tagsStringList.push({ title: allTags[i].dataset.controls, type: allTags[i].dataset.type });
-  }  
+  }
 
-  recipesArray.map(recipe => {
+  for (x = 0; x < recipesArray.length; x++) {
+
     let haveTagOk = true;
+    let countUstensils = 0;
+    let countUstensilsInRecipe = 0;
 
-   if (tagsStringList.length > 0) {
-      tagsStringList.map(item => {
-     
-      if(item.type == "ustensils")
-        if(!recipe.ustensils.some(ustensil => ustensil.toLowerCase() == item.title.toLowerCase())) {
-          haveTagOk = false;
+    let countIngredients = 0;
+    let countIngredientsInRecipe = 0;
+
+    if (tagsStringList.length > 0) {
+      tagsStringList.forEach(item => {
+      if (item.type == "ustensils") {
+        countUstensils++;
+          for (z = 0; z < recipesArray[x].ustensils.length; z++) {
+            if (recipesArray[x].ustensils[z].toLowerCase() == item.title.toLocaleLowerCase()) {
+              countUstensilsInRecipe++;
+            }
+          }
         }
 
-      if(item.type == "ingredients")
-        if(!recipe.ingredients.some(ingredient => ingredient.ingredient.toLowerCase() == item.title.toLowerCase())) {
-          haveTagOk=false;
+        if (item.type == "ingredients") {
+          countIngredients++;
+          for (y = 0; y < recipesArray[x].ingredients.length; y++) {
+            if (recipesArray[x].ingredients[y].ingredient.toLowerCase() == item.title.toLocaleLowerCase()) {
+              countIngredientsInRecipe++;
+            }
+          }
         }
 
-      if(item.type == "device")
-        if(recipe.appliance != item.title) {
-          haveTagOk = false;
-        }
+        if (item.type == "device")
+          if (recipesArray[x].appliance != item.title) {
+            haveTagOk = false;
+          }
       });
+
+      if (countUstensilsInRecipe != countUstensils) {
+        haveTagOk = false;
+      }
+
+      if (countIngredientsInRecipe != countIngredients) {
+        haveTagOk = false;
+      }
+
     }
 
     let wordContains = true;
-    console.log(allIngredients)
- 
     if (searchKeyword.length >= 3) {
-      const titleLowerCase = recipe.name.toLowerCase();
-      const descriptionLowerCase = recipe.description.toLowerCase();
-      const ingredientsSentence = recipe.ingredients.reduce(
-        (previousValue, currentValue) => previousValue + ' ' + currentValue.ingredient,
-        ''
-      );
-      const ingredientsLowerCase = ingredientsSentence.toLocaleLowerCase();
-     
+
+      const titleLowerCase = recipesArray[x].name.toLowerCase();
+      const descriptionLowerCase = recipesArray[x].description.toLowerCase();
+
+      let ingredientsSentence = '';
+      for (u = 0; u < recipesArray[x].ingredients.length; u++) {
+        ingredientsSentence = ingredientsSentence + ' ' + recipesArray[x].ingredients[u].ingredient;
+      }
+
+      const ingredientsLowerCase = ingredientsSentence.toLowerCase();
+      const ingredientsList = ingredientsLowerCase.split(' ');
+      let ingredientsInSearch = false;
+
+      for (b = 0; b < ingredientsList.length; b++) {
+        if (ingredientsList[b].includes(searchKeyword.toLowerCase())) {
+          ingredientsInSearch = true;
+        }
+      }
+
       if (!titleLowerCase.includes(searchKeyword.toLowerCase()) &&
         !descriptionLowerCase.includes(searchKeyword.toLowerCase()) &&
-        !ingredientsLowerCase.includes(searchKeyword.toLowerCase())) {
+        !ingredientsInSearch) {
         wordContains = false;
       }
+
     }
     if (haveTagOk && wordContains) {
-      recipesArrayFiltered.push(recipe);
+      recipesArrayFiltered.push(recipesArray[x]);
     }
-  });
-  recipeCardDom(recipesArrayFiltered);  
+
+  }
+
+  recipeCardDom(recipesArrayFiltered);
   const count = recipesArrayFiltered.length;
   showErrorMessage(count);
-} 
+}
+
