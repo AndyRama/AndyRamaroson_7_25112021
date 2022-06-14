@@ -137,7 +137,6 @@ function launchSearch() {
     }
 
     let wordContains = true;
-    console.log(allIngredients)
  
     if (searchKeyword.length >= 3) {
       const titleLowerCase = recipe.name.toLowerCase();

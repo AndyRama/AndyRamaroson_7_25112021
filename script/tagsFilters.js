@@ -3,7 +3,7 @@ function showTags(items, tagId, type) {
   const tag = document.getElementById(tagId);
   let templateTaglist = ``;
   items.sort();
-  // display tag with template 
+  // display tag with template
   items.map(item => {
     let contentItem = item[0].toUpperCase() + item.toLowerCase().slice(1);
     if (filteredIngredients.indexOf(item) != -1 || filteredDevices.indexOf(item) != -1 || filteredUstensils.indexOf(item) != -1) {
@@ -24,7 +24,7 @@ function addFilter(e) {
   const type = e.dataset.type;
   const title = e.dataset.title;
   var htmlClass;
-  
+
   const tagList = document.getElementById("tagsBtn");
   const allTags = tagList.getElementsByTagName('button');
   const tagsStringList = [];
@@ -33,7 +33,7 @@ function addFilter(e) {
     tagsStringList.push({ title: allTags[i].dataset.controls, type: allTags[i].dataset.type });
   }
 
-  switch(type) {
+  switch (type) {
     case 'ingredients':
       htmlClass = 'filters__btn--ingredients';
     break;
@@ -44,10 +44,10 @@ function addFilter(e) {
 
     case 'ustensils':
       htmlClass = 'filters__btn--ustensils';
-    break;
-  } 
-  
-  //if tags isn't already present in this list => add  new tag element 
+    break;  
+  }
+
+  //if tags isn't already present in this list => add  new tag element
   if (!tagsStringList.some(tag => tag.title.toLowerCase() == title.toLowerCase())) {
     document.getElementById('tagsBtn').innerHTML = document.getElementById('tagsBtn').innerHTML + `
       <button onclick="removeFilter(this)" data-type="${type}" data-controls="${title}" class="filters__tag filters__Btn ${htmlClass}">
@@ -70,16 +70,7 @@ function removeFilter(e) {
 //filter tags elements with keyword input
 const filtersInput = document.querySelectorAll(".filters__input");
 filtersInput.forEach((input) => {
-  input.addEventListener("keyup", (event) => {    
-    if (event.target.value.length > 0) {
-    //   event.target.parentElement.nextElementSibling.classList.add(
-    //     "is-expanded"
-    //   );
-    // } else {
-    //   event.target.parentElement.nextElementSibling.classList.remove(
-    //     "is-expanded"
-    //   );
-    }
+  input.addEventListener("keyup", (event) => {
     switch (event.target.dataset.search) {
       case "ingredients":
         showTags(
@@ -87,212 +78,80 @@ filtersInput.forEach((input) => {
           "ingredientsTaglist",
           "ingredients"
         );
-      break;
+        break;
       case "devices":
         showTags(
           allDevices.filter((device) => device.toLowerCase().indexOf(event.target.value.toLowerCase()) != -1),
           "devicesTaglist",
           "device"
         );
-      break;
+        break;
       case "ustensils":
         showTags(allUstensils.filter((ustensil) => ustensil.toLowerCase().indexOf(event.target.value.toLowerCase()) != -1),
           "ustensilsTaglist",
           "ustensils"
         );
-      break;
+        break;
     }
   });
 });
-const dataIng = [
-  "Ail",
-  "Ananas",
-  "Banane",
-  "Basilic",
-  "Beurre",
-  "Beurre fondu",
-  "Beurre salé",
-  "Bicarbonate",
-  "Blanc de dinde",
-  "Boudoirs",
-  "Carotte",
-  "Champignons de paris",
-  "Chocolat",
-  "Chocolat au lait",
-  "Chocolat noir",
-  "Chocolat noir en pepites",
-  "Citron",
-  "Citron Vert",
-  "Concombre",
-  "Coulis de tomates",
-  "Courgette",
-  "Crème de coco",
-  "Crème faiche",
-  "Crème liquide",
-  "Crême fraîche",
-  "Cumin",
-  "Eau",
-  "Emmental",
-  "Farine",
-  "Farine de blé noir",
-  "Feuilles de laitue",
-  "Fraise",
-  "Fromage blanc",
-  "Fromage de chèvre",
-  "Fromage à raclette",
-  "Glace à la vanille",
-  "Glaçons",
-  "Gruyère",
-  "Haricots verts",
-  "Huile d'olive",
-  "Huile d'olives",
-  "Jambon de parme",
-  "Jambon fumé",
-  "Jus de citron",
-  "Kiwi",
-  "Kiwis",
-  "Lait",
-  "Lardons",
-  "Lasagnes",
-  "Macaronis",
-  "Mangue",
-  "Mascarpone",
-  "Mayonnaise",
-  "Maïs",
-  "Maïzena",
-  "Menthe",
-  "Miel",
-  "Moutarde de Dijon",
-  "Mozzarella",
-  "Mâche",
-  "Noix",
-  "Noix de muscade",
-  "Oeuf",
-  "Oeuf dur",
-  "Oignon",
-  "Olives",
-  "Orange",
-  "Oseille",
-  "Pain",
-  "Pain de mie",
-  "Paprika",
-  "Parmesan",
-  "Pastèque",
-  "Patate douce",
-  "Pennes",
-  "Petits poids",
-  "Poireau",
-  "Poires au jus",
-  "Pois Cassé",
-  "Pois chiches",
-  "Poivron rouge",
-  "Pomme",
-  "Pommes",
-  "Pommes de terre",
-  "Poudre d'amandes",
-  "Poulet",
-  "Pruneaux",
-  "Pâte brisée",
-  "Pâte feuilletée",
-  "Pâte sablée",
-  "Pâte à pizza",
-  "Rhubarbe",
-  "Riz blanc",
-  "Salade Verte",
-  "Saucisse bretonne ou de toulouse",
-  "Saumon Fumé",
-  "Spaghettis",
-  "Sucre",
-  "Sucre en Poudre",
-  "Sucre en poudre",
-  "Sucre glace",
-  "Sucre roux",
-  "Sucre vanillé",
-  "Tagliatelles",
-  "Thon Rouge (ou blanc)",
-  "Thon en miettes",
-  "Tomate",
-  "Tomates cerises",
-  "Tomates pelées",
-  "Vermicelles",
-  "Viande hachée",
-  "Vin blanc sec",
-  "Vin rouge",
-  "Vinaigre Balsamique",
-  "Vinaigre de cidre",
-  "Vinaigrette",
-  "farine",
-  "gruyère râpé",
-  "huile d'olive",
-  "huile d'olives",
-  "lait de coco",
-  "reblochon",
-  "Échalote"
-];
 
-const data = dataIng;
+const autocomplete = document.querySelectorAll(".autocomplete");
+autocomplete.forEach(el => {
 
-const autocomplete = document.getElementById("inputIng");
-const resultsHTML = document.getElementById("results");
-const results2 =  document.getElementById("results2");
+  el.oninput = function () {
+    let results = [];
+    const userInput = this.value;
+    const type = this.dataset.search;
+    document.getElementById(`results__${type}`).innerHTML = '';
+    const allResults = document.querySelectorAll('.results');
 
-autocomplete.oninput = function () {
-  let results = [];
-  const userInput = this.value;
-  resultsHTML.innerHTML = "";
+    allResults.forEach(result => {
+      result.style.display = 'none';
+    })
 
-  if (userInput.length > 0) {
-    results = getResults(userInput);
-    resultsHTML.style.display = "grid";
-    
-    for (i = 0; i < results.length; i++) {
-      resultsHTML.innerHTML += "<li>" + results[i] + "</li>";
+    if (userInput.length > 2) {
+      results = getResults(userInput, type);
+
+      if(results.length > 0) {
+        document.getElementById(`results__${type}`).style.display = 'grid';
+
+        for (i = 0; i < results.length; i++) {
+          document.getElementById(`results__${type}`).innerHTML += `<li data-type="${type}" data-title="${results[i]}" onclick="addFilter(this)">${results[i]}</li>`;
+        }
+      } else {
+        document.getElementById(`results__${type}`).style.display = 'none';
+      }
+    } else {
+      document.getElementById(`results__${type}`).style.display = 'none';
     }
-  } else { (userInput.length >= 1 )
-    results = getResults(userInput);
-    resultsHTML.style.display = "none"; 
-  } 
-};
+  };
 
-function getResults(input) {
+})
+
+function getResults(input, type) {
   const results = [];
-  const results2 = [];
+  let datas;
+  if (type == 'ingredients') {
+    datas = allIngredients;
+  }
 
-  for (i = 0; i < data.length; i++) {
-    if (input === data[i].slice(0, input.length)) {
-      results.push(data[i]);
+  if (type == 'ustensils') {
+    datas = allUstensils;
+  }
+
+  if (type == 'devices') {
+    datas = allDevices;
+  }
+
+  datas.forEach(data => {
+    console.log(input.toLowerCase());
+    console.log(data.toLowerCase())
+    if (data.toLowerCase().includes(input.toLowerCase())) {
+      results.push(data);
     }
-    console.log(results)
-  }
-  
-  results2 = new Array(results)
-  console.log(results2)
-  // if(input.length > 0 ){  
-  //   sugestionContainer.style.display = "flex";
-  //   sugestionContainer.innerHTML = `${results}`
-  // } 
+  })
+
   return results;
-  }
-  resultsHTML.onclick = function (event) {
-    const setValue = event.target.innerText;
-    autocomplete.value = setValue;
-    this.innerHTML = "";
-};
-
-// ---------------
-// Deleting items
-// ---------------
-
-// arr = [1, 2, 3, 4];
-// arr.every( (elem, index, arr) => {
-//   arr.pop()
-//   console.log(`[${arr}][${index}] -> ${elem}`)
-//   return elem < 4
-// })
-
-// Loop runs for 2 iterations only, as the remaining
-// items are `pop()`ed off
-//
-// 1st iteration: [1,2,3][0] -> 1
-// 2nd iteration: [1,2][1] -> 2
+}
 

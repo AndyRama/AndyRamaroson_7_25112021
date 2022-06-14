@@ -2,10 +2,9 @@
   &__taglist {
     display: grid;
     grid-template-columns: repeat(3, minmax(150px, 1fr));
-    padding: 1rem;
-    padding-left: 2rem;
+    padding-left: 0;
     list-style-type: none;
-    gap: 12px;
+    gap: 10px;
   }
 }
 
