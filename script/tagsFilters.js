@@ -33,7 +33,7 @@ function addFilter(e) {
     tagsStringList.push({ title: allTags[i].dataset.controls, type: allTags[i].dataset.type });
   }
 
-  switch (type) {
+  switch(type) {
     case 'ingredients':
       htmlClass = 'filters__btn--ingredients';
     break;
@@ -44,7 +44,7 @@ function addFilter(e) {
 
     case 'ustensils':
       htmlClass = 'filters__btn--ustensils';
-    break;  
+    break;
   }
 
   //if tags isn't already present in this list => add  new tag element
@@ -78,20 +78,20 @@ filtersInput.forEach((input) => {
           "ingredientsTaglist",
           "ingredients"
         );
-        break;
+      break;
       case "devices":
         showTags(
           allDevices.filter((device) => device.toLowerCase().indexOf(event.target.value.toLowerCase()) != -1),
           "devicesTaglist",
           "device"
         );
-        break;
+      break;
       case "ustensils":
         showTags(allUstensils.filter((ustensil) => ustensil.toLowerCase().indexOf(event.target.value.toLowerCase()) != -1),
           "ustensilsTaglist",
           "ustensils"
         );
-        break;
+      break;
     }
   });
 });

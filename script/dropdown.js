@@ -36,19 +36,17 @@ function openTaglist(idContainer, index) {
 
     if(index == 0) {
       inputIng.classList.add("btn-Expansed");
-      // document.getElementById('inputIng')
-      document.getElementById('inputIng').classList.add("margin-left:20px;");
-      document.getElementById('inputIng').placeholder = '   Rechercher un ingredient ...';
+      document.getElementById('inputIng').placeholder = 'Rechercher un ingredient...';
     }
 
     if(index == 1){
       inputDev.classList.add("btn-Expansed");
-      document.getElementById('inputDev').placeholder = '   Rechercher un appareil ...';
+      document.getElementById('inputDev').placeholder = 'Rechercher un appareil...';
     }
 
     if(index == 2) {
       inputUst.classList.add("btn-Expansed");
-      document.getElementById('inputUst').placeholder = '   Rechercher un ustensile ...';
+      document.getElementById('inputUst').placeholder = 'Rechercher un ustensile...';
     }
   }
 }
