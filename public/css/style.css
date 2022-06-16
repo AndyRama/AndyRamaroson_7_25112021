@@ -250,7 +250,7 @@ body {
   margin: 0;
 }
 .filters__container {
-  margin: 0 1rem 1rem 0;
+  margin: 0 1rem 2rem 0;
 }
 .filters__Btn {
   border-radius: 5px;
@@ -522,16 +522,6 @@ body {
   }
 }
 @media screen and (max-width: 1024px) {
-  .tags__taglist {
-    grid-template-columns: repeat(2, minmax(150px, 1fr));
-  }
-}
-@media screen and (max-width: 400px) {
-  .tags__taglist {
-    grid-template-columns: repeat(2, minmax(100px, 1fr));
-  }
-}
-@media screen and (max-width: 1024px) {
   .filters__taglist {
     justify-content: center;
     flex-wrap: wrap;
@@ -543,8 +533,23 @@ body {
   .filters__container {
     flex-shrink: 0;
   }
-  .filters__inputContainer {
-    position: initial;
+}
+@media screen and (max-width: 400px) {
+  .tags__taglist {
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+  }
+}
+@media screen and (max-width: 798px) {
+  #results__ingredients {
+    display: none !important;
+  }
+
+  #results__devices {
+    display: none !important;
+  }
+
+  #results__ustensils {
+    display: none !important;
   }
 }
 @media screen and (max-width: 768px) {
@@ -555,26 +560,36 @@ body {
   .main__wrapper {
     margin: 0 auto;
   }
-}
-@media screen and (max-width: 748px) {
-  .btn-Expansed {
-    width: 404px !important;
-  }
-
-  .btn-not-Expansed {
-    width: 200px !important;
-  }
 
   .filters__inputContainer {
-    width: 401px !important;
+    width: 454px !important;
     align-content: center !important;
+    padding: 0 24px 0 16px;
+  }
+
+  .btn-Expansed {
+    width: 454px !important;
+  }
+
+  .filters__Section {
+    margin-left: 10%;
+  }
+}
+@media screen and (max-width: 748px) {
+  .btn-not-Expansed {
+    width: 200px !important;
   }
 
   .tags__taglist {
     gap: none;
   }
 }
-@media screen and (max-width: 536PX) {
+@media screen and (max-width: 568px) {
+  .filters__Section {
+    margin-left: 5%;
+  }
+}
+@media screen and (max-width: 536px) {
   .filters__Section {
     margin-left: 25%;
   }
@@ -585,6 +600,8 @@ body {
 
   .filters__inputContainer {
     width: 194px !important;
+    position: relative;
+    padding: 0 27px 0 16px;
   }
 
   .tags__taglist {

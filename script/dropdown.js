@@ -16,7 +16,6 @@ btnOrder.forEach((btn,index) =>
 function openTaglist(idContainer, index) {
   let tagContainer = document.getElementById(idContainer);
   let filtersForm = tagContainer.previousElementSibling;
-  // let btn = filtersForm.previousElementSibling;
   const icoDropDown = document.querySelector(".ico");
 
   if (tagContainer.classList.contains("is-expanded")) {
@@ -36,17 +35,20 @@ function openTaglist(idContainer, index) {
 
     if(index == 0) {
       inputIng.classList.add("btn-Expansed");
-      document.getElementById('inputIng').placeholder = 'Rechercher un ingredient...';
+      document.getElementById('inputIng').placeholder = 'Rechercher un ingredient ...';
+      document.getElementById("results__ingredients").style.display ="none";
     }
 
     if(index == 1){
       inputDev.classList.add("btn-Expansed");
-      document.getElementById('inputDev').placeholder = 'Rechercher un appareil...';
+      document.getElementById('inputDev').placeholder = 'Rechercher un appareil ...';
+      document.getElementById("results__devices").style.display ="none"
     }
 
     if(index == 2) {
       inputUst.classList.add("btn-Expansed");
-      document.getElementById('inputUst').placeholder = 'Rechercher un ustensile...';
+      document.getElementById('inputUst').placeholder = 'Rechercher un ustensile ...';
+      document.getElementById("results__ustensils").style.display ="none"
     }
   }
 }
@@ -56,6 +58,7 @@ function closeInput() {
 
   isExpanded.forEach(btn => {
     btn.classList.remove(`btn-Expansed`);
+    //placeholder
     document.getElementById('inputIng').placeholder = 'Ingrédients';
     document.getElementById('inputDev').placeholder = 'Appareils';
     document.getElementById('inputUst').placeholder = 'ustensiles';

@@ -126,7 +126,6 @@ autocomplete.forEach(el => {
       document.getElementById(`results__${type}`).style.display = 'none';
     }
   };
-
 })
 
 function getResults(input, type) {
@@ -149,9 +148,8 @@ function getResults(input, type) {
     console.log(data.toLowerCase())
     if (data.toLowerCase().includes(input.toLowerCase())) {
       results.push(data);
-    }
-  })
-
+      } 
+    })
   return results;
 }
 
