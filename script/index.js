@@ -77,7 +77,7 @@ function recipeCardDom(recipes) {
   recipes.forEach((element) => {
     //ingrédients
     element.ingredients.map((e) => {
-      if (allIngredients.indexOf(e.ingredient) == -1) allIngredients.push(e.ingredient);
+      if(allIngredients.indexOf(e.ingredient) == -1) allIngredients.push(e.ingredient);
     });
     
     //devices

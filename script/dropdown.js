@@ -42,13 +42,13 @@ function openTaglist(idContainer, index) {
     if(index == 1){
       inputDev.classList.add("btn-Expansed");
       document.getElementById('inputDev').placeholder = 'Rechercher un appareil ...';
-      document.getElementById("results__devices").style.display ="none"
+      document.getElementById("results__devices").style.display ="none";
     }
 
     if(index == 2) {
       inputUst.classList.add("btn-Expansed");
       document.getElementById('inputUst').placeholder = 'Rechercher un ustensile ...';
-      document.getElementById("results__ustensils").style.display ="none"
+      document.getElementById("results__ustensils").style.display ="none";
     }
   }
 }
