@@ -12,3 +12,7 @@ Create a site web to display all recipes of Json and add research .
   <li>Use Json data.</li>
   <li>Deploy application.</li>
 </ul>
+
+<h3>Démo</h3>
+
+![](/public/assets/mobile.gif)
