@@ -37,7 +37,3 @@ Create a site web to display all recipes of Json and add research .
   <li>Submit w3c validator.</li>
   <li>Deploy application.</li>
 </ul>
-
-## Démo
-
-![](/public/assets/mobile.gif)
