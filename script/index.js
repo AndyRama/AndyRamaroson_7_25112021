@@ -159,7 +159,6 @@ function launchSearch() {
       if (countIngredientsInRecipe != countIngredients) {
         haveTagOk = false;
       }
-
     }
 
     let wordContains = true;
@@ -176,10 +175,7 @@ function launchSearch() {
 
       // We write a sentence with the ingredients separated by a lowercase space
       const ingredientsLowerCase = ingredientsSentence.toLowerCase();
-
-
       const ingredientsList = ingredientsLowerCase.split(' ');
-
       let ingredientsInSearch = false;
 
       for (b = 0; b < ingredientsList.length; b++) {
@@ -188,19 +184,16 @@ function launchSearch() {
         }
       }
 
-
       if (!titleLowerCase.includes(searchKeyword.toLowerCase()) &&
         !descriptionLowerCase.includes(searchKeyword.toLowerCase()) &&
         !ingredientsInSearch) {
         wordContains = false;
       }
 
-
     }
     if (haveTagOk && wordContains) {
       recipesArrayFiltered.push(recipesArray[x]);
     }
-
   }
 
   recipeCardDom(recipesArrayFiltered);

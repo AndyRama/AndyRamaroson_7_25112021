@@ -438,11 +438,11 @@ body {
   font-size: 16px;
   padding-bottom: 20px;
   margin-top: -5px;
-  padding-top: 10px;
   width: 200px;
   position: absolute;
   grid-template-columns: repeat(1, 1fr);
-  gap: 20px;
+  gap: 15px;
+  cursor: pointer;
 }
 .results--ingredients {
   background-color: #3282F7;
