@@ -18,12 +18,8 @@ function openTaglist(idContainer, index) {
   let filtersForm = tagContainer.previousElementSibling;
   let icoDropDown = document.querySelector(".ico");
 
-  console.log(icoDropDown);
-  console.log(btnOrder);
-
   if (tagContainer.classList.contains("is-expanded")) {
     tagContainer.classList.remove("is-expanded");
-    icoDropDown.classList.replace("ico__dropUp", "ico__dropDown");
     closeInput()
     
   } else {
@@ -59,6 +55,9 @@ function openTaglist(idContainer, index) {
 
 function closeInput() {
   const isExpanded = document.querySelectorAll(`.btn-Expansed`);
+  document.getElementById("icon_1").classList.replace("ico__dropUp", "ico__dropDown");
+  document.getElementById("icon_2").classList.replace("ico__dropUp", "ico__dropDown");
+  document.getElementById("icon_3").classList.replace("ico__dropUp", "ico__dropDown");
 
   isExpanded.forEach(btn => {
     btn.classList.remove(`btn-Expansed`);
