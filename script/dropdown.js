@@ -16,7 +16,10 @@ btnOrder.forEach((btn,index) =>
 function openTaglist(idContainer, index) {
   let tagContainer = document.getElementById(idContainer);
   let filtersForm = tagContainer.previousElementSibling;
-  const icoDropDown = document.querySelector(".ico");
+  let icoDropDown = document.querySelector(".ico");
+
+  console.log(icoDropDown);
+  console.log(btnOrder);
 
   if (tagContainer.classList.contains("is-expanded")) {
     tagContainer.classList.remove("is-expanded");
@@ -30,24 +33,26 @@ function openTaglist(idContainer, index) {
     }
     
     tagContainer.classList.add("is-expanded");
-    icoDropDown.classList.replace("ico__dropDown", "ico__dropUp");  
 
     if(index == 0) {
       inputIng.classList.add("btn-Expansed");
       document.getElementById('inputIng').placeholder = 'Rechercher un ingredient ...';
       document.getElementById("results__ingredients").style.display ="none";
+      document.getElementById("icon_1").classList.replace("ico__dropDown", "ico__dropUp");
     }
 
     if(index == 1){
       inputDev.classList.add("btn-Expansed");
       document.getElementById('inputDev').placeholder = 'Rechercher un appareil ...';
       document.getElementById("results__devices").style.display ="none";
+      document.getElementById("icon_2").classList.replace("ico__dropDown", "ico__dropUp"); 
     }
 
     if(index == 2) {
       inputUst.classList.add("btn-Expansed");
       document.getElementById('inputUst').placeholder = 'Rechercher un ustensile ...';
       document.getElementById("results__ustensils").style.display ="none";
+      document.getElementById("icon_3").classList.replace("ico__dropDown", "ico__dropUp");  
     }
   }
 }
