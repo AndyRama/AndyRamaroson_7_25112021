@@ -4,7 +4,6 @@ https://andyrama.github.io/AndyRamaroson_7_25112021/
 
 Create a site web to display all recipes of Json and add research . 
 
-
 ## Features HomePage
 <ul>
   <li>The site allows you to list about fifty recipes that we display directly on our main page</li>
@@ -37,3 +36,25 @@ Create a site web to display all recipes of Json and add research .
   <li>Submit w3c validator.</li>
   <li>Deploy application.</li>
 </ul>
+
+<h3 align="left">Languages and Tools:</h3>
+<p align="left">
+	<a href="https://developer.mozilla.org/fr/docs/Web/HTML" target="_blank" rel="noreferrer"> 
+		<img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="HTML5" width="37" height="37" /> 
+	</a>
+	<a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> 
+		<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="45" height="45" /> 
+	</a>
+ 	<a href="https://sass-lang.com" target="_blank" rel="noreferrer"> 
+   		<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="45" height="45"/> 
+ 	</a>
+ 	<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> 
+  		<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> 
+ 	</a> 
+ 	<a href="https://www.figma.com/" target="_blank" rel="noreferrer"> 
+  		<img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> 
+ 	</a>
+ 	<a href="https://git-scm.com/" target="_blank" rel="noreferrer"> 
+  		<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="github" width="40" height="40"/> 
+ 	</a> 
+</p>
