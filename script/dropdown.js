@@ -34,7 +34,7 @@ function openTaglist(idContainer, index) {
       inputIng.classList.add("btn-Expansed");
       document.getElementById('inputIng').placeholder = 'Rechercher un ingredient ...';
       document.getElementById("results__ingredients").style.display ="none";
-      document.getElementById("icon_1").classList.replace("ico__dropDown", "ico__dropUp");
+      document.getElementById("icon_1").classList.replace("ico__dropDown" , "ico__dropUp");
     }
 
     if(index == 1){

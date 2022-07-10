@@ -14,7 +14,7 @@
       <img src="public/assets/logo.png" alt="picture with text" class="header__logo">
     </header>
     <main class="main">
-      <section class="filters__mainContainer">
+      <div class="filters__mainContainer">
         <form method="get" class="searchBar" id="searchBar">
           <input type="search" name="search" autocomplete="off" id="search" onkeyup="launchSearch()" class="searchBar__input"
             placeholder="Rechercher un ingrédient ...">
@@ -64,7 +64,6 @@
           <!-- <ul id="sugestion"></ul> -->
           <ul id="results__devices" class="results results--devices" style="display: none;"></ul>
  
-
             <div id="deviceContainer" class="filters__inputContainer filters__inputContainer--device">
               <div id="devicesTagsContainer" class="tags__container tags__container--device">
                 <!-- dynamic chargement -->
@@ -98,12 +97,12 @@
             </div>
           </div>
         </div> 
-      </section>
+      </div>
 
       <!-- cards recipe -->
-      <section id="recipeContainer" class="recipe__mainContainer">
+      <div id="recipeContainer" class="recipe__mainContainer">
         <!-- dynamic chargement -->
-      </section>   
+      </div>   
 
     </main> 
     <script src="script/index.js"></script> 
