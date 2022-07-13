@@ -36,6 +36,11 @@
       cursor: pointer;
       margin-left: 13px;
     }
+
+    
+    &--device {
+      background-color: $color-2;
+    }
   }
 
   &__form {
