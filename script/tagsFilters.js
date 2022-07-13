@@ -38,7 +38,7 @@ function addFilter(e) {
       htmlClass = 'filters__btn--ingredients';
     break;
 
-    case 'devices':
+    case 'device':
       htmlClass = 'filters__btn--device';
     break;
 
@@ -83,7 +83,7 @@ filtersInput.forEach((input) => {
         showTags(
           allDevices.filter((device) => device.toLowerCase().indexOf(event.target.value.toLowerCase()) != -1),
           "devicesTaglist",
-          "device"
+          "devices"
         );
       break;
       case "ustensils":
@@ -103,7 +103,7 @@ autocomplete.forEach(el => {
     let results = [];
     const userInput = this.value;
     const type = this.dataset.search;
-    console.log(type);
+    // console.log(type);
     document.getElementById(`results__${type}`).innerHTML = '';
     const allResults = document.querySelectorAll('.results');
     

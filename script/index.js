@@ -143,12 +143,12 @@ function launchSearch() {
     if (searchKeyword.length >= 3) {
       const titleLowerCase = recipe.name.toLowerCase();
       const descriptionLowerCase = recipe.description.toLowerCase();
-
+ 
       const ingredientsSentence = recipe.ingredients.reduce(
         (previousValue, currentValue) => previousValue + ' ' + currentValue.ingredient,
         ''
       );
-     
+
       const ingredientsLowerCase = ingredientsSentence.toLocaleLowerCase();
      
       if (!titleLowerCase.includes(searchKeyword.toLowerCase()) &&
