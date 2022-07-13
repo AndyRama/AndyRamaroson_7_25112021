@@ -16,17 +16,17 @@ fetch("./script/api/recipes.json")
     if (reponse) return reponse.json();
   })
   .then((value) => {
-    //display all recipes
-    recipeCardDom(value.recipes);//element of content recipes
-    recipesArray = value.recipes;//array of all recipes
+    // display all recipes
+    recipeCardDom(value.recipes);// element of content recipes
+    recipesArray = value.recipes;// array of all recipes
   })
 
-//show cards recipes
+// Show cards recipes
 function recipeCardDom(recipes) {
-  //get container recipes create a new card for recipe
+  // Get container recipes create a new card for recipe
   const recipeCard = document.getElementById("recipeContainer");
   recipeCard.innerHTML = "";
-  //template cards recipes
+  // Template for cards recipes
   recipes.map(recipe => {
     recipeCard.innerHTML += `
     <article class="recipe__container" style="animation-delay:${styleDelay}ms  >
@@ -68,22 +68,22 @@ function recipeCardDom(recipes) {
     });
   });
 
-  //get all array of items
+  // get all array of items
   allUstensils = [];
   allDevices = [];
   allIngredients = [];
 
-  //display all tags in taglist container
+  // display all tags in taglist container
   recipes.forEach((element) => {
-    //ingrédients
+    // for ingrédients
     element.ingredients.map((e) => {
       if(allIngredients.indexOf(e.ingredient) == -1) allIngredients.push(e.ingredient);
     });
     
-    //devices
+    // for devices
     if (allDevices.indexOf(element.appliance) == -1) allDevices.push(element.appliance);
     
-    //ustensiles
+    // for ustensiles
     element.ustensils.map((e) => {
       if (allUstensils.indexOf(e) == -1) allUstensils.push(e);
     });
@@ -102,7 +102,7 @@ document.querySelector("form.searchBar").addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
-// Algorithm2
+// Algorithm 2
 function launchSearch() {
   // Retrieve my tags and retrieve my search field
   const searchKeyword = document.getElementById('search').value;
@@ -143,12 +143,14 @@ function launchSearch() {
     if (searchKeyword.length >= 3) {
       const titleLowerCase = recipe.name.toLowerCase();
       const descriptionLowerCase = recipe.description.toLowerCase();
- 
+      
+      // creating a long sentence
       const ingredientsSentence = recipe.ingredients.reduce(
         (previousValue, currentValue) => previousValue + ' ' + currentValue.ingredient,
         ''
       );
 
+      // long sentence to lower case
       const ingredientsLowerCase = ingredientsSentence.toLocaleLowerCase();
      
       if (!titleLowerCase.includes(searchKeyword.toLowerCase()) &&
@@ -157,10 +159,12 @@ function launchSearch() {
         wordContains = false;
       }
     }
+    // new filtered table
     if (haveTagOk && wordContains) {
       recipesArrayFiltered.push(recipe);
     }
   });
+  // Display recipes
   recipeCardDom(recipesArrayFiltered);  
   const count = recipesArrayFiltered.length;
   showErrorMessage(count);
