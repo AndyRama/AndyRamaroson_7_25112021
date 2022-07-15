@@ -4,7 +4,7 @@ const inputIng = document.getElementById("inputIng");
 const inputDev = document.getElementById("inputDev");
 const inputUst = document.getElementById("inputUst"); 
 
-// get all btn dropdown  
+// Get all btn dropdown  
 btnOrder.forEach((btn,index) =>
   btn.addEventListener("click",(e) => {
     e.preventDefault();
@@ -12,7 +12,7 @@ btnOrder.forEach((btn,index) =>
   })
 );
 
-// function Open dropdownBtn on clic
+// Function Open dropdownBtn on clic
 function openTaglist(idContainer, index) {
   let tagContainer = document.getElementById(idContainer);
   let filtersForm = tagContainer.previousElementSibling;
@@ -28,8 +28,10 @@ function openTaglist(idContainer, index) {
       closeInput(this)
     }
     
+    // Icon and extension-searchBar-Sub management
     tagContainer.classList.add("is-expanded");
 
+    // Ingredients
     if(index == 0) {
       inputIng.classList.add("btn-Expansed");
       document.getElementById('inputIng').placeholder = 'Rechercher un ingredient ...';
@@ -37,6 +39,7 @@ function openTaglist(idContainer, index) {
       document.getElementById("icon_1").classList.replace("ico__dropDown" , "ico__dropUp");
     }
 
+    // Devices
     if(index == 1){
       inputDev.classList.add("btn-Expansed");
       document.getElementById('inputDev').placeholder = 'Rechercher un appareil ...';
@@ -44,6 +47,7 @@ function openTaglist(idContainer, index) {
       document.getElementById("icon_2").classList.replace("ico__dropDown", "ico__dropUp"); 
     }
 
+    // Ustensils
     if(index == 2) {
       inputUst.classList.add("btn-Expansed");
       document.getElementById('inputUst').placeholder = 'Rechercher un ustensile ...';
@@ -54,6 +58,7 @@ function openTaglist(idContainer, index) {
 }
 
 function closeInput() {
+  // Close sub-input
   const isExpanded = document.querySelectorAll(`.btn-Expansed`);
   document.getElementById("icon_1").classList.replace("ico__dropUp", "ico__dropDown");
   document.getElementById("icon_2").classList.replace("ico__dropUp", "ico__dropDown");
@@ -61,7 +66,7 @@ function closeInput() {
 
   isExpanded.forEach(btn => {
     btn.classList.remove(`btn-Expansed`);
-    //placeholder
+    // Placeholder
     document.getElementById('inputIng').placeholder = 'Ingrédients';
     document.getElementById('inputDev').placeholder = 'Appareils';
     document.getElementById('inputUst').placeholder = 'ustensiles';

@@ -1,6 +1,7 @@
-// create message error
+// Display message 
 function showErrorMessage(count) {  
   const noRecipesMessage = document.getElementById("filtersMessage");
+  // Create message error
   if(count == 0) {
     noRecipesMessage.innerHTML = `
       <p class="filters__message">
@@ -11,6 +12,8 @@ function showErrorMessage(count) {
       </p>        
     `;
     document.getElementById("closeM").addEventListener("click", removeErrorMessage);
+
+  // Create message succes
   } else if (count == 50) {    
     noRecipesMessage.innerHTML =  noRecipesMessage.innerHTML = ``;
     } else {

@@ -1,4 +1,4 @@
-//DOM elements
+// DOM elements
 let recipesArray = [];
 let allIngredients = [];
 let allDevices = [];
@@ -16,14 +16,16 @@ fetch("./script/api/recipes.json")
     if (reponse) return reponse.json();
   })
   .then((value) => {
-    // display all recipes
-    recipeCardDom(value.recipes);// element of content recipes
-    recipesArray = value.recipes;// array of all recipes
+    // Display all recipes
+    recipeCardDom(value.recipes);// Element of content recipes
+    recipesArray = value.recipes;// Array of all recipes
   })
 
-// Show cards recipes
+/** Function that generates recipe cards dynamically
+  * @params {recipes} loads JSON data to build research papers
+  */
+
 function recipeCardDom(recipes) {
-  // Get container recipes create a new card for recipe
   const recipeCard = document.getElementById("recipeContainer");
   recipeCard.innerHTML = "";
   // Template for cards recipes
@@ -54,7 +56,7 @@ function recipeCardDom(recipes) {
       </div>
     </article>      
     `;
-    //get ingredients of recipe and dipslay in card 
+    // Get ingredients of recipe and dipslay in card description 
     const ingredientList = document.getElementById(`recipe-${recipe.id}`);
     const ingredients = recipe.ingredients;
     ingredients.map(ingredient => {
@@ -68,22 +70,22 @@ function recipeCardDom(recipes) {
     });
   });
 
-  // get all array of items
+  // Get all array of items
   allUstensils = [];
   allDevices = [];
   allIngredients = [];
 
-  // display all tags in taglist container
+  // Display all tags in taglist container
   recipes.forEach((element) => {
-    // for ingrédients
+    // Ingrédients
     element.ingredients.map((e) => {
       if(allIngredients.indexOf(e.ingredient) == -1) allIngredients.push(e.ingredient);
     });
     
-    // for devices
+    // Devices
     if (allDevices.indexOf(element.appliance) == -1) allDevices.push(element.appliance);
     
-    // for ustensiles
+    // Ustensiles
     element.ustensils.map((e) => {
       if (allUstensils.indexOf(e) == -1) allUstensils.push(e);
     });
@@ -98,6 +100,7 @@ function searchKeyword() {
   launchSearch();
 }
 
+// Is used to block the "ENTER" event on the search bar when the field has been entered by the user
 document.querySelector("form.searchBar").addEventListener("submit", (e) => {
   e.preventDefault();
 });
@@ -111,6 +114,7 @@ function launchSearch() {
   const tagsStringList = [];
   const recipesArrayFiltered = [];
 
+  // Get all tags selected
   for (i = 0; i < allTags.length; i++) {
     tagsStringList.push({ title: allTags[i].dataset.controls, type: allTags[i].dataset.type });
   }  
@@ -138,19 +142,19 @@ function launchSearch() {
       });
     }
 
+    // Search field 
     let wordContains = true;
  
     if (searchKeyword.length >= 3) {
       const titleLowerCase = recipe.name.toLowerCase();
       const descriptionLowerCase = recipe.description.toLowerCase();
       
-      // creating a long sentence
+      // We write a sentence with the ingredients separated by a lowercase space
       const ingredientsSentence = recipe.ingredients.reduce(
         (previousValue, currentValue) => previousValue + ' ' + currentValue.ingredient,
         ''
       );
 
-      // long sentence to lower case
       const ingredientsLowerCase = ingredientsSentence.toLocaleLowerCase();
      
       if (!titleLowerCase.includes(searchKeyword.toLowerCase()) &&
@@ -159,12 +163,12 @@ function launchSearch() {
         wordContains = false;
       }
     }
-    // new filtered table
+
     if (haveTagOk && wordContains) {
       recipesArrayFiltered.push(recipe);
     }
   });
-  // Display recipes
+
   recipeCardDom(recipesArrayFiltered);  
   const count = recipesArrayFiltered.length;
   showErrorMessage(count);

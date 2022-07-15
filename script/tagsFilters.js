@@ -1,9 +1,9 @@
-// create a new tag, order by alpahbetique
+// Create a new tag, order by alpahbetique
 function showTags(items, tagId, type) {
   const tag = document.getElementById(tagId);
   let templateTaglist = ``;
   items.sort();
-  // display tag with template
+  // Display tag with template
   items.map(item => {
     let contentItem = item[0].toUpperCase() + item.toLowerCase().slice(1);
     if (filteredIngredients.indexOf(item) != -1 || filteredDevices.indexOf(item) != -1 || filteredUstensils.indexOf(item) != -1) {
@@ -19,7 +19,7 @@ function showTags(items, tagId, type) {
   tag.innerHTML = templateTaglist;
 }
 
-//Create function add tags
+// Create function add tags
 function addFilter(e) {
   const type = e.dataset.type;
   const title = e.dataset.title;
@@ -47,7 +47,7 @@ function addFilter(e) {
     break;
   }
 
-  //if tags isn't already present in this list => add  new tag element
+  // If tags isn't already present in this list => add  new tag element
   if (!tagsStringList.some(tag => tag.title.toLowerCase() == title.toLowerCase())) {
     document.getElementById('tagsBtn').innerHTML = document.getElementById('tagsBtn').innerHTML + `
       <button onclick="removeFilter(this)" data-type="${type}" data-controls="${title}" class="filters__tag filters__Btn ${htmlClass}">
@@ -61,13 +61,13 @@ function addFilter(e) {
   }
 }
 
-// remove tag with close
+// Remove tag with close
 function removeFilter(e) {
   e.remove();
   launchSearch();
 }
 
-//filter tags elements with keyword input
+// Filter tags elements with keyword input
 const filtersInput = document.querySelectorAll(".filters__input");
 filtersInput.forEach((input) => {
   input.addEventListener("keyup", (event) => {
@@ -96,6 +96,7 @@ filtersInput.forEach((input) => {
   });
 });
 
+// Autocompletion for input search
 const autocomplete = document.querySelectorAll(".autocomplete");
 autocomplete.forEach(el => {
 
@@ -103,7 +104,7 @@ autocomplete.forEach(el => {
     let results = [];
     const userInput = this.value;
     const type = this.dataset.search;
-    // console.log(type);
+
     document.getElementById(`results__${type}`).innerHTML = '';
     const allResults = document.querySelectorAll('.results');
     
@@ -129,6 +130,7 @@ autocomplete.forEach(el => {
   };
 })
 
+// Function suggestion tags possibility and display
 function getResults(input, type) {
   const results = [];
   let datas;

@@ -13,6 +13,8 @@
     <header>
       <img src="public/assets/logo.png" alt="picture with text" class="header__logo">
     </header>
+    
+    <!-- Main searchBar -->
     <main class="main">
       <div class="filters__mainContainer">
         <form method="get" class="searchBar" id="searchBar">
@@ -24,12 +26,13 @@
         <!-- Tags filters -->
         <div class="filters__tags">
           <ul id="tagsBtn" class="filters__taglist">
-            <!-- tags elements update  this content with jS -->               
+            <!-- Tags elements update  this content with jS -->               
           </ul>
         </div>
-        <!-- main Container for filters -->
+
+        <!-- Main Container for filters -->
         <div class="filters__Section">
-          <!-- ingredients -->
+          <!-- Ingredients searchBar -->
           <div class="filters__container">
             <form class="filters__form filters__form--ing">
               <input id="inputIng" type="search" class="autocomplete filters__listContainer filters__listContainer--ingredients filters__input"
@@ -39,19 +42,19 @@
               </button> 
             </form> 
            
-            <!-- <ul id="sugestion"></ul> -->
             <ul id="results__ingredients" class="results results--ingredients" style="display: none;"></ul>
+            <!-- Dynamic loading suggestion -->
  
             <div id="ingredientsContainer" class="filters__inputContainer filters__inputContainer--ingredients">
               <div id="ingredientsTagsContainer" class="tags__container tags__container--ingredients">
                 <ul id="ingredientsTaglist" class="tags__taglist tags__taglist--ingredients ">
-                  <!-- dynamic chargement -->
+                  <!-- Dynamic loading tags -->
                 </ul>
               </div>
             </div>
           </div>
                   
-          <!-- devices -->
+          <!-- Devices searchBar -->
           <div class="filters__container">
             <form class="filters__form filters__form--dev">
               <input name ="device" id="inputDev" class="autocomplete filters__listContainer filters__listContainer--device filters__input" placeholder="Appareils"
@@ -61,20 +64,19 @@
               </button>
             </form>
 
-          <!-- <ul id="sugestion"></ul> -->
           <ul id="results__devices" class="results results--devices" style="display: none;"></ul>
+            <!-- Dynamic loading suggestion -->
  
             <div id="deviceContainer" class="filters__inputContainer filters__inputContainer--device">
               <div id="devicesTagsContainer" class="tags__container tags__container--device">
-                <!-- dynamic chargement -->
                 <ul id="devicesTaglist" class="tags__taglist tags__taglist--device">
-                  <!-- dynamic chargement -->
+                  <!-- Dynamic loading tags -->
                 </ul>
               </div>
             </div>
           </div> 
 
-          <!-- ustensils -->
+          <!-- Ustensils searchBar -->
           <div class="filters__container">
             <form class="filters__form filters__form--ust">
               <input id="inputUst" class="autocomplete filters__listContainer filters__listContainer--ustensils filters__input"
@@ -84,14 +86,13 @@
               </button>
             </form>
 
-          <!-- <ul id="sugestion"></ul> -->
           <ul id="results__ustensils" class="results results--ustensils" style="display: none;"></ul>
- 
+            <!-- Dynamic loading suggestion -->
+
             <div id="ustensilsContainer" class="filters__inputContainer filters__inputContainer--ustensils">
               <div id="ustensilsTagsContainer" class="tags__container tags__container--ustensils">
-                <!-- dynamic chargement -->
                 <ul id="ustensilsTaglist" class="tags__taglist tags__taglist--ustensils">
-                  <!-- dynamic chargement -->
+                  <!-- Dynamic loading tags -->
                 </ul>
               </div>
             </div>
@@ -99,9 +100,9 @@
         </div> 
       </div>
 
-      <!-- cards recipe -->
+      <!-- Cards recipes -->
       <div id="recipeContainer" class="recipe__mainContainer">
-        <!-- dynamic chargement -->
+        <!-- Dynamic loading -->
       </div>   
 
     </main> 
