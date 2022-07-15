@@ -3,6 +3,7 @@ function showTags(items, tagId, type) {
   const tag = document.getElementById(tagId);
   let templateTaglist = ``;
   items.sort();
+
   // display tag with template
   items.map(item => {
     let contentItem = item[0].toUpperCase() + item.toLowerCase().slice(1);
@@ -96,6 +97,7 @@ filtersInput.forEach((input) => {
   });
 });
 
+// Autocompletion for input search
 const autocomplete = document.querySelectorAll(".autocomplete");
 autocomplete.forEach(el => {
 
@@ -103,7 +105,7 @@ autocomplete.forEach(el => {
     let results = [];
     const userInput = this.value;
     const type = this.dataset.search;
-    // console.log(type);
+
     document.getElementById(`results__${type}`).innerHTML = '';
     const allResults = document.querySelectorAll('.results');
     
@@ -129,6 +131,7 @@ autocomplete.forEach(el => {
   };
 })
 
+// Function suggestion tags possibility and display
 function getResults(input, type) {
   const results = [];
   let datas;
@@ -145,8 +148,6 @@ function getResults(input, type) {
   }
 
   datas.forEach(data => {
-    console.log(input.toLowerCase());
-    console.log(data.toLowerCase())
     if (data.toLowerCase().includes(input.toLowerCase())) {
       results.push(data);
       } 

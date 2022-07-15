@@ -1,5 +1,6 @@
 //DOM elements
 let recipesArray = [];
+
 let allIngredients = [];
 let allDevices = [];
 let allUstensils = [];
@@ -16,14 +17,15 @@ fetch("./script/api/recipes.json")
     if (reponse) return reponse.json();
   })
   .then((value) => {
-    //display all recipes
-    recipeCardDom(value.recipes);//element of content recipes
-    recipesArray = value.recipes;//array of all recipes
+    recipeCardDom(value.recipes);
+    recipesArray = value.recipes;
   })
 
-//show cards recipes
+/** function that generates recipe cards dynamically
+  * @params {recipes} loads JSON data to build research papers
+  */
+
 function recipeCardDom(recipes) {
-  //get container recipes create a new card for recipe
   const recipeCard = document.getElementById("recipeContainer");
   recipeCard.innerHTML = "";
   //template cards recipes
@@ -54,7 +56,7 @@ function recipeCardDom(recipes) {
       </div>
     </article>      
     `;
-    //get ingredients of recipe and dipslay in card 
+    //get ingredients of recipe and dipslay in card desccription
     const ingredientList = document.getElementById(`recipe-${recipe.id}`);
     const ingredients = recipe.ingredients;
     ingredients.map(ingredient => {
@@ -98,6 +100,7 @@ function searchKeyword() {
   launchSearch();
 }
 
+//is used to block the "ENTER" event on the search bar when the field has been entered by the user
 document.querySelector("form.searchBar").addEventListener("submit", (e) => {
   e.preventDefault();
 });
@@ -161,8 +164,8 @@ function launchSearch() {
       }
     }
 
+    // Search field 
     let wordContains = true;
-    // If the search field has 3 characters or more
     if (searchKeyword.length >= 3) {
 
       const titleLowerCase = recipesArray[x].name.toLowerCase();
@@ -189,8 +192,8 @@ function launchSearch() {
         !ingredientsInSearch) {
         wordContains = false;
       }
-
     }
+
     if (haveTagOk && wordContains) {
       recipesArrayFiltered.push(recipesArray[x]);
     }
