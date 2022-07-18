@@ -11,5 +11,8 @@
     "url": "https://github.com/AndyRama/AndyRamaroson_7_25112021.git"
   },
   "author": "Andy ramaroson",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.20.0"
+  }
 }

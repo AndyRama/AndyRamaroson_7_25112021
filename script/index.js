@@ -1,15 +1,10 @@
 //DOM elements
 let recipesArray = [];
+let styleDelay = 0;
 
 let allIngredients = [];
 let allDevices = [];
 let allUstensils = [];
-
-let filteredIngredients = [];
-let filteredDevices = [];
-let filteredUstensils = [];
-
-let styleDelay = 0;
 
 // Fetch api Json
 fetch("./script/api/recipes.json")
@@ -90,15 +85,16 @@ function recipeCardDom(recipes) {
       if (allUstensils.indexOf(e) == -1) allUstensils.push(e);
     });
   });
-
+/*eslint-disable */
   showTags(allIngredients, "ingredientsTaglist", "ingredients");
   showTags(allDevices, "devicesTaglist", "device");
   showTags(allUstensils, "ustensilsTaglist", "ustensils");
 }
 
-function searchKeyword() {
+function searchBar() {
   launchSearch();
 }
+/*eslint-enable */
 
 //is used to block the "ENTER" event on the search bar when the field has been entered by the user
 document.querySelector("form.searchBar").addEventListener("submit", (e) => {
@@ -107,18 +103,21 @@ document.querySelector("form.searchBar").addEventListener("submit", (e) => {
 
 function launchSearch() {
   // Retrieve my tags and retrieve my search field
-  const searchKeyword = document.getElementById('search').value;
+  const searchKeywordValue = document.getElementById('search').value;
+
+  const searchKeyword = searchKeywordValue.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
   const tagList = document.getElementById('tagsBtn');
   const allTags = tagList.getElementsByTagName('button');
   const tagsStringList = [];
   const recipesArrayFiltered = [];
 
   // get all tags selected
-  for (i = 0; i < allTags.length; i++) {
+  for (let i = 0; i < allTags.length; i++) {
     tagsStringList.push({ title: allTags[i].dataset.controls, type: allTags[i].dataset.type });
   }
 
-  for (x = 0; x < recipesArray.length; x++) {
+  for (let x = 0; x < recipesArray.length; x++) {
 
     let haveTagOk = true;
 
@@ -133,7 +132,7 @@ function launchSearch() {
         if (item.type == "ustensils") {
           countUstensils++;
         
-          for (z = 0; z < recipesArray[x].ustensils.length; z++) {
+          for (let z = 0; z < recipesArray[x].ustensils.length; z++) {
             if (recipesArray[x].ustensils[z].toLowerCase() == item.title.toLocaleLowerCase()) {
               countUstensilsInRecipe++;
             }
@@ -142,7 +141,7 @@ function launchSearch() {
 
         if (item.type == "ingredients") {
           countIngredients++;
-          for (y = 0; y < recipesArray[x].ingredients.length; y++) {
+          for (let y = 0; y < recipesArray[x].ingredients.length; y++) {
             if (recipesArray[x].ingredients[y].ingredient.toLowerCase() == item.title.toLocaleLowerCase()) {
               countIngredientsInRecipe++;
             }
@@ -164,24 +163,24 @@ function launchSearch() {
       }
     }
 
-    // Search field 
+    // Search field   
     let wordContains = true;
     if (searchKeyword.length >= 3) {
 
-      const titleLowerCase = recipesArray[x].name.toLowerCase();
-      const descriptionLowerCase = recipesArray[x].description.toLowerCase();
+      const titleLowerCase = recipesArray[x].name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      const descriptionLowerCase = recipesArray[x].description.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
       let ingredientsSentence = '';
-      for (u = 0; u < recipesArray[x].ingredients.length; u++) {
+      for (let u = 0; u < recipesArray[x].ingredients.length; u++) {
         ingredientsSentence = ingredientsSentence + ' ' + recipesArray[x].ingredients[u].ingredient;
       }
 
       // We write a sentence with the ingredients separated by a lowercase space
-      const ingredientsLowerCase = ingredientsSentence.toLowerCase();
+      const ingredientsLowerCase = ingredientsSentence.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
       const ingredientsList = ingredientsLowerCase.split(' ');
       let ingredientsInSearch = false;
 
-      for (b = 0; b < ingredientsList.length; b++) {
+      for (let b = 0; b < ingredientsList.length; b++) {
         if (ingredientsList[b].includes(searchKeyword.toLowerCase())) {
           ingredientsInSearch = true;
         }
@@ -202,4 +201,43 @@ function launchSearch() {
   recipeCardDom(recipesArrayFiltered);
   const count = recipesArrayFiltered.length;
   showErrorMessage(count);
+}
+
+function showErrorMessage(count) {  
+  const noRecipesMessage = document.getElementById("filtersMessage");
+  // Create message error
+  if(count == 0) {
+    noRecipesMessage.innerHTML = `
+      <p class="filters__message">
+        "Aucune recette ne correspond à votre recherche... Vous pouvez chercher "tarte aux pommes", "poisson", etc ..."
+        <svg id="closeM" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.59 8L12 10.59L9.41 8L8 9.41L10.59 12L8 14.59L9.41 16L12 13.41L14.59 16L16 14.59L13.41 12L16 9.41L14.59 8ZM12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="white"></path>
+        </svg>
+      </p>        
+    `;
+    document.getElementById("closeM").addEventListener("click", removeErrorMessage);
+
+  // Create message succes
+  } else if (count == 50) {    
+    noRecipesMessage.innerHTML =  noRecipesMessage.innerHTML = ``;
+    } else {
+      noRecipesMessage.innerHTML =  noRecipesMessage.innerHTML = `
+        <p class="filters__message--succes">
+          ${count} résultats trouvés correspondant à votre recherche....
+          <svg id="closeM" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.59 8L12 10.59L9.41 8L8 9.41L10.59 12L8 14.59L9.41 16L12 13.41L14.59 16L16 14.59L13.41 12L16 9.41L14.59 8ZM12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="white"></path>
+          </svg>
+        </p>        
+      `;
+      document.getElementById("closeM").addEventListener("click", removeErrorMessage);  
+  }
+}
+
+// Remove message error
+function removeErrorMessage() {
+  const noRecipesMessage = document.getElementById("filtersMessage");
+  const searchBarInput = document.getElementById("search");
+
+  noRecipesMessage.innerHTML = ""
+  searchBarInput.value = "";
 }

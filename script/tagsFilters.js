@@ -1,3 +1,6 @@
+let filteredIngredients = [];
+let filteredDevices = [];
+let filteredUstensils= [];
 // create a new tag, order by alpahbetique
 function showTags(items, tagId, type) {
   const tag = document.getElementById(tagId);
@@ -20,8 +23,10 @@ function showTags(items, tagId, type) {
   tag.innerHTML = templateTaglist;
 }
 
+/*eslint-disable */
 //Create function add tags
 function addFilter(e) {
+  /*eslint-enable */
   const type = e.dataset.type;
   const title = e.dataset.title;
   var htmlClass;
@@ -30,7 +35,7 @@ function addFilter(e) {
   const allTags = tagList.getElementsByTagName('button');
   const tagsStringList = [];
 
-  for (i = 0; i < allTags.length; i++) {
+  for (let i = 0; i < allTags.length; i++) {
     tagsStringList.push({ title: allTags[i].dataset.controls, type: allTags[i].dataset.type });
   }
 
@@ -47,7 +52,7 @@ function addFilter(e) {
       htmlClass = 'filters__btn--ustensils';
     break;
   }
-
+  
   //if tags isn't already present in this list => add  new tag element
   if (!tagsStringList.some(tag => tag.title.toLowerCase() == title.toLowerCase())) {
     document.getElementById('tagsBtn').innerHTML = document.getElementById('tagsBtn').innerHTML + `
@@ -58,16 +63,11 @@ function addFilter(e) {
         </svg>
       </button>
     `;
+    /*eslint-disable */
     launchSearch();
+    /*eslint-enable */
   }
 }
-
-// remove tag with close
-function removeFilter(e) {
-  e.remove();
-  launchSearch();
-}
-
 //filter tags elements with keyword input
 const filtersInput = document.querySelectorAll(".filters__input");
 filtersInput.forEach((input) => {
@@ -75,6 +75,7 @@ filtersInput.forEach((input) => {
     switch (event.target.dataset.search) {
       case "ingredients":
         showTags(
+          /*eslint-disable */
           allIngredients.filter((ing) => ing.toLowerCase().indexOf(event.target.value.toLowerCase()) != -1),
           "ingredientsTaglist",
           "ingredients"
@@ -96,7 +97,7 @@ filtersInput.forEach((input) => {
     }
   });
 });
-
+/*eslint-enable */
 // Autocompletion for input search
 const autocomplete = document.querySelectorAll(".autocomplete");
 autocomplete.forEach(el => {
@@ -119,7 +120,7 @@ autocomplete.forEach(el => {
       if(results.length > 0) {
         document.getElementById(`results__${type}`).style.display = 'grid';
 
-        for (i = 0; i < results.length; i++) {
+        for (let i = 0; i < results.length; i++) {
           document.getElementById(`results__${type}`).innerHTML += `<li data-type="${type}" data-title="${results[i]}" onclick="addFilter(this)">${results[i]}</li>`;
         }
       } else {
@@ -130,7 +131,7 @@ autocomplete.forEach(el => {
     }
   };
 })
-
+/*eslint-disable */
 // Function suggestion tags possibility and display
 function getResults(input, type) {
   const results = [];
@@ -154,4 +155,4 @@ function getResults(input, type) {
     })
   return results;
 }
-
+/*eslint-enable */

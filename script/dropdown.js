@@ -15,8 +15,8 @@ btnOrder.forEach((btn,index) =>
 // Function Open dropdownBtn on clic
 function openTaglist(idContainer, index) {
   let tagContainer = document.getElementById(idContainer);
-  let filtersForm = tagContainer.previousElementSibling;
-  let icoDropDown = document.querySelector(".ico");
+  // const filtersForm = tagContainer.previousElementSibling;
+  // let icoDropDown = document.querySelector(".ico");
 
   if (tagContainer.classList.contains("is-expanded")) {
     tagContainer.classList.remove("is-expanded");
